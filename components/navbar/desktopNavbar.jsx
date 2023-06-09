@@ -7,7 +7,7 @@ import {
 
 const DesctopNavbar = () => {
   return (
-    <nav className="hidden items-center justify-between w-full px-5 mt-3 lg:flex xl:fixed">
+    <nav className="hidden items-center justify-between w-full px-5 mt-3 lg:flex lg:fixed">
       <div className="flex">
         <Image
           src="https://www.digikala.com/statics/img/svg/logo.svg"
