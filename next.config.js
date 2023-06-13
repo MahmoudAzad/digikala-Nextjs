@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {};
 
-module.exports = nextConfig
+module.exports = {
+  images: {
+    domains: [
+      "www.digikala.com",
+      "dkstatics-public.digikala.com",
+      "iili.io",
+      "digikala.arvanvod.com",
+      "encrypted-tbn0.gstatic.com",
+      "digikala.arvanvod.ir",
+    ],
+  },
+};

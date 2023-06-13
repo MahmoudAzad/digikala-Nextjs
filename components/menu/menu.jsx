@@ -76,7 +76,7 @@ const Menu = () => {
           <span class="relative group flex items-center gap-1 cursor-pointer">
             <HiOutlineLocationMarker className="text-base" />
             <p className="text-xs text-zinc-600">لطفا شهر خود را انتخاب کنید</p>
-            <span class="bg-zinc-500 text-xs text-white w-44 py-3 px-2 rounded-md  shadow-lg absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100">
+            <span class="bg-zinc-500 text-xs text-white w-44 py-3 px-2 rounded-md  shadow-lg absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 z-10">
               لطفا شهر خود را انتخاب کنید
             </span>
           </span>

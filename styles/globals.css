@@ -10,3 +10,41 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+#app {
+  height: 100%;
+}
+
+/* ===================================== HeaderSwiper ===================================== */
+.swiper-pagination-bullet {
+  opacity: 0.5 !important;
+  transition: all 0.3s ease-in-out !important;
+  background-color: rgb(37, 37, 37) !important;
+  width: 6px !important;
+  height: 6px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #fff !important;
+  border-radius: 20px !important;
+  opacity: 1 !important;
+  width: 16px !important;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute !important;
+  top: 70% !important;
+  right: 0px !important;
+  transform: scale(0.25) !important;
+  background-color: #fff;
+  border-radius: 50% !important;
+  width: 160px !important;
+  height: 160px !important;
+  color: black !important;
+  font-weight: bold !important;
+  border: 5px solid #c0c2c5 !important;
+}
+
+.swiper-button-next {
+  margin-right: 50px;
+}
