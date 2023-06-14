@@ -1,28 +1,56 @@
+import SubCategoryCards from "@/components/card/subCategoryCards";
 import Menu from "@/components/menu/menu";
 import Navbar from "@/components/navbar";
 import HeaderSwiper from "@/components/swiper/HeaderSwiper";
-import getHomePageData from "@/services/services";
+import {
+  getBlogData,
+  getBrand,
+  getCategory,
+  getDigikalaSubCategories,
+  getHomePageDetail,
+  getMainCategory,
+  getProduct,
+} from "@/services/services";
 
 const getData = async () => {
-  const data = await getHomePageData();
-  return data.data;
+  const product = await getProduct().data;
+  const mainCategory = (await getMainCategory()).data;
+  const category = await getCategory().data;
+  const homePageDetail = (await getHomePageDetail()).data;
+  const digikalaSubCategories = (await getDigikalaSubCategories()).data;
+  const brands = await getBrand().data;
+  const blogData = await getBlogData().data;
+
+  return {
+    product,
+    mainCategory,
+    category,
+    homePageDetail,
+    digikalaSubCategories,
+    brands,
+    blogData,
+  };
 };
 
 const Home = async () => {
-  const homeData = await getData();
-  console.log("homeData => ", homeData);
+  const {
+    product,
+    mainCategory,
+    category,
+    homePageDetail,
+    digikalaSubCategories,
+    brands,
+    blogData,
+  } = await getData();
   return (
-    <div>
+    <>
       <Navbar />
       <Menu />
-      {homeData.map((arr) => {
+      {homePageDetail.map((arr) => {
         return <HeaderSwiper carousels={arr.carousel} />;
       })}
-      <div className="text-center">
-        <h1 className="milad">hover me</h1>
-        <h2 className="farhad">show me</h2>
-      </div>
-    </div>
+      <SubCategoryCards categories={digikalaSubCategories?.slice(0, 7)} />
+    </>
   );
 };
 
