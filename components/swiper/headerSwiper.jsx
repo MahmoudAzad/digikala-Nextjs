@@ -18,14 +18,13 @@ const HeaderSwiper = ({ carousels }) => {
       }}
       navigation={true}
       modules={[Pagination, Navigation]}
+      className="mySwiper header-swiper"
     >
-      {carousels.map((carousel) => {
-        return (
-          <SwiperSlide>
-            <Image src={carousel.image} width={5000} height={300} />
-          </SwiperSlide>
-        );
-      })}
+      <SwiperSlide>
+        {carousels.map((slide) => {
+          return <Image src={slide.image} width={5000} height={300} />;
+        })}
+      </SwiperSlide>
     </Swiper>
   );
 };

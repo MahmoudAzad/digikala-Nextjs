@@ -16,7 +16,8 @@ body {
 }
 
 /* ===================================== HeaderSwiper ===================================== */
-.swiper-pagination-bullet {
+
+/* .swiper-pagination-bullet {
   opacity: 0.5 !important;
   transition: all 0.3s ease-in-out !important;
   background-color: rgb(37, 37, 37) !important;
@@ -30,8 +31,16 @@ body {
   opacity: 1 !important;
   width: 16px !important;
 }
-.swiper-button-prev,
-.swiper-button-next {
+
+.amazing-swiper .swiper-pagination-bullet {
+  background-color: rgb(37, 37, 37) !important;
+} */
+
+/* .swiper-slide {
+  display: flex;
+} */
+/* .reza .swiper-button-prev,
+.reza .swiper-button-next {
   position: absolute !important;
   top: 70% !important;
   right: 0px !important;
@@ -43,8 +52,28 @@ body {
   color: black !important;
   font-weight: bold !important;
   border: 5px solid #c0c2c5 !important;
+} */
+
+/* .headerSwiper .swiper-button-next {
+  margin-right: 50px;
+} */
+.amazing-swiper .swiper-slide {
+  height: auto;
+}
+.amazing-swiper .swiper-button-next,
+.amazing-swiper .swiper-button-prev {
+  top: 50% !important;
+  left: -50px !important;
+  transform: scale(0.25) translateY(-140%) !important;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  color: #424750;
+  border: 5px solid #c0c2c5;
+  font-weight: bold;
 }
 
-.swiper-button-next {
-  margin-right: 50px;
+.amazing-swiper .swiper-button-prev {
+  right: -50px !important;
 }
