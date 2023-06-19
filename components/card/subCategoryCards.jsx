@@ -2,7 +2,7 @@ import Image from "next/image";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 const SubCategoryCards = ({ categories }) => {
   return (
-    <div className="mx-32 my-8 text-center grid grid-cols-8 ">
+    <div className="grid grid-cols-4 lg:grid-cols-8 lg:mx-28 my-8 gap-y-4 text-center">
       {categories.map((category) => (
         <div className="flex flex-col items-center cursor-pointer">
           <Image src={category.image} width={50} height={50} />

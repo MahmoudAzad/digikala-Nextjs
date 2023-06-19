@@ -1,3 +1,4 @@
+import CategoriesCards from "@/components/card/categoriesCards";
 import QuadrupleCards from "@/components/card/quadrupleCards";
 import SubCategoryCards from "@/components/card/subCategoryCards";
 import Menu from "@/components/menu/menu";
@@ -67,9 +68,10 @@ const Home = async () => {
       <HeadSwiper carousels={headerCarousels} />
       <SubCategoryCards categories={digikalaSubCategories?.slice(0, 7)} />
 
-      <div className="mx-28">
+      <div className="xl:mx-28">
         <AmazingSwiper products={amazingProducts} color={amazingSwiperColor} />
         <QuadrupleCards cards={quadrupleCards} />
+        <CategoriesCards cards={mainCategory} />
       </div>
     </>
   );
