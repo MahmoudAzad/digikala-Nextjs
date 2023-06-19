@@ -17,7 +17,7 @@ body {
 
 /* ===================================== HeaderSwiper ===================================== */
 
-/* .swiper-pagination-bullet {
+.header-swiper .swiper-pagination-bullet {
   opacity: 0.5 !important;
   transition: all 0.3s ease-in-out !important;
   background-color: rgb(37, 37, 37) !important;
@@ -25,22 +25,15 @@ body {
   height: 6px !important;
 }
 
-.swiper-pagination-bullet-active {
+.header-swiper .swiper-pagination-bullet-active {
   background-color: #fff !important;
   border-radius: 20px !important;
   opacity: 1 !important;
   width: 16px !important;
 }
 
-.amazing-swiper .swiper-pagination-bullet {
-  background-color: rgb(37, 37, 37) !important;
-} */
-
-/* .swiper-slide {
-  display: flex;
-} */
-/* .reza .swiper-button-prev,
-.reza .swiper-button-next {
+.header-swiper .swiper-button-prev,
+.header-swiper .swiper-button-next {
   position: absolute !important;
   top: 70% !important;
   right: 0px !important;
@@ -52,11 +45,14 @@ body {
   color: black !important;
   font-weight: bold !important;
   border: 5px solid #c0c2c5 !important;
-} */
+}
 
-/* .headerSwiper .swiper-button-next {
+.header-swiper .swiper-button-next {
   margin-right: 50px;
-} */
+}
+
+/* ===================================== AmazingSwiper ===================================== */
+
 .amazing-swiper .swiper-slide {
   height: auto;
 }

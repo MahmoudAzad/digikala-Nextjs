@@ -1,8 +1,9 @@
+import QuadrupleCards from "@/components/card/quadrupleCards";
 import SubCategoryCards from "@/components/card/subCategoryCards";
 import Menu from "@/components/menu/menu";
 import Navbar from "@/components/navbar";
 import AmazingSwiper from "@/components/swiper/amazingSwiper";
-import HeaderSwiper from "@/components/swiper/HeaderSwiper";
+import HeadSwiper from "@/components/swiper/headSwiper";
 
 import {
   getBlogData,
@@ -57,16 +58,18 @@ const Home = async () => {
   );
 
   const headerCarousels = homePageDetail?.map((item) => item.carousel);
-
+  const quadrupleCards = homePageDetail?.map((item) => item.banner);
   console.log("headerCarousels => ", headerCarousels);
   return (
     <>
       <Navbar />
       <Menu />
-      <HeaderSwiper carousels={headerCarousels} />
+      <HeadSwiper carousels={headerCarousels} />
       <SubCategoryCards categories={digikalaSubCategories?.slice(0, 7)} />
+
       <div className="mx-28">
         <AmazingSwiper products={amazingProducts} color={amazingSwiperColor} />
+        <QuadrupleCards cards={quadrupleCards} />
       </div>
     </>
   );

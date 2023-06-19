@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 
-const HeaderSwiper = ({ carousels }) => {
+const HeadSwiper = ({ carousels }) => {
   return (
     <Swiper
       slidesPerView={1}
@@ -20,12 +20,12 @@ const HeaderSwiper = ({ carousels }) => {
       modules={[Pagination, Navigation]}
       className="mySwiper header-swiper"
     >
-      <SwiperSlide>
-        {carousels.map((slide) => {
-          return <Image src={slide.image} width={5000} height={300} />;
-        })}
-      </SwiperSlide>
+      {carousels[0].map((slide) => (
+        <SwiperSlide>
+          <Image src={slide.image} width={5000} height={300} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };
-export default HeaderSwiper;
+export default HeadSwiper;
