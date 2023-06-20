@@ -6370,5 +6370,23 @@
       "title": "۱۰ پاوربانک محبوب در دیجی کالا (۲۵ بهمن ۱۴۰۱)"
     }
   ],
+  "dobleCards": [
+    {
+      "id": "1",
+      "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/2fa329fc31e8a088e849d87f5d769f4e8d26c1fa_1686639780.jpg?x-oss-process=image/quality,q_95/format,webp"
+    },
+    {
+      "id": "2",
+      "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/1ebc3267db5e5f571de1868d10273f8d6c4befe1_1686991123.jpg?x-oss-process=image/quality,q_95/format,webp"
+    },
+    {
+      "id": "3",
+      "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/abb0bece95c381a97ec5c097afac966375a6a34e_1686643196.jpg?x-oss-process=image/quality,q_95/format,webp"
+    },
+    {
+      "id": "4",
+      "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/4fd5b2fac8d35ea82335eec002c2ad650ae61dc9_1686991471.jpg?x-oss-process=image/quality,q_95/format,webp"
+    }
+  ],
   "filterValue": []
 }

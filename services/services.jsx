@@ -26,3 +26,6 @@ export const getBrand = () => {
 export const getBlogData = () => {
   return axios.get(rootApi + "/blog", { cache: "no-store" });
 };
+export const getDoubleCards = () => {
+  return axios.get(rootApi + "/dobleCards", { cache: "no-store" });
+};

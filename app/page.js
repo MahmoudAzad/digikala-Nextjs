@@ -1,16 +1,19 @@
 import CategoriesCards from "@/components/card/categoriesCards";
+import DoubleCards from "@/components/card/doubleCards";
 import QuadrupleCards from "@/components/card/quadrupleCards";
 import SubCategoryCards from "@/components/card/subCategoryCards";
 import Menu from "@/components/menu/menu";
 import Navbar from "@/components/navbar";
 import AmazingSwiper from "@/components/swiper/amazingSwiper";
 import HeadSwiper from "@/components/swiper/headSwiper";
+import SuggestionSwiper from "@/components/swiper/suggestionSwiper";
 
 import {
   getBlogData,
   getBrand,
   getCategory,
   getDigikalaSubCategories,
+  getDoubleCards,
   getHomePageDetail,
   getMainCategory,
   getProduct,
@@ -22,6 +25,7 @@ const getData = async () => {
   const category = (await getCategory()).data;
   const homePageDetail = (await getHomePageDetail()).data;
   const digikalaSubCategories = (await getDigikalaSubCategories()).data;
+  const doubleCards = (await getDoubleCards()).data;
   const brands = (await getBrand()).data;
   const blogData = (await getBlogData()).data;
 
@@ -31,6 +35,7 @@ const getData = async () => {
     category,
     homePageDetail,
     digikalaSubCategories,
+    doubleCards,
     brands,
     blogData,
   };
@@ -43,11 +48,10 @@ const Home = async () => {
     category,
     homePageDetail,
     digikalaSubCategories,
+    doubleCards,
     brands,
     blogData,
   } = await getData();
-
-  console.log("home => ", homePageDetail);
 
   const amazingProducts = product
     ?.filter((product) => product.offer > 0)
@@ -60,7 +64,8 @@ const Home = async () => {
 
   const headerCarousels = homePageDetail?.map((item) => item.carousel);
   const quadrupleCards = homePageDetail?.map((item) => item.banner);
-  console.log("headerCarousels => ", headerCarousels);
+  const firstDoubleCards = doubleCards?.slice(0, 2);
+  const secoundDoubleCards = doubleCards?.slice(2, 4);
   return (
     <>
       <Navbar />
@@ -72,6 +77,8 @@ const Home = async () => {
         <AmazingSwiper products={amazingProducts} color={amazingSwiperColor} />
         <QuadrupleCards cards={quadrupleCards} />
         <CategoriesCards cards={mainCategory} />
+        <DoubleCards cards={firstDoubleCards} />
+        <SuggestionSwiper allProducts={product} />
       </div>
     </>
   );
