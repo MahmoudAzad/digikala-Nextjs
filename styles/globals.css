@@ -73,3 +73,11 @@ body {
 .amazing-swiper .swiper-button-prev {
   right: -50px !important;
 }
+
+/* ===================================== suggestionSwiper ===================================== */
+.suggestionSwiper .swiper-slide {
+  text-align: center;
+  font-size: 12px;
+  height: calc((100%) / 2) !important;
+  display: flex;
+}
