@@ -6,6 +6,7 @@ import Menu from "@/components/menu/menu";
 import Navbar from "@/components/navbar";
 import AmazingSwiper from "@/components/swiper/amazingSwiper";
 import HeadSwiper from "@/components/swiper/headSwiper";
+import PopularBrandsSwiper from "@/components/swiper/popularBrandsSwiper";
 import SuggestionSwiper from "@/components/swiper/suggestionSwiper";
 
 import {
@@ -79,6 +80,7 @@ const Home = async () => {
         <CategoriesCards cards={mainCategory} />
         <DoubleCards cards={firstDoubleCards} />
         <SuggestionSwiper allProducts={product} />
+        <PopularBrandsSwiper brands={brands} />
       </div>
     </>
   );

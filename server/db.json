@@ -5865,6 +5865,88 @@
       "description": "",
       "createdAt": "2023-02-23T14:27:57.063Z",
       "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+    {
+      "id": 5,
+      "name": "پریل",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/2c36ceb629598fa31b9b321fcd4e47773bd93ef7_1649498016.png?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+    {
+      "id": 6,
+      "name": "پرسیل",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/7d615272ba7fc5dd708195ae858e2971de86a06f_1649498033.png?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+    {
+      "id": 7,
+      "name": "kingstar",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/6091.png?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+
+    {
+      "id": 8,
+      "name": "کاله",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/311.png?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+    {
+      "id": 9,
+      "name": "fresh digikala",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/f660c46ffc6d58a19e5c0af9d03c50be9a929571_1627214766.png?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+    {
+      "id": 10,
+      "name": "active",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/87dcb454f4d8df28bd2f8fd902f0f27b5fb1fac4_1666761801.jpg?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+    {
+      "id": 11,
+      "name": "پگاه",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/7857.png?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+    {
+      "id": 12,
+      "name": "بیژن",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/100014253.png?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
+    },
+    {
+      "id": 13,
+      "name": "مهیا",
+      "checkbox": false,
+      "image": "https://dkstatics-public.digikala.com/digikala-brands/477ab48bb7261595c02cb0f4c504837e464f00d0_1663485028.jpg?x-oss-process=image/resize,m_lfit,h_160,w_160/quality,q_80",
+      "description": "",
+      "createdAt": "2023-02-23T14:27:57.063Z",
+      "updatedAt": "2023-02-23T14:27:57.063Z"
     }
   ],
   "homePageDetail": [
