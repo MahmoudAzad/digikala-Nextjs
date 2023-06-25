@@ -22,9 +22,10 @@ const PopularBrandsSwiper = ({ brands }) => {
         }}
       >
         {brands.map((brand) => (
-          <SwiperSlide>
+          <SwiperSlide key={brand.id}>
             <Image
               src={brand.image}
+              alt="برند محبوب"
               width={200}
               height={200}
               className="border-r border-l px-5 cursor-pointer"

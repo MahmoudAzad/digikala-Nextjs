@@ -21,8 +21,13 @@ const HeadSwiper = ({ carousels }) => {
       className="mySwiper header-swiper"
     >
       {carousels[0].map((slide) => (
-        <SwiperSlide>
-          <Image src={slide.image} width={5000} height={300} />
+        <SwiperSlide key={slide.id}>
+          <Image
+            alt="digikala banners"
+            src={slide.image}
+            width={5000}
+            height={300}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

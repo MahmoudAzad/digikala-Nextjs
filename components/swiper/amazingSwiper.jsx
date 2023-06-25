@@ -40,8 +40,14 @@ const AmazingSwiper = ({ products, color }) => {
       >
         <SwiperSlide>
           <div className="h-full text-center text-lg bg-transparent flex flex-col justify-center items-center cursor-pointer">
-            <Image src={AmazingSwiperImg} width={92} height={77} />
             <Image
+              alt="پیشنهاد شگفت انگیز"
+              src={AmazingSwiperImg}
+              width={92}
+              height={77}
+            />
+            <Image
+              alt="پیشنهاد شگفت انگیز"
               src="https://www.digikala.com/statics/img/png/specialCarousel/box.png"
               width={120}
               height={120}
@@ -53,9 +59,14 @@ const AmazingSwiper = ({ products, color }) => {
           </div>
         </SwiperSlide>
         {products.slice(0, 12).map((product) => (
-          <SwiperSlide className="px-0.5">
+          <SwiperSlide key={product.id} className="px-0.5">
             <div className="bg-white h-full flex flex-col justify-between px-2 py-6 cursor-pointer">
-              <Image width="200" height="200" src={product.thumbnail} />
+              <Image
+                alt="محصول شگفت انگیز"
+                width="200"
+                height="200"
+                src={product.thumbnail}
+              />
 
               <div className="flex flex-col gap-y-1 items-end mb-1">
                 <div className="w-full mt-3 flex flex-wrap items-center justify-between">

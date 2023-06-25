@@ -8,6 +8,7 @@ import AmazingSwiper from "@/components/swiper/amazingSwiper";
 import HeadSwiper from "@/components/swiper/headSwiper";
 import PopularBrandsSwiper from "@/components/swiper/popularBrandsSwiper";
 import SuggestionSwiper from "@/components/swiper/suggestionSwiper";
+import BasedOnUserViewsCards from "@/components/card/basedOnUserViewsCards";
 
 import {
   getBlogData,
@@ -81,6 +82,8 @@ const Home = async () => {
         <DoubleCards cards={firstDoubleCards} />
         <SuggestionSwiper allProducts={product} />
         <PopularBrandsSwiper brands={brands} />
+        <DoubleCards cards={secoundDoubleCards} />
+        <BasedOnUserViewsCards categories={category} products={product} />
       </div>
     </>
   );

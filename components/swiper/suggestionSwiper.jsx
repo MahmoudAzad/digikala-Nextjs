@@ -44,9 +44,14 @@ const SuggestionSwiper = ({ allProducts }) => {
           .slice(0, 14)
           .map((product) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={product.id}>
                 <div className="flex flex-col justify-center items-center w-full text-center border ">
-                  <Image src={product.thumbnail} width={80} height={80} />
+                  <Image
+                    src={product.thumbnail}
+                    alt={product.name}
+                    width={80}
+                    height={80}
+                  />
                   <span className="font-bold lg:text-xs line-clamp-1 pt-2">
                     {product.name}
                   </span>

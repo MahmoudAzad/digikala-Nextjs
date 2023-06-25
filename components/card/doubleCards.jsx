@@ -7,6 +7,7 @@ const DoubleCards = ({ cards }) => {
       {cards.map((card) => (
         <Image
           key={card.id}
+          alt="جشنواره دیجیکالا"
           src={card.image}
           width={1000}
           height={1000}
