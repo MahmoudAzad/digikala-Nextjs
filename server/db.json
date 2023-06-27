@@ -5954,15 +5954,15 @@
       "carousel": [
         {
           "id": "1",
-          "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/c296920c35fb68669afb40cbc0c40c995237139b_1677792568.jpg?x-oss-process=image/quality,q_95"
+          "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/63ec78e7c323ddbb3bc884c5ed8e70c9b7a29aab_1687429760.jpg?x-oss-process=image/quality,q_95/format,webp"
         },
         {
           "id": "2",
-          "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/2d31af1a8a07dc2d46661b5b564477c07768f0f2_1677661973.jpg?x-oss-process=image/quality,q_95"
+          "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/a02c09abb09f0009fa087bef3457599101703858_1687608081.jpg?x-oss-process=image/quality,q_95/format,webp"
         },
         {
           "id": "3",
-          "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/bcd8f0d09b2755e97fd42f4cb1795581b940f456_1677914756.jpg?x-oss-process=image/quality,q_95"
+          "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/6594705debf692df93b306a095b0a13a615ee27c_1687250065.jpg?x-oss-process=image/quality,q_95/format,webp"
         }
       ],
       "banner": [
@@ -6470,5 +6470,189 @@
       "image": "https://dkstatics-public.digikala.com/digikala-adservice-banners/4fd5b2fac8d35ea82335eec002c2ad650ae61dc9_1686991471.jpg?x-oss-process=image/quality,q_95/format,webp"
     }
   ],
-  "filterValue": []
+  "footer": [
+    {
+      "categories": [
+        {
+          "id": "1",
+          "name": "با دیجی کالا",
+          "subCategory": [
+            {
+              "id": "1",
+              "name": "اتاق خبر دیجی کالا"
+            },
+            {
+              "id": "2",
+              "name": "فروش در دیجی کالا"
+            },
+            {
+              "id": "3",
+              "name": "فرصت های شغلی"
+            },
+            {
+              "id": "4",
+              "name": "گزارش تخلف در دیجی کالا"
+            },
+            {
+              "id": "5",
+              "name": "تماس با دیجی کالا"
+            },
+            {
+              "id": "6",
+              "name": "درباره دیجی کالا"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "خدمات مشتریان",
+          "subCategory": [
+            {
+              "id": "1",
+              "name": "پاسخ به پرسش‌های متداول"
+            },
+            {
+              "id": "2",
+              "name": "رویه‌های بازگرداندن کالا"
+            },
+            {
+              "id": "3",
+              "name": "شرایط استفاده"
+            },
+            {
+              "id": "4",
+              "name": "حریم خصوصی"
+            },
+            {
+              "id": "5",
+              "name": "گزارش باگ"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "راهنمایی خرید از دیجی کالا",
+          "subCategory": [
+            {
+              "id": "1",
+              "name": "نحوه ثبت سفارش"
+            },
+            {
+              "id": "2",
+              "name": "رویه ارسال سفارش"
+            },
+            {
+              "id": "3",
+              "name": "شیوه‌های پرداخت"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icons": [
+        {
+          "id": "1",
+          "image": "https://www.digikala.com/statics/img/svg/footer/express-delivery.svg",
+          "name": "امکان تحویل اکسپرس"
+        },
+        {
+          "id": "2",
+          "image": "https://www.digikala.com/statics/img/svg/footer/cash-on-delivery.svg",
+          "name": "امکان پرداخت در محل"
+        },
+        {
+          "id": "3",
+          "image": "https://www.digikala.com/statics/img/svg/footer/support.svg",
+          "name": "۷ روز هفته ۲۴ ساعته"
+        },
+        {
+          "id": "4",
+          "image": "https://www.digikala.com/statics/img/svg/footer/days-return.svg",
+          "name": "هفت روز ضمانت بازگشت کالا"
+        },
+        {
+          "id": "5",
+          "image": "https://www.digikala.com/statics/img/svg/footer/original-products.svg",
+          "name": "ضمانت اصل بودن کالا"
+        }
+      ]
+    },
+    {
+      "brands": [
+        {
+          "id": "1",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digimag.svg"
+        },
+        {
+          "id": "2",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digipay.svg"
+        },
+        {
+          "id": "3",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digistyle.svg"
+        },
+        {
+          "id": "4",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digiplus.svg"
+        },
+        {
+          "id": "5",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digiclub.svg"
+        },
+        {
+          "id": "6",
+          "image": "https://www.digikala.com/statics/img/svg/footer/jet.svg"
+        },
+        {
+          "id": "7",
+          "image": "https://www.digikala.com/statics/img/svg/footer/magnet.svg"
+        },
+        {
+          "id": "8",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digiMehr.svg"
+        },
+        {
+          "id": "9",
+          "image": "https://www.digikala.com/statics/img/svg/footer/fidibo.svg"
+        },
+        {
+          "id": "10",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digikala-service.svg"
+        },
+        {
+          "id": "11",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digikala-business.svg"
+        },
+        {
+          "id": "12",
+          "image": "https://www.digikala.com/statics/img/svg/footer/smartech.svg"
+        },
+        {
+          "id": "13",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digify.svg"
+        },
+        {
+          "id": "14",
+          "image": "https://www.digikala.com/statics/img/svg/footer/ganjeh.svg"
+        },
+        {
+          "id": "15",
+          "image": "https://www.digikala.com/statics/img/svg/footer/digiexpress.svg"
+        },
+        {
+          "id": "16",
+          "image": "https://www.digikala.com/statics/img/svg/footer/komodaa.svg"
+        },
+        {
+          "id": "17",
+          "image": "https://www.digikala.com/statics/img/svg/footer/pindo.svg"
+        },
+        {
+          "id": "18",
+          "image": "https://www.digikala.com/statics/img/svg/footer/diginext.svg"
+        }
+      ]
+    }
+  ]
 }

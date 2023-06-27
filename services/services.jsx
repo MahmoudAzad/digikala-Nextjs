@@ -29,3 +29,6 @@ export const getBlogData = () => {
 export const getDoubleCards = () => {
   return axios.get(rootApi + "/dobleCards", { cache: "no-store" });
 };
+export const getFooter = () => {
+  return axios.get(rootApi + "/footer", { cache: "no-store" });
+};

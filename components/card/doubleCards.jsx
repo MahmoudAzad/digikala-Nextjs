@@ -1,7 +1,6 @@
 const { default: Image } = require("next/image");
 
 const DoubleCards = ({ cards }) => {
-  console.log("cards =>", cards);
   return (
     <div className="grid grid-cols-2 w-full gap-5 my-14">
       {cards.map((card) => (

@@ -16,10 +16,12 @@ import {
   getCategory,
   getDigikalaSubCategories,
   getDoubleCards,
+  getFooter,
   getHomePageDetail,
   getMainCategory,
   getProduct,
 } from "@/services/services";
+import Image from "next/image";
 
 const getData = async () => {
   const product = (await getProduct()).data;
@@ -30,6 +32,7 @@ const getData = async () => {
   const doubleCards = (await getDoubleCards()).data;
   const brands = (await getBrand()).data;
   const blogData = (await getBlogData()).data;
+  const footer = (await getFooter()).data;
 
   return {
     product,
@@ -40,6 +43,7 @@ const getData = async () => {
     doubleCards,
     brands,
     blogData,
+    footer,
   };
 };
 
@@ -53,6 +57,7 @@ const Home = async () => {
     doubleCards,
     brands,
     blogData,
+    footer,
   } = await getData();
 
   const amazingProducts = product
@@ -84,6 +89,12 @@ const Home = async () => {
         <PopularBrandsSwiper brands={brands} />
         <DoubleCards cards={secoundDoubleCards} />
         <BasedOnUserViewsCards categories={category} products={product} />
+        <Image
+          src="https://dkstatics-public.digikala.com/digikala-adservice-banners/747327100245e765435fa0ca25adcfab080cb12a_1687550226.jpg?x-oss-process=image/quality,q_95/format,webp"
+          width="2000"
+          height="1000"
+          className="rounded-2xl"
+        />
       </div>
     </>
   );
