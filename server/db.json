@@ -6653,6 +6653,46 @@
           "image": "https://www.digikala.com/statics/img/svg/footer/diginext.svg"
         }
       ]
+    },
+    {
+      "banner": [
+        {
+          "id": "1",
+          "image": "https://www.digikala.com/statics/img/png/footerlogo2.png"
+        },
+        {
+          "id": "2",
+          "image": "https://www.digikala.com/statics/img/svg/appStores/coffe-bazzar.svg"
+        },
+        {
+          "id": "3",
+          "image": "https://www.digikala.com/statics/img/svg/appStores/myket.svg"
+        },
+        {
+          "id": "4",
+          "image": "https://www.digikala.com/statics/img/svg/appStores/sib-app.svg"
+        },
+        {
+          "id": "5",
+          "image": "https://www.digikala.com/statics/img/svg/More.svg"
+        }
+      ]
+    },
+    {
+      "symbols": [
+        {
+          "id": "1",
+          "image": "https://www.digikala.com/statics/img/png/rezi.png"
+        },
+        {
+          "id": "2",
+          "image": "https://www.digikala.com/statics/img/png/kasbokar.png"
+        },
+        {
+          "id": "3",
+          "image": "https://www.digikala.com/statics/img/png/rezi.png"
+        }
+      ]
     }
   ]
 }

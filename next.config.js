@@ -10,6 +10,7 @@ module.exports = {
       "digikala.arvanvod.com",
       "encrypted-tbn0.gstatic.com",
       "digikala.arvanvod.ir",
+      "trustseal.enamad.ir",
     ],
   },
 };
