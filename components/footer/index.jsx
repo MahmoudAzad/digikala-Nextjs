@@ -11,7 +11,6 @@ import {
 } from "react-icons/ai";
 
 const Footer = ({ footerData }) => {
-  console.log("footer data => ", footerData);
   const categories = footerData[0].categories;
   const footerIcons = footerData[1].icons;
   const footerBrands = footerData[2].brands;

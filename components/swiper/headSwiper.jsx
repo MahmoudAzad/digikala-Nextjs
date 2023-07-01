@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 
 const HeadSwiper = ({ carousels }) => {
   return (
@@ -17,8 +17,12 @@ const HeadSwiper = ({ carousels }) => {
         clickable: true,
       }}
       navigation={true}
-      modules={[Pagination, Navigation]}
+      modules={[Pagination, Navigation, Autoplay]}
       className="mySwiper header-swiper"
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
     >
       {carousels[0].map((slide) => (
         <SwiperSlide key={slide.id}>

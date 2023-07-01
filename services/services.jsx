@@ -3,32 +3,63 @@ import axios from "axios";
 const rootApi = "http://localhost:9000";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
-export const getHomePageDetail = () => {
-  return axios.get(rootApi + "/homePageDetail", { cache: "no-store" });
-};
-export const getProduct = () => {
-  return axios.get(rootApi + "/product", { cache: "no-store" });
-};
-
-export const getMainCategory = () => {
-  return axios.get(rootApi + "/mainCategory", { cache: "no-store" });
-};
-export const getCategory = () => {
-  return axios.get(rootApi + "/category", { cache: "no-store" });
+export const fetchHomePageDetail = async () => {
+  const fetchData = await fetch(rootApi + "/homePageDetail", {
+    cache: "no-store",
+  });
+  const data = await fetchData.json();
+  return data;
 };
 
-export const getDigikalaSubCategories = () => {
-  return axios.get(rootApi + "/DigikalaSubCategories", { cache: "no-store" });
+export const fetchProduct = async () => {
+  const fetchData = await fetch(rootApi + "/product", { cache: "no-store" });
+  const data = fetchData.json();
+  return data;
 };
-export const getBrand = () => {
-  return axios.get(rootApi + "/brand", { cache: "no-store" });
+
+export const fetchMainCategory = async () => {
+  const fetchData = await fetch(rootApi + "/mainCategory", {
+    cache: "no-store",
+  });
+  const data = fetchData.json();
+  return data;
 };
-export const getBlogData = () => {
-  return axios.get(rootApi + "/blog", { cache: "no-store" });
+
+export const fetchCategory = async () => {
+  const fetchData = await fetch(rootApi + "/category", { cache: "no-store" });
+  const data = fetchData.json();
+  return data;
 };
-export const getDoubleCards = () => {
-  return axios.get(rootApi + "/dobleCards", { cache: "no-store" });
+
+export const fetchDigikalaSubCategories = async () => {
+  const fetchData = await fetch(rootApi + "/DigikalaSubCategories", {
+    cache: "no-store",
+  });
+  const data = fetchData.json();
+  return data;
 };
-export const getFooter = () => {
-  return axios.get(rootApi + "/footer", { cache: "no-store" });
+export const fetchBrand = async () => {
+  const fetchData = await fetch(rootApi + "/brand", { cache: "no-store" });
+  const data = fetchData.json();
+  return data;
+};
+export const fetchBlogData = async () => {
+  const fetchData = await fetch(rootApi + "/blog", { cache: "no-store" });
+  const data = fetchData.json();
+  return data;
+};
+export const fetchDoubleCards = async () => {
+  const fetchData = await fetch(rootApi + "/dobleCards", { cache: "no-store" });
+  const data = fetchData.json();
+  return data;
+};
+export const fetchFooter = async () => {
+  const fetchData = await fetch(rootApi + "/footer", { cache: "no-store" });
+  const data = fetchData.json();
+  return data;
+};
+export const fetchNotFound = async () => {
+  const fetchData = await fetch(rootApi + "/notFound", { cache: "no-store" });
+  const data = fetchData.json();
+  return data;
 };

@@ -2,8 +2,6 @@ import CategoriesCards from "@/components/card/categoriesCards";
 import DoubleCards from "@/components/card/doubleCards";
 import QuadrupleCards from "@/components/card/quadrupleCards";
 import SubCategoryCards from "@/components/card/subCategoryCards";
-import Menu from "@/components/menu/menu";
-import Navbar from "@/components/navbar";
 import AmazingSwiper from "@/components/swiper/amazingSwiper";
 import HeadSwiper from "@/components/swiper/headSwiper";
 import PopularBrandsSwiper from "@/components/swiper/popularBrandsSwiper";
@@ -11,28 +9,26 @@ import SuggestionSwiper from "@/components/swiper/suggestionSwiper";
 import BasedOnUserViewsCards from "@/components/card/basedOnUserViewsCards";
 
 import {
-  getBlogData,
-  getBrand,
-  getCategory,
-  getDigikalaSubCategories,
-  getDoubleCards,
-  getFooter,
-  getHomePageDetail,
-  getMainCategory,
-  getProduct,
+  fetchBlogData,
+  fetchBrand,
+  fetchCategory,
+  fetchDigikalaSubCategories,
+  fetchDoubleCards,
+  fetchHomePageDetail,
+  fetchMainCategory,
+  fetchProduct,
 } from "@/services/services";
 import Image from "next/image";
 
 const getData = async () => {
-  const product = (await getProduct()).data;
-  const mainCategory = (await getMainCategory()).data;
-  const category = (await getCategory()).data;
-  const homePageDetail = (await getHomePageDetail()).data;
-  const digikalaSubCategories = (await getDigikalaSubCategories()).data;
-  const doubleCards = (await getDoubleCards()).data;
-  const brands = (await getBrand()).data;
-  const blogData = (await getBlogData()).data;
-  const footer = (await getFooter()).data;
+  const product = await fetchProduct();
+  const mainCategory = await fetchMainCategory();
+  const category = await fetchCategory();
+  const homePageDetail = await fetchHomePageDetail();
+  const digikalaSubCategories = await fetchDigikalaSubCategories();
+  const doubleCards = await fetchDoubleCards();
+  const brands = await fetchBrand();
+  const blogData = await fetchBlogData();
 
   return {
     product,
@@ -43,7 +39,6 @@ const getData = async () => {
     doubleCards,
     brands,
     blogData,
-    footer,
   };
 };
 
@@ -57,7 +52,6 @@ const Home = async () => {
     doubleCards,
     brands,
     blogData,
-    footer,
   } = await getData();
 
   const amazingProducts = product
@@ -75,8 +69,6 @@ const Home = async () => {
   const secoundDoubleCards = doubleCards?.slice(2, 4);
   return (
     <>
-      <Navbar />
-      <Menu />
       <HeadSwiper carousels={headerCarousels} />
       <SubCategoryCards categories={digikalaSubCategories?.slice(0, 7)} />
 
@@ -93,7 +85,7 @@ const Home = async () => {
           src="https://dkstatics-public.digikala.com/digikala-adservice-banners/747327100245e765435fa0ca25adcfab080cb12a_1687550226.jpg?x-oss-process=image/quality,q_95/format,webp"
           width="2000"
           height="1000"
-          className="rounded-2xl"
+          className="rounded-2xl mt-10"
         />
       </div>
     </>
