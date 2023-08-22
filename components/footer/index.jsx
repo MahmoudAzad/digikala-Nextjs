@@ -23,7 +23,7 @@ const Footer = ({ footerData }) => {
 
   return (
     <>
-      <div className=" border-t mt-12 px-5 py-10">
+      <div className="border-t px-5 py-10">
         <Image src={digikalaFooterLogo} width={100} height={100} />
         <div className="flex justify-between items-center mt-5">
           <div className="lg:flex gap-x-10 text-xs text-gray-800">

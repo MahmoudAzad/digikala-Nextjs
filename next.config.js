@@ -11,6 +11,7 @@ module.exports = {
       "encrypted-tbn0.gstatic.com",
       "digikala.arvanvod.ir",
       "trustseal.enamad.ir",
+      "digikala-d567.onrender.com",
     ],
   },
 };

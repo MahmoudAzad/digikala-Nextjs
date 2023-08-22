@@ -1,7 +1,4 @@
-import axios from "axios";
-
-const rootApi = "http://localhost:9000";
-axios.defaults.headers.post["Content-Type"] = "application/json";
+const rootApi = "https://digikala-d567.onrender.com";
 
 export const fetchHomePageDetail = async () => {
   const fetchData = await fetch(rootApi + "/homePageDetail", {

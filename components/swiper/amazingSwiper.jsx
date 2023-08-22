@@ -9,6 +9,8 @@ import Image from "next/image";
 import AmazingSwiperImg from "../../public/assets/svg/amazingSwiperImg.svg";
 import { useEffect, useRef } from "react";
 import { HiArrowSmLeft, HiChevronLeft } from "react-icons/hi";
+import Link from "next/link";
+
 const AmazingSwiper = ({ products, color }) => {
   const amazingSwiperRef = useRef();
 
@@ -59,41 +61,43 @@ const AmazingSwiper = ({ products, color }) => {
           </div>
         </SwiperSlide>
         {products.slice(0, 12).map((product) => (
-          <SwiperSlide key={product.id} className="px-0.5">
-            <div className="bg-white h-full flex flex-col justify-between px-2 py-6 cursor-pointer">
-              <Image
-                alt="محصول شگفت انگیز"
-                width="200"
-                height="200"
-                src={product.thumbnail}
-              />
+          <SwiperSlide key={product.id} className="px-[0.75px]">
+            <Link href={`/product/${product.id}`}>
+              <div className="bg-white h-full flex flex-col justify-between px-2 py-6 cursor-pointer">
+                <Image
+                  alt="محصول شگفت انگیز"
+                  width="200"
+                  height="200"
+                  src={product.thumbnail}
+                />
 
-              <div className="flex flex-col gap-y-1 items-end mb-1">
-                <div className="w-full mt-3 flex flex-wrap items-center justify-between">
-                  <span className="bg-[#ef394e]  text-xs text-white rounded-xl  py-0 px-1">
-                    {product.offer}%
-                  </span>
-                  <div className="flex flex-wrap items-center">
-                    <span className="text-sm lg:text-base text-[#424750] font-bold">
-                      {Math.round(
-                        (Number(product.price) *
-                          (100 - Number(product.offer))) /
-                          100
-                      ).toLocaleString("fa-IR")}
+                <div className="flex flex-col gap-y-1 items-end mb-1">
+                  <div className="w-full mt-3 flex flex-wrap items-center justify-between">
+                    <span className="bg-[#ef394e]  text-xs text-white rounded-xl  py-0 px-1">
+                      {product.offer}%
                     </span>
+                    <div className="flex flex-wrap items-center">
+                      <span className="text-sm lg:text-base text-[#424750] font-bold">
+                        {Math.round(
+                          (Number(product.price) *
+                            (100 - Number(product.offer))) /
+                            100
+                        ).toLocaleString("fa-IR")}
+                      </span>
 
-                    <span className="text-[8px] text-[#424750] font-bold mr-1">
-                      تومان
-                    </span>
+                      <span className="text-[8px] text-[#424750] font-bold mr-1">
+                        تومان
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <del className="text-xs lg:text-sm text-gray-400 ml-2 mt-1">
+                      {Number(product.price).toLocaleString("fa-IR")}
+                    </del>
                   </div>
                 </div>
-                <div>
-                  <del className="text-xs lg:text-sm text-gray-400 ml-2 mt-1">
-                    {Number(product.price).toLocaleString("fa-IR")}
-                  </del>
-                </div>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
         <SwiperSlide>
