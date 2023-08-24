@@ -21,8 +21,8 @@ const PopularBrandsSwiper = ({ brands }) => {
           },
         }}
       >
-        {brands.map((brand) => (
-          <SwiperSlide key={brand.id}>
+        {brands.map((brand, index) => (
+          <SwiperSlide key={index}>
             <Image
               src={brand.image}
               alt="برند محبوب"

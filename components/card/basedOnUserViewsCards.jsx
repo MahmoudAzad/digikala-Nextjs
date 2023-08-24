@@ -8,9 +8,9 @@ const BasedOnUserViewsCards = ({ categories, products }) => {
         ?.map((category) => category.subCategory)
         .flatMap((sub) => sub)
         .slice(0, 4)
-        .map((category) => {
+        .map((category, index) => {
           return (
-            <div className=" border p-2">
+            <div className=" border p-2" key={index}>
               <h5 className="font-bold text-lg">{category.name}</h5>
               <span className="text-xs text-gray-600">
                 بر اساس بازدیدهای شما
@@ -19,10 +19,14 @@ const BasedOnUserViewsCards = ({ categories, products }) => {
                 {products
                   .filter((product) => product.subCategory == category.name)
                   .slice(0, 4)
-                  .map((pro) => (
-                    <div className="p-5 bg-white flex justify-center">
+                  .map((pro, index) => (
+                    <div
+                      className="p-5 bg-white flex justify-center"
+                      key={index}
+                    >
                       <Image
                         src={pro.thumbnail}
+                        alt={pro.name}
                         width={120}
                         height={120}
                         className="w-1/2"

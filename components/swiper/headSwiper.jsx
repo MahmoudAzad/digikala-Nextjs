@@ -24,14 +24,9 @@ const HeadSwiper = ({ carousels }) => {
         disableOnInteraction: false,
       }}
     >
-      {carousels[0].map((slide) => (
-        <SwiperSlide key={slide.id}>
-          <Image
-            alt="digikala banners"
-            src={slide.image}
-            width={5000}
-            height={300}
-          />
+      {carousels[0].map((slide, index) => (
+        <SwiperSlide key={index}>
+          <Image alt="دیجی کالا" src={slide.image} width={5000} height={300} />
         </SwiperSlide>
       ))}
     </Swiper>

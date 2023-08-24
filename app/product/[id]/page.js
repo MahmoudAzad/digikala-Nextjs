@@ -36,7 +36,6 @@ const fetchData = async (id) => {
 
 const SingleProduct = ({ params }) => {
   const [singleProData, setSingleProData] = useState([]);
-  console.log("productsValues => ", singleProData.productsValues);
   const images = singleProData.productImage;
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const SingleProduct = ({ params }) => {
               className="mySwiper"
             >
               {images?.map((slide) => (
-                <SwiperSlide className="relative">
+                <SwiperSlide className="relative" key={slide.id}>
                   <div className="absolute p-5 w-full">
                     <p className="text-xs text-gray-500">
                       دیجی کالا / {singleProData.category} /{" "}
@@ -82,7 +81,7 @@ const SingleProduct = ({ params }) => {
                   </div>
 
                   <Image
-                    alt="digikala banners"
+                    alt={singleProData.name}
                     src={slide.image}
                     width={5000}
                     height={300}
@@ -107,6 +106,7 @@ const SingleProduct = ({ params }) => {
             <ul className="flex items-end gap-x-3 pt-6">
               <Image
                 src="https://iili.io/hufgQj.th.png"
+                alt={singleProData.name}
                 width={20}
                 height={20}
               />
@@ -168,8 +168,8 @@ const SingleProduct = ({ params }) => {
           </div>
           <div className="px-5 py-8  bg-white">
             <p className="text-sm font-bold">ویژگی‌ها</p>
-            {singleProData.productsValues?.map((attributes) => (
-              <ul key={attributes.id}>
+            {singleProData.productsValues?.map((attributes, index) => (
+              <ul key={index}>
                 <li className="flex items-center gap-x-3 mt-2">
                   <p className="text-gray-500">&#x2022;</p>
                   <p className="text-xs text-gray-600">
@@ -197,6 +197,7 @@ const SingleProduct = ({ params }) => {
             <p className="text-sm font-bold">ارسال رایگان برای این کالا</p>
             <Image
               src="https://www.digikala.com/_next/static/media/normalFreeShippingTouchPointImage.d4416515.svg"
+              alt={singleProData.name}
               width={100}
               height={100}
             />
@@ -222,6 +223,7 @@ const SingleProduct = ({ params }) => {
             <div className="flex flex-col items-center">
               <Image
                 src="https://www.digikala.com/statics/img/svg/infosection/express-delivery.svg"
+                alt={singleProData.name}
                 width={50}
                 height={50}
               />
@@ -231,6 +233,7 @@ const SingleProduct = ({ params }) => {
             <div className="flex flex-col items-center">
               <Image
                 src="https://www.digikala.com/statics/img/svg/infosection/support.svg"
+                alt={singleProData.name}
                 width={50}
                 height={50}
               />
@@ -240,6 +243,7 @@ const SingleProduct = ({ params }) => {
             <div className="flex flex-col items-center">
               <Image
                 src="https://www.digikala.com/statics/img/svg/infosection/cash-on-delivery.svg"
+                alt={singleProData.name}
                 width={50}
                 height={50}
               />
@@ -248,6 +252,7 @@ const SingleProduct = ({ params }) => {
             <div className="flex flex-col items-center">
               <Image
                 src="https://www.digikala.com/statics/img/svg/infosection/days-return.svg"
+                alt={singleProData.name}
                 width={50}
                 height={50}
               />
@@ -256,6 +261,7 @@ const SingleProduct = ({ params }) => {
             <div className="flex flex-col items-center">
               <Image
                 src="https://www.digikala.com/statics/img/svg/infosection/original-products.svg"
+                alt={singleProData.name}
                 width={50}
                 height={50}
               />

@@ -3,9 +3,9 @@ const { default: Image } = require("next/image");
 const DoubleCards = ({ cards }) => {
   return (
     <div className="grid grid-cols-2 w-full gap-5 my-14">
-      {cards.map((card) => (
+      {cards.map((card, index) => (
         <Image
-          key={card.id}
+          key={index}
           alt="جشنواره دیجیکالا"
           src={card.image}
           width={1000}

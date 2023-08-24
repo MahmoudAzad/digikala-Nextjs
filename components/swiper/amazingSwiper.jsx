@@ -34,7 +34,6 @@ const AmazingSwiper = ({ products, color }) => {
             slidesPerView: 7,
           },
         }}
-        preloadImages={false}
         className="mySwiper amazing-swiper h-auto w-full bg-transparent"
         modules={[Navigation]}
         navigation={true}
@@ -60,8 +59,8 @@ const AmazingSwiper = ({ products, color }) => {
             </div>
           </div>
         </SwiperSlide>
-        {products.slice(0, 12).map((product) => (
-          <SwiperSlide key={product.id} className="px-[0.75px]">
+        {products.slice(0, 12).map((product, index) => (
+          <SwiperSlide key={index} className="px-[0.75px]">
             <Link href={`/product/${product.id}`}>
               <div className="bg-white h-full flex flex-col justify-between px-2 py-6 cursor-pointer">
                 <Image

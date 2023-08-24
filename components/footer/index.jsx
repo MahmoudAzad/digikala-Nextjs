@@ -24,7 +24,12 @@ const Footer = ({ footerData }) => {
   return (
     <>
       <div className="border-t px-5 py-10">
-        <Image src={digikalaFooterLogo} width={100} height={100} />
+        <Image
+          src={digikalaFooterLogo}
+          alt="دیجی کالا"
+          width={100}
+          height={100}
+        />
         <div className="flex justify-between items-center mt-5">
           <div className="lg:flex gap-x-10 text-xs text-gray-800">
             <p>تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱</p>
@@ -39,21 +44,27 @@ const Footer = ({ footerData }) => {
           </div>
         </div>
         <div className="hidden lg:flex justify-around items-center mt-10 flex-wrap">
-          {footerIcons.map((icon) => (
-            <div className="flex flex-col justify-center items-center  gap-y-1">
-              <Image src={icon.image} width={50} height={50} />
+          {footerIcons.map((icon, index) => (
+            <div
+              className="flex flex-col justify-center items-center  gap-y-1"
+              key={index}
+            >
+              <Image src={icon.image} alt={icon.name} width={50} height={50} />
               <p className="text-xs">{icon.name}</p>
             </div>
           ))}
         </div>
         <div className="grid grid-cols-2 mt-5 gap-y-4 lg:grid-cols-4 lg:mt-10">
-          {categories.map((category) => (
-            <div key={category.id}>
+          {categories.map((category, index) => (
+            <div key={index}>
               <h2 className="font-bold mb-2 text-sm lg:text-lg">
                 {category.name}
               </h2>
-              {category.subCategory.map((sub) => (
-                <p className="text-gray-600 text-xs lg:text-sm py-2 cursor-pointer">
+              {category.subCategory.map((sub, index) => (
+                <p
+                  className="text-gray-600 text-xs lg:text-sm py-2 cursor-pointer"
+                  key={index}
+                >
                   {sub.name}
                 </p>
               ))}
@@ -71,14 +82,25 @@ const Footer = ({ footerData }) => {
         </div>
         <div className="bg-cyan-900 rounded-xl p-5 lg:flex lg:justify-between lg:items-center mt-10">
           <div className="flex justify-center gap-x-4 ">
-            <Image src={footerBanner[0].image} width="30" height="50" />
+            <Image
+              src={footerBanner[0].image}
+              alt="دیجی کالا"
+              width="30"
+              height="50"
+            />
             <p className="text-white text-lg font-bold">
               دانلود اپلیکیشن دیجی‌کالا
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-x-3 gap-y-3 pt-5 cursor-pointer lg:pt-0">
-            {footerBanner.slice(1, 4).map((item) => (
-              <Image src={item.image} width={130} height={100} />
+            {footerBanner.slice(1, 4).map((item, index) => (
+              <Image
+                key={index}
+                src={item.image}
+                alt="دیجی کالا"
+                width={130}
+                height={100}
+              />
             ))}
           </div>
         </div>
@@ -101,10 +123,11 @@ const Footer = ({ footerData }) => {
             </p>
           </div>
           <div className="flex justify-center items-center lg:justify-end">
-            {footerSymbols.map((symbol) => (
-              <div key={symbol.id} className="border-2 rounded-xl mx-2">
+            {footerSymbols.map((symbol, index) => (
+              <div key={index} className="border-2 rounded-xl mx-2">
                 <Image
                   src={symbol.image}
+                  alt="نماد اعتماد"
                   width={70}
                   height={70}
                   className="w-24 h-24 p-3"
@@ -120,10 +143,11 @@ const Footer = ({ footerData }) => {
         </p>
       </div>
       <div className="grid grid-cols-3 lg:grid-cols-9 bg-zinc-200">
-        {footerBrands.map((brand) => (
-          <div key={brand.id} className="py-5 place-self-center">
+        {footerBrands.map((brand, index) => (
+          <div key={index} className="py-5 place-self-center">
             <Image
               src={brand.image}
+              alt="دیجی کالا"
               width={100}
               height={100}
               className="place-self-center"
