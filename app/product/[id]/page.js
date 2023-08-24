@@ -183,7 +183,7 @@ const SingleProduct = ({ params }) => {
             <div className="flex items-start gap-x-2  pt-2 mt-3 text-gray-600  bg-white border-t">
               <HiInformationCircle className="text-2xl " />
               <p className="text-xs  leading-loose ">
-                امکان برگشت کالا در گروه موبایل با دلیل "انصراف از خرید" تنها در
+                امکان برگشت کالا در گروه موبایل با دلیل انصراف از خرید تنها در
                 صورتی مورد قبول است که پلمب کالا باز نشده باشد. تمام گوشی‌های
                 دیجی‌کالا ضمانت رجیستری دارند. در صورت وجود مشکل رجیستری،
                 می‌توانید بعد از مهلت قانونی ۳۰ روزه، گوشی خریداری‌شده را مرجوع
