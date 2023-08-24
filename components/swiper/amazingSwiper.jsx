@@ -16,7 +16,7 @@ const AmazingSwiper = ({ products, color }) => {
 
   useEffect(() => {
     amazingSwiperRef.current.style.background = color;
-  }, []);
+  }, [color]);
   return (
     <div ref={amazingSwiperRef} className="rounded-2xl py-5 px-2 mb-4 mt-4">
       <Swiper

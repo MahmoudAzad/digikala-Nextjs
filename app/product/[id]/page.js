@@ -171,7 +171,6 @@ const SingleProduct = ({ params }) => {
             {singleProData.productsValues?.map((attributes, index) => (
               <ul key={index}>
                 <li className="flex items-center gap-x-3 mt-2">
-                  <p className="text-gray-500">&#x2022;</p>
                   <p className="text-xs text-gray-600">
                     {attributes.filter} :{" "}
                   </p>
