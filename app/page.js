@@ -8,27 +8,18 @@ import PopularBrandsSwiper from "@/components/swiper/popularBrandsSwiper";
 import SuggestionSwiper from "@/components/swiper/suggestionSwiper";
 import BasedOnUserViewsCards from "@/components/card/basedOnUserViewsCards";
 
-import {
-  fetchBlogData,
-  fetchBrand,
-  fetchCategory,
-  fetchDigikalaSubCategories,
-  fetchDoubleCards,
-  fetchHomePageDetail,
-  fetchMainCategory,
-  fetchProduct,
-} from "@/services/services";
+import { fetching } from "@/services/services";
 import Image from "next/image";
 
 const getData = async () => {
-  const product = await fetchProduct();
-  const mainCategory = await fetchMainCategory();
-  const category = await fetchCategory();
-  const homePageDetail = await fetchHomePageDetail();
-  const digikalaSubCategories = await fetchDigikalaSubCategories();
-  const doubleCards = await fetchDoubleCards();
-  const brands = await fetchBrand();
-  const blogData = await fetchBlogData();
+  const product = await fetching("/product");
+  const mainCategory = await fetching("/mainCategory");
+  const category = await fetching("/category");
+  const homePageDetail = await fetching("/homePageDetail");
+  const digikalaSubCategories = await fetching("/DigikalaSubCategories");
+  const doubleCards = await fetching("/dobleCards");
+  const brands = await fetching("/brand");
+  const blogData = await fetching("/blog");
 
   return {
     product,

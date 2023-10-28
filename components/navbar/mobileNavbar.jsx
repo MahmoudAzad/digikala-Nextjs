@@ -9,8 +9,8 @@ import {
 
 const MobileNavbar = () => {
   return (
-    <div className="lg:hidden">
-      <div className="flex items-center justify-between border-b-2 mx-5 py-3">
+    <div className="lg:hidden  ">
+      <div className="flex  items-center justify-between border-b-2 py-3 px-8 bg-white h-16 fixed w-full top-0 z-20">
         <HiMenu className="text-xl cursor-pointer" />
         <Image
           src="https://www.digikala.com/statics/img/svg/logo.svg"
@@ -20,7 +20,8 @@ const MobileNavbar = () => {
         />
         <HiOutlineQuestionMarkCircle className="text-xl cursor-pointer rounded-md" />
       </div>
-      <div className="flex items-center justify-around py-3 mx-4 border-b-2">
+
+      <div className="flex items-center justify-around py-3 px-4 mt-16 border-b-2">
         <form className="flex relative items-center basis-4/5">
           <input
             type="text"

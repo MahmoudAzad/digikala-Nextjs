@@ -31,7 +31,7 @@ const Menu = () => {
   }, []);
 
   return (
-    <div className="hidden lg:pt-16 px-10 mt-2 lg:flex items-center justify-between">
+    <div className="hidden lg:pt-16 px-10 mt-2 lg:flex items-center justify-between border-b-2">
       <ul
         onMouseLeave={bottomLineHidden}
         onMouseEnter={bottomLineShow}

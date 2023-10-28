@@ -1,11 +1,11 @@
-import { fetchFooter } from "@/services/services";
 import "../styles/globals.css";
+import { fetching } from "@/services/services";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Menu from "@/components/menu/menu";
 
 const getFooterData = async () => {
-  const footerData = await fetchFooter();
+  const footerData = await fetching("/footer");
   return {
     footerData,
   };

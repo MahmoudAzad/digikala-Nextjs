@@ -82,3 +82,11 @@ body {
   height: calc((100%) / 2) !important;
   display: flex;
 }
+
+/* ===================================== SingleProductSwiper ===================================== */
+
+.singleProduct-swiper .swiper-pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
