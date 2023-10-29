@@ -16,8 +16,8 @@ const SingleProductSwiper = ({ singleProData, images }) => {
         modules={[Pagination]}
         className="mySwiper singleProduct-swiper"
       >
-        {images?.map((slide) => (
-          <SwiperSlide className="" key={slide.id}>
+        {images?.map((slide, index) => (
+          <SwiperSlide key={index}>
             <div className="flex justify-center">
               <Image
                 alt={singleProData.name}

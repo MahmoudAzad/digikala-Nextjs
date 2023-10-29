@@ -11,7 +11,7 @@ const DesctopNavbar = () => {
       <div className="flex">
         <Image
           src="https://www.digikala.com/statics/img/svg/logo.svg"
-          alt="digikala"
+          alt="دیجی کالا"
           className="mr-4 ml-4"
           width={120}
           height={120}

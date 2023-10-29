@@ -14,7 +14,7 @@ const MobileNavbar = () => {
         <HiMenu className="text-xl cursor-pointer" />
         <Image
           src="https://www.digikala.com/statics/img/svg/logo.svg"
-          alt="digikala"
+          alt="دیجی کالا"
           width={90}
           height={90}
         />
@@ -34,7 +34,7 @@ const MobileNavbar = () => {
           <HiOutlineLogin className="w-6 h-6" />
           <p className="text-xs font-bold px-1">ورود</p>
         </div>
-        <div className="">
+        <div>
           <HiOutlineShoppingBag className="w-6 h-6 " />
         </div>
       </div>

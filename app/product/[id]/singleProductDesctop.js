@@ -23,7 +23,6 @@ import {
 
 const SingleProductDesctop = ({ singleProData, images }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -68,13 +67,19 @@ const SingleProductDesctop = ({ singleProData, images }) => {
                 />
               </div>
               {images && images.length > 0 && (
-                <Image src={images[0].image} width={500} height={500} />
+                <Image
+                  src={images[0].image}
+                  width={500}
+                  height={500}
+                  alt="دیجیکالا"
+                />
               )}
             </div>
             <div className="flex justify-center">
-              {images?.map((image) => (
+              {images?.map((image, index) => (
                 <Image
-                  key={image.id}
+                  key={index}
+                  alt="دیجیکالا"
                   src={image.image}
                   width={100}
                   height={100}
@@ -266,7 +271,8 @@ const SingleProductDesctop = ({ singleProData, images }) => {
           <Image
             src="https://dkstatics-public.digikala.com/digikala-admin-landing/a8ec1bb32317f8f3d393ea6a0cee382772f9102a_1688480325.jpg"
             fill
-            className="rounded-lg "
+            className="rounded-lg"
+            alt="دیجی‌کالا"
           />
         </div>
       </div>

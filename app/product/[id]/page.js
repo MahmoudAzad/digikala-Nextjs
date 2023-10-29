@@ -13,8 +13,6 @@ const SingleProduct = () => {
     const fetchFunction = async () => {
       const milad = await fetchSingleProduct(id);
       setSingleProductData(milad);
-      console.log("milad => ", milad);
-      console.log("id => ", id);
     };
     fetchFunction();
   }, [id]);

@@ -16,7 +16,6 @@ const Footer = ({ footerData }) => {
   const footerBrands = footerData[2].brands;
   const footerBanner = footerData[3].banner;
   const footerSymbols = footerData[4].symbols;
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -44,7 +43,7 @@ const Footer = ({ footerData }) => {
           </div>
         </div>
         <div className="hidden lg:flex justify-around items-center mt-10 flex-wrap">
-          {footerIcons.map((icon, index) => (
+          {footerIcons?.map((icon, index) => (
             <div
               className="flex flex-col justify-center items-center  gap-y-1"
               key={index}
@@ -55,7 +54,7 @@ const Footer = ({ footerData }) => {
           ))}
         </div>
         <div className="grid grid-cols-2 mt-5 gap-y-4 lg:grid-cols-4 lg:mt-10">
-          {categories.map((category, index) => (
+          {categories?.map((category, index) => (
             <div key={index}>
               <h2 className="font-bold mb-2 text-sm lg:text-lg">
                 {category.name}
@@ -93,7 +92,7 @@ const Footer = ({ footerData }) => {
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-x-3 gap-y-3 pt-5 cursor-pointer lg:pt-0">
-            {footerBanner.slice(1, 4).map((item, index) => (
+            {footerBanner?.slice(1, 4).map((item, index) => (
               <Image
                 key={index}
                 src={item.image}
@@ -123,7 +122,7 @@ const Footer = ({ footerData }) => {
             </p>
           </div>
           <div className="flex justify-center items-center lg:justify-end">
-            {footerSymbols.map((symbol, index) => (
+            {footerSymbols?.map((symbol, index) => (
               <div key={index} className="border-2 rounded-xl mx-2">
                 <Image
                   src={symbol.image}
@@ -143,7 +142,7 @@ const Footer = ({ footerData }) => {
         </p>
       </div>
       <div className="grid grid-cols-3 lg:grid-cols-9 bg-zinc-200">
-        {footerBrands.map((brand, index) => (
+        {footerBrands?.map((brand, index) => (
           <div key={index} className="py-5 place-self-center">
             <Image
               src={brand.image}

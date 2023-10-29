@@ -42,7 +42,7 @@ const SuggestionSwiper = ({ allProducts }) => {
           className="suggestionSwiper w-full h-full rounded-2xl border"
         >
           {allProducts
-            .filter((products) => products.isSuggest == true)
+            ?.filter((products) => products.isSuggest == true)
             .slice(0, 14)
             .map((product, index) => {
               return (

@@ -1,9 +1,9 @@
-const { default: Image } = require("next/image");
+import Image from "next/image";
 
 const DoubleCards = ({ cards }) => {
   return (
     <div className="grid grid-cols-2 w-full gap-5 my-14">
-      {cards.map((card, index) => (
+      {cards?.map((card, index) => (
         <Image
           key={index}
           alt="جشنواره دیجیکالا"

@@ -21,7 +21,7 @@ const PopularBrandsSwiper = ({ brands }) => {
           },
         }}
       >
-        {brands.map((brand, index) => (
+        {brands?.map((brand, index) => (
           <SwiperSlide key={index}>
             <Image
               src={brand.image}

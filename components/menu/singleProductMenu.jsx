@@ -38,7 +38,6 @@ const SingleProductMenu = ({ singleProData, images }) => {
   const [comments, setComments] = useState();
   const [showMore, setShowMore] = useState(false);
   const [questions, setQuestions] = useState();
-
   const menuItems = [
     { id: 1, label: "دیدگاه‌ها" },
     { id: 2, label: "معرفی" },
@@ -106,7 +105,7 @@ const SingleProductMenu = ({ singleProData, images }) => {
   return (
     <div className="mt-10 ">
       <ul className="flex justify-between md:justify-start sm:px-10 px-2 border-b sticky top-16 z-40 overflow-x-hidden  bg-white ">
-        {menuItems.map((item) => (
+        {menuItems?.map((item) => (
           <li
             key={item.id}
             className={`py-2 md:px-5 cursor-pointer text-[10px] md:text-xs font-bold text-gray-700${
@@ -177,7 +176,7 @@ const SingleProductMenu = ({ singleProData, images }) => {
               </div>
               <p className="lg:hidden font-bold pb-5">دیدگاه‌ها</p>
               <div className=" sm:grid grid-cols-2 md:grid-cols-3 lg:hidden">
-                {comments?.map((comment, index) => (
+                {comments?.map((comment) => (
                   <div
                     key={comment.id}
                     className="border rounded-lg px-5 py-5 gap-y-5 flex flex-col justify-between grid-row-3"

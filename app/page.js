@@ -77,7 +77,7 @@ const Home = async () => {
           width="2000"
           height="1000"
           className="rounded-2xl mt-10"
-          alt="digikala"
+          alt="دیجی‌کالا"
         />
       </div>
     </>

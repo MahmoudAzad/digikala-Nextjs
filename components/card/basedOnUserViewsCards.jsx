@@ -1,4 +1,4 @@
-const { default: Image } = require("next/image");
+import Image from "next/image";
 import { HiChevronLeft } from "react-icons/hi";
 
 const BasedOnUserViewsCards = ({ categories, products }) => {
@@ -17,7 +17,7 @@ const BasedOnUserViewsCards = ({ categories, products }) => {
               </span>
               <div className="bg-[#e5e7eb] mt-3 grid grid-cols-2 grid-rows-2  gap-0.5">
                 {products
-                  .filter((product) => product.subCategory == category.name)
+                  ?.filter((product) => product.subCategory == category.name)
                   .slice(0, 4)
                   .map((pro, index) => (
                     <div
@@ -27,8 +27,8 @@ const BasedOnUserViewsCards = ({ categories, products }) => {
                       <Image
                         src={pro.thumbnail}
                         alt={pro.name}
-                        width={120}
-                        height={120}
+                        width="120"
+                        height="120"
                         className="w-1/2"
                       />
                     </div>

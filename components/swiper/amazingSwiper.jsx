@@ -59,7 +59,7 @@ const AmazingSwiper = ({ products, color }) => {
             </div>
           </div>
         </SwiperSlide>
-        {products.slice(0, 12).map((product, index) => (
+        {products?.slice(0, 12).map((product, index) => (
           <SwiperSlide key={index} className="px-[0.75px]">
             <Link href={`/product/${product.id}`}>
               <div className="bg-white h-full flex flex-col justify-between px-2 py-6 cursor-pointer">

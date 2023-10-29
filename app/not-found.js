@@ -23,7 +23,7 @@ const notFound = async () => {
         src={notFoundData[0].image}
         width="500"
         height="500"
-        alt="not-found"
+        alt="صفحه مورد نظر پیدا نشد !"
       />
     </div>
   );
