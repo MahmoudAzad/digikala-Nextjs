@@ -1,9 +1,6 @@
-"use client";
-import SingleProductMenu from "@/components/menu/singleProductMenu";
 import SimilarProductsSwiper from "@/components/swiper/similarProductsSwiper";
 import SinglePro_iconsTooltip from "@/components/tooltip/singlePro_iconsTooltip";
 import Image from "next/image";
-import { useState } from "react";
 import {
   HiChevronLeft,
   HiClipboardCheck,
@@ -22,14 +19,6 @@ import {
 } from "react-icons/hi";
 
 const SingleProductDesctop = ({ singleProData, images }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
   return (
     <div className="hidden lg:block">
       <div className="mt-6 mx-5">
@@ -40,7 +29,7 @@ const SingleProductDesctop = ({ singleProData, images }) => {
         <div className="flex gap-x-6 items-start">
           <div className="flex flex-col basis-1/3">
             <div className="flex items-start">
-              <div className="flex-col space-y-5 mt-20 gap-y-4 text-2xl text-gray-600">
+              {/* <div className="flex-col space-y-5 mt-20 gap-y-4 text-2xl text-gray-600">
                 <SinglePro_iconsTooltip
                   Icon={HiOutlineHeart}
                   tooltipText="اضافه به علاقه‌مندی"
@@ -65,7 +54,7 @@ const SingleProductDesctop = ({ singleProData, images }) => {
                   Icon={HiOutlineMenu}
                   tooltipText={"افزودن به لیست"}
                 />
-              </div>
+              </div> */}
               {images && images.length > 0 && (
                 <Image
                   src={images[0].image}
