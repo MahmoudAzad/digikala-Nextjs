@@ -1,3 +1,4 @@
+import DigikalaPossibilitiesCards from "@/components/card/digikalaPossibilitiesCards";
 import SingleProductSwiper from "@/components/swiper/singleProductSwiper";
 import Image from "next/image";
 import {
@@ -145,55 +146,7 @@ const SingleProductMobile = ({ singleProData, images }) => {
             <p>ارسال فوری برای شهر تهران (رایگان)</p>
           </div>
         </div>
-        <div className="flex flex-wrap justify-around bg-white my-5 py-3 px-3 gap-y-2 gap-x-1 ">
-          <div className="flex flex-col items-center">
-            <Image
-              src="https://www.digikala.com/statics/img/svg/infosection/express-delivery.svg"
-              alt={singleProData.name}
-              width={50}
-              height={50}
-            />
-            <p className="text-xs text-gray-500">امکان تحویل اکسپرس</p>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <Image
-              src="https://www.digikala.com/statics/img/svg/infosection/support.svg"
-              alt={singleProData.name}
-              width={50}
-              height={50}
-            />
-            <p className="text-xs text-gray-500">۲۴ ساعته، ۷ روز هفته</p>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <Image
-              src="https://www.digikala.com/statics/img/svg/infosection/cash-on-delivery.svg"
-              alt={singleProData.name}
-              width={50}
-              height={50}
-            />
-            <p className="text-xs text-gray-500">امکان پرداخت در محل</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="https://www.digikala.com/statics/img/svg/infosection/days-return.svg"
-              alt={singleProData.name}
-              width={50}
-              height={50}
-            />
-            <p className="text-xs text-gray-500">هفت روز ضمانت بازگشت کالا</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="https://www.digikala.com/statics/img/svg/infosection/original-products.svg"
-              alt={singleProData.name}
-              width={50}
-              height={50}
-            />
-            <p className="text-xs text-gray-500">ضمانت اصل بودن کالا</p>
-          </div>
-        </div>
+        <DigikalaPossibilitiesCards />
       </div>
 
       <div className="bottom-0  z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
