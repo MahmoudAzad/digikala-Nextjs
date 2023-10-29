@@ -55,16 +55,16 @@ const SingleProductDesctop = ({ singleProData, images }) => {
                   tooltipText={"افزودن به لیست"}
                 />
               </div> */}
-              {images && images.length > 0 && (
+              {/* {images && images.length > 0 && (
                 <Image
                   src={images[0].image}
                   width={500}
                   height={500}
                   alt="دیجیکالا"
                 />
-              )}
+              )} */}
             </div>
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               {images?.map((image, index) => (
                 <Image
                   key={index}
@@ -74,7 +74,7 @@ const SingleProductDesctop = ({ singleProData, images }) => {
                   height={100}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
           <div className="basis-2/3 mt-14">
             <p className="text-sm font-bold text-blue-500 ">
@@ -111,12 +111,12 @@ const SingleProductDesctop = ({ singleProData, images }) => {
                   <p className="text-sm font-bold">
                     ارسال رایگان برای این کالا
                   </p>
-                  <Image
+                  {/* <Image
                     src="https://www.digikala.com/_next/static/media/normalFreeShippingTouchPointImage.d4416515.svg"
                     alt={singleProData.name}
                     width={100}
                     height={100}
-                  />
+                  /> */}
                 </div>
 
                 <div className="bg-white my-5 px-5 py-5 border rounded-lg">
@@ -142,12 +142,12 @@ const SingleProductDesctop = ({ singleProData, images }) => {
                   <p className="text-xs text-sky-500">۴ فروشنده دیگر</p>
                 </ul>
                 <ul className="flex items-end gap-x-3 pt-6">
-                  <Image
+                  {/* <Image
                     src="https://iili.io/hufgQj.th.png"
                     alt={singleProData.name}
                     width={30}
                     height={30}
-                  />
+                  /> */}
                   <p className=" font-bold">دیجی‌کالا</p>
                 </ul>
                 <ul className="flex flex-col gap-y-2 pt-3 pr-8 text-sm border-b-2 pb-4">
@@ -208,61 +208,61 @@ const SingleProductDesctop = ({ singleProData, images }) => {
 
         <div className="flex justify-around bg-white my-5 pt-3 pb-6 px-3 border-t border-b ">
           <div className="flex flex-col items-center">
-            <Image
+            {/* <Image
               src="https://www.digikala.com/statics/img/svg/infosection/express-delivery.svg"
               alt={singleProData.name}
               width={50}
               height={50}
-            />
+            /> */}
             <p className="text-xs text-gray-500">امکان تحویل اکسپرس</p>
           </div>
 
           <div className="flex flex-col items-center">
-            <Image
+            {/* <Image
               src="https://www.digikala.com/statics/img/svg/infosection/support.svg"
               alt={singleProData.name}
               width={50}
               height={50}
-            />
+            /> */}
             <p className="text-xs text-gray-500">۲۴ ساعته، ۷ روز هفته</p>
           </div>
 
           <div className="flex flex-col items-center">
-            <Image
+            {/* <Image
               src="https://www.digikala.com/statics/img/svg/infosection/cash-on-delivery.svg"
               alt={singleProData.name}
               width={50}
               height={50}
-            />
+            /> */}
             <p className="text-xs text-gray-500">امکان پرداخت در محل</p>
           </div>
           <div className="flex flex-col items-center">
-            <Image
+            {/* <Image
               src="https://www.digikala.com/statics/img/svg/infosection/days-return.svg"
               alt={singleProData.name}
               width={50}
               height={50}
-            />
+            /> */}
             <p className="text-xs text-gray-500">هفت روز ضمانت بازگشت کالا</p>
           </div>
           <div className="flex flex-col items-center">
-            <Image
+            {/* <Image
               src="https://www.digikala.com/statics/img/svg/infosection/original-products.svg"
               alt={singleProData.name}
               width={50}
               height={50}
-            />
+            /> */}
             <p className="text-xs text-gray-500">ضمانت اصل بودن کالا</p>
           </div>
         </div>
         <SimilarProductsSwiper />
         <div className="w-full h-48 relative">
-          <Image
+          {/* <Image
             src="https://dkstatics-public.digikala.com/digikala-admin-landing/a8ec1bb32317f8f3d393ea6a0cee382772f9102a_1688480325.jpg"
             fill
             className="rounded-lg"
             alt="دیجی‌کالا"
-          />
+          /> */}
         </div>
       </div>
     </div>
