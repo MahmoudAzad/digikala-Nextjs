@@ -206,16 +206,15 @@ const Menu = () => {
         onMouseLeave={mouseLeaveMainCategory}
       >
         <div className="w-1/6 h-full flex flex-col border border-t-0 ">
-          {mainCategory.map((mainCategory) => {
+          {mainCategory.map((mainCategory, index) => {
             return (
-              <Link href={`/main/${mainCategory.slug}`}>
-                <div
-                  className="h-full flex  items-center py-3 px-2 text-xs font-bold text-[#424750] hover:text-[#ef394e] hover:bg-[#f0f0f180] cursor-pointer"
-                  onMouseEnter={(e) => hoverHandler(e)}
-                >
-                  {mainCategory.name}
-                </div>
-              </Link>
+              <div
+                className="h-full flex  items-center py-3 px-2 text-xs font-bold text-[#424750] hover:text-[#ef394e] hover:bg-[#f0f0f180] cursor-pointer"
+                onMouseEnter={(e) => hoverHandler(e)}
+                key={index}
+              >
+                {mainCategory.name}
+              </div>
             );
           })}
         </div>
@@ -226,60 +225,52 @@ const Menu = () => {
                 .filter(
                   (category) => category.mainCategory == firstMainCategoryName
                 )
-                .map((category) => {
+                .map((category, index) => {
                   return (
-                    <>
+                    <div key={index}>
                       <li>
-                        <Link href={`/search/${category.slug}`}>
-                          <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
-                            {category.name}
-                          </div>
-                        </Link>
+                        <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
+                          {category.name}
+                        </div>
                       </li>
-                      {category.subCategory.map((subCategory) => {
+                      {category.subCategory.map((subCategory, index) => {
                         return (
                           subCategory.name != "" && (
-                            <li>
-                              <Link href={`/search/${subCategory.slug}`}>
-                                <div className="text-[#81858b] !leading-[2.17rem] text-xs h-auto w-auto ml-12 hover:text-[#ef394e]">
-                                  {subCategory.name}
-                                </div>
-                              </Link>
+                            <li key={index}>
+                              <div className="text-[#81858b] !leading-[2.17rem] text-xs h-auto w-auto ml-12 hover:text-[#ef394e]">
+                                {subCategory.name}
+                              </div>
                             </li>
                           )
                         );
                       })}
-                    </>
+                    </div>
                   );
                 })}
             </>
           ) : (
             category
               .filter((category) => category.mainCategory == hoverMainCategory)
-              .map((category) => {
+              .map((category, index) => {
                 return (
-                  <>
+                  <div key={index}>
                     <li>
-                      <Link href={`/search/${category.slug}`}>
-                        <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
-                          {category.name}
-                        </div>
-                      </Link>
+                      <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
+                        {category.name}
+                      </div>
                     </li>
-                    {category.subCategory.map((subCategory) => {
+                    {category.subCategory.map((subCategory, index) => {
                       return (
                         subCategory.name != "" && (
-                          <li>
-                            <Link href={`/search/${subCategory.slug}`}>
-                              <div className="text-[#81858b] !leading-[2.17rem] text-xs h-auto w-auto ml-12 hover:text-[#ef394e]">
-                                {subCategory.name}
-                              </div>
-                            </Link>
+                          <li key={index}>
+                            <div className="text-[#81858b] !leading-[2.17rem] text-xs h-auto w-auto ml-12 hover:text-[#ef394e]">
+                              {subCategory.name}
+                            </div>
                           </li>
                         )
                       );
                     })}
-                  </>
+                  </div>
                 );
               })
           )}
