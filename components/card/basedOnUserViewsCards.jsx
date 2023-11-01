@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { HiChevronLeft } from "react-icons/hi";
 
 const BasedOnUserViewsCards = ({ categories, products }) => {
@@ -24,13 +25,15 @@ const BasedOnUserViewsCards = ({ categories, products }) => {
                       className="p-5 bg-white flex justify-center"
                       key={index}
                     >
-                      <Image
-                        src={pro.thumbnail}
-                        alt={pro.name}
-                        width="120"
-                        height="120"
-                        className="w-1/2"
-                      />
+                      <Link href={`/product/${pro.id}`}>
+                        <Image
+                          src={pro.thumbnail}
+                          alt={pro.name}
+                          width="120"
+                          height="120"
+                          className="w-1/2"
+                        />
+                      </Link>
                     </div>
                   ))}
               </div>

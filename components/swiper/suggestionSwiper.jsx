@@ -9,6 +9,7 @@ import "swiper/css/grid";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Grid } from "swiper";
 import Image from "next/image";
+import Link from "next/link";
 
 const SuggestionSwiper = ({ allProducts }) => {
   return (
@@ -47,17 +48,19 @@ const SuggestionSwiper = ({ allProducts }) => {
             .map((product, index) => {
               return (
                 <SwiperSlide key={index}>
-                  <div className="flex flex-col justify-center items-center w-full text-center border ">
-                    <Image
-                      src={product.thumbnail}
-                      alt={product.name}
-                      width={80}
-                      height={80}
-                    />
-                    <span className="font-bold lg:text-xs line-clamp-1 pt-2">
-                      {product.name}
-                    </span>
-                  </div>
+                  <Link href={`/product/${product.id}`}>
+                    <div className="flex flex-col justify-center items-center w-full text-center border ">
+                      <Image
+                        src={product.thumbnail}
+                        alt={product.name}
+                        width={80}
+                        height={80}
+                      />
+                      <span className="font-bold lg:text-xs line-clamp-1 pt-2">
+                        {product.name}
+                      </span>
+                    </div>
+                  </Link>
                 </SwiperSlide>
               );
             })}

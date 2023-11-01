@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import { fetching } from "@/services/services";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import Menu from "@/components/menu/menu";
+import Menu from "@/components/menu/megaMenu";
 
 const getFooterData = async () => {
   const footerData = await fetching("/footer");

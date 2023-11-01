@@ -1,0 +1,303 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { fetching } from "@/services/services";
+import {
+  HiOutlineLocationMarker,
+  HiMenu,
+  HiOutlineDatabase,
+  HiOutlineFire,
+  HiOutlineBackspace,
+  HiOutlineReceiptTax,
+} from "react-icons/hi";
+
+const Menu = () => {
+  const [mainCategory, setMainCategory] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [show, setShow] = useState(true);
+  const [hoverMainCategory, setHoverMainCategory] = useState("");
+  const [hoverSubMenu, setHoverSubMenu] = useState(false);
+  const [hover, sethover] = useState(false);
+  const [scrollPos, setScrollPos] = useState(0);
+
+  const ulRef = useRef();
+  const productCategory = useRef();
+  const tubeLights = useRef();
+
+  useEffect(() => {
+    window.addEventListener("scroll", controllNavbar);
+    return () => {
+      window.removeEventListener("scroll", controllNavbar);
+    };
+  });
+
+  useEffect(() => {
+    ulRef.current.childNodes.forEach((links, index) => {
+      links.addEventListener("mouseenter", (e) => {
+        tubeLights.current.style.left = e.target.offsetLeft + "px";
+        tubeLights.current.style.width = e.target.offsetWidth + "px";
+        tubeLights.current.style.opacity = "1";
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchMainCategory = await fetching("/mainCategory");
+      const fetchCategory = await fetching("/category");
+
+      setMainCategory(fetchMainCategory);
+      setCategory(fetchCategory);
+    };
+    fetchData();
+  }, []);
+
+  const mouseEnterMenu = () => {
+    sethover(true);
+    setHoverSubMenu(true);
+  };
+  const mouseLeaveMenu = () => {
+    setHoverSubMenu(false);
+    sethover(false);
+  };
+
+  const mouseEnterMainCategory = () => {
+    sethover(true);
+    setHoverSubMenu(false);
+    console.log("ine");
+  };
+  const mouseLeaveMainCategory = () => {
+    sethover(false);
+  };
+
+  const controllNavbar = () => {
+    if (hover === true) {
+      setShow(true);
+    } else {
+      if (window.scrollY > 100) {
+        setScrollPos(document.body.getBoundingClientRect().top);
+        setShow(document.body.getBoundingClientRect().top > scrollPos);
+      } else {
+        setShow(true);
+      }
+    }
+  };
+
+  const hideBottomLine = () => {
+    tubeLights.current.style.opacity = "0";
+    tubeLights.current.style.width = "0";
+  };
+
+  const showBottomLine = () => {
+    tubeLights.current.style.opacity = "1";
+  };
+
+  const hoverHandler = (e) => {
+    setHoverMainCategory(e.target.innerText);
+  };
+
+  const firstMainCategoryName = mainCategory.map(
+    (mainCategory) => mainCategory.name
+  )[0];
+
+  return (
+    <div
+      className={`hidden xl:block text-[11px] h-auto bg-white xl:px-0 w-full font-bold fixed z-[5] mt-[59px] transition-all duration-1000 shadow-md pt-3 ${
+        show ? "translate-y-0 " : "!-translate-y-  !mt-0 "
+      }`}
+    >
+      <div className="w-full bg-white">
+        <div className="flex justify-between items-center">
+          <ul
+            ref={ulRef}
+            onMouseLeave={hideBottomLine}
+            onMouseEnter={showBottomLine}
+            className=" bg-white gap-x-1 w-fit xl:flex h-full items-center relative"
+          >
+            <div
+              ref={productCategory}
+              onMouseEnter={mouseEnterMenu}
+              onMouseLeave={mouseLeaveMenu}
+              className="movement relative cursor-pointer pl-4 lg:mr-4 xl:py-2 z-[999] h-full hidden  xl:flex xl:items-center text-[13px] "
+            >
+              <li className="flex">
+                <HiMenu />
+                دسته بندی کالا ها
+              </li>
+              <div className="w-[1px] h-[16px] bg-[#ceced8]   absolute left-0"></div>
+            </div>
+            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D]  py-4 cursor-pointer">
+              <Link
+                href={{ pathname: "search/", query: { name: "leangchhean" } }}
+                className="flex items-center"
+              >
+                <li className="flex">
+                  <HiOutlineDatabase className="text-base" />
+                  سوپرمارکت
+                </li>
+              </Link>
+            </div>
+
+            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer">
+              <Link href="/" className="active-a">
+                <li className="flex">
+                  <HiOutlineFire className="text-base" />
+                  پرفروش ترین ها
+                </li>
+              </Link>
+            </div>
+
+            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer">
+              <Link href="/">
+                <li className="flex">
+                  <HiOutlineBackspace className="text-base" />
+                  تخفیف ها و پیشنهاد ها
+                </li>
+              </Link>
+            </div>
+
+            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer flex items-center">
+              <Link href="/">
+                <li className="flex">
+                  <HiOutlineReceiptTax className="text-base" />
+                  شگفت انگیزها
+                </li>
+              </Link>
+            </div>
+
+            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer">
+              <Link href="/">
+                <li>سوالی دارید؟</li>
+              </Link>
+            </div>
+
+            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer">
+              <Link href="/">
+                <li>فروشنده شوید!</li>
+              </Link>
+            </div>
+            <div
+              ref={tubeLights}
+              className="hidden xl:block duration-[0.3s] absolute bottom-0 opacity-0 h-[3px] w-0 bg-[#ef394e] rounded-tl rounded-tr"
+            ></div>
+          </ul>
+
+          <div className="flex items-center gap-1 ml-4">
+            <div className="relative">
+              <span className="relative group flex items-center gap-1 cursor-pointer">
+                <HiOutlineLocationMarker className="text-base" />
+                <p className="text-xs text-zinc-600">
+                  لطفا شهر خود را انتخاب کنید
+                </p>
+                <span className="bg-zinc-500 text-xs text-white w-44 py-3 px-2 rounded-md  shadow-lg absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 z-10">
+                  لطفا شهر خود را انتخاب کنید
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`bg-white -translate-y-[1px] list-none shadow-sm h-[500px] w-auto mx-4 border ${
+          hover ? "flex flex-wrap" : "hidden"
+        }`}
+        onMouseEnter={mouseEnterMainCategory}
+        onMouseLeave={mouseLeaveMainCategory}
+      >
+        <div className="w-1/6 h-full flex flex-col border border-t-0 ">
+          {mainCategory.map((mainCategory) => {
+            return (
+              <Link href={`/main/${mainCategory.slug}`}>
+                <div
+                  className="h-full flex  items-center py-3 px-2 text-xs font-bold text-[#424750] hover:text-[#ef394e] hover:bg-[#f0f0f180] cursor-pointer"
+                  onMouseEnter={(e) => hoverHandler(e)}
+                >
+                  {mainCategory.name}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+        <div className="w-5/6 h-full flex flex-col flex-wrap py-5 px-4 bg-white">
+          {hoverSubMenu ? (
+            <>
+              {category
+                .filter(
+                  (category) => category.mainCategory == firstMainCategoryName
+                )
+                .map((category) => {
+                  return (
+                    <>
+                      <li>
+                        <Link href={`/search/${category.slug}`}>
+                          <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
+                            {category.name}
+                          </div>
+                        </Link>
+                      </li>
+                      {category.subCategory.map((subCategory) => {
+                        return (
+                          subCategory.name != "" && (
+                            <li>
+                              <Link href={`/search/${subCategory.slug}`}>
+                                <div className="text-[#81858b] !leading-[2.17rem] text-xs h-auto w-auto ml-12 hover:text-[#ef394e]">
+                                  {subCategory.name}
+                                </div>
+                              </Link>
+                            </li>
+                          )
+                        );
+                      })}
+                    </>
+                  );
+                })}
+            </>
+          ) : (
+            category
+              .filter((category) => category.mainCategory == hoverMainCategory)
+              .map((category) => {
+                return (
+                  <>
+                    <li>
+                      <Link href={`/search/${category.slug}`}>
+                        <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
+                          {category.name}
+                        </div>
+                      </Link>
+                    </li>
+                    {category.subCategory.map((subCategory) => {
+                      return (
+                        subCategory.name != "" && (
+                          <li>
+                            <Link href={`/search/${subCategory.slug}`}>
+                              <div className="text-[#81858b] !leading-[2.17rem] text-xs h-auto w-auto ml-12 hover:text-[#ef394e]">
+                                {subCategory.name}
+                              </div>
+                            </Link>
+                          </li>
+                        )
+                      );
+                    })}
+                  </>
+                );
+              })
+          )}
+        </div>
+      </div>
+      <>
+        {
+          <div
+            className={`${
+              hover
+                ? "absolute bg-black w-full h-[200vh] top-9 -z-10 opacity-30"
+                : "hidden"
+            }`}
+          ></div>
+        }
+      </>
+    </div>
+  );
+};
+
+export default Menu;
