@@ -1,3 +1,4 @@
+export const dynamic = "auto";
 import "../styles/globals.css";
 import { fetching } from "@/services/services";
 import Footer from "@/components/footer";
