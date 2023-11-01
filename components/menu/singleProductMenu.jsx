@@ -17,8 +17,7 @@ import {
 
 const fetchCommentsData = async () => {
   const response = await fetch(
-    `https://digikala-d567.onrender.com/customersComment`,
-    { cache: "no-store" }
+    `https://digikala-d567.onrender.com/customersComment`
   );
   const data = await response.json();
   return data;
@@ -26,8 +25,7 @@ const fetchCommentsData = async () => {
 
 const fetchQuestionsData = async () => {
   const response = await fetch(
-    `https://digikala-d567.onrender.com/customersQuestion`,
-    { cache: "no-store" }
+    `https://digikala-d567.onrender.com/customersQuestion`
   );
   const data = await response.json();
   return data;
