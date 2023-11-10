@@ -206,7 +206,7 @@ const Menu = () => {
         onMouseLeave={mouseLeaveMainCategory}
       >
         <div className="w-1/6 h-full flex flex-col border border-t-0 ">
-          {mainCategory.map((mainCategory, index) => {
+          {mainCategory?.map((mainCategory, index) => {
             return (
               <div
                 className="h-full flex  items-center py-3 px-2 text-xs font-bold text-[#424750] hover:text-[#ef394e] hover:bg-[#f0f0f180] cursor-pointer"
@@ -225,7 +225,7 @@ const Menu = () => {
                 .filter(
                   (category) => category.mainCategory == firstMainCategoryName
                 )
-                .map((category, index) => {
+                ?.map((category, index) => {
                   return (
                     <div key={index}>
                       <li>
@@ -233,7 +233,7 @@ const Menu = () => {
                           {category.name}
                         </div>
                       </li>
-                      {category.subCategory.map((subCategory, index) => {
+                      {category.subCategory?.map((subCategory, index) => {
                         return (
                           subCategory.name != "" && (
                             <li key={index}>
@@ -251,7 +251,7 @@ const Menu = () => {
           ) : (
             category
               .filter((category) => category.mainCategory == hoverMainCategory)
-              .map((category, index) => {
+              ?.map((category, index) => {
                 return (
                   <div key={index}>
                     <li>
@@ -259,7 +259,7 @@ const Menu = () => {
                         {category.name}
                       </div>
                     </li>
-                    {category.subCategory.map((subCategory, index) => {
+                    {category.subCategory?.map((subCategory, index) => {
                       return (
                         subCategory.name != "" && (
                           <li key={index}>

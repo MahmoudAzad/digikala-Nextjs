@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-module.exports = {
+const nextConfig = {
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en"],
+  },
+  reactStrictMode: true,
   images: {
     domains: [
       "www.digikala.com",
@@ -15,3 +18,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = nextConfig;
