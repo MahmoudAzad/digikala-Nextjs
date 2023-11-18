@@ -22,20 +22,11 @@ const SingleProduct = () => {
   }
   return (
     <>
-      <SingleProductDesctop
-        singleProData={singleProductData}
-        images={singleProductData.productImage}
-      />
+      <SingleProductDesctop singleProData={singleProductData} />
 
-      <SingleProductMobile
-        singleProData={singleProductData}
-        images={singleProductData.productImage}
-      />
+      <SingleProductMobile singleProData={singleProductData} />
 
-      <SingleProductMenu
-        singleProData={singleProductData}
-        images={singleProductData.productImage}
-      />
+      <SingleProductMenu singleProData={singleProductData} />
     </>
   );
 };

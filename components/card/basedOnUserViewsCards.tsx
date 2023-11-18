@@ -1,8 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ICategory } from "@/types/category";
+import { IProduct } from "@/types/product";
 import { HiChevronLeft } from "react-icons/hi";
 
-const BasedOnUserViewsCards = ({ categories, products }) => {
+interface Props {
+  categories: ICategory[];
+  products: IProduct[];
+}
+
+const BasedOnUserViewsCards: React.FC<Props> = ({ categories, products }) => {
   return (
     <div className="lg:grid lg:grid-cols-4">
       {categories

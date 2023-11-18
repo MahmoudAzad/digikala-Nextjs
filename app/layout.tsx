@@ -11,7 +11,11 @@ const getFooterData = async () => {
   };
 };
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { footerData } = await getFooterData();
   return (
     <html>

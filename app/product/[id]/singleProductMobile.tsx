@@ -1,5 +1,6 @@
 import DigikalaPossibilitiesCards from "@/components/card/digikalaPossibilitiesCards";
 import SingleProductSwiper from "@/components/swiper/singleProductSwiper";
+import { IProduct } from "@/types/product";
 import Image from "next/image";
 import {
   HiChevronLeft,
@@ -14,12 +15,19 @@ import {
   HiOutlineTruck,
 } from "react-icons/hi";
 
-const SingleProductMobile = ({ singleProData, images }) => {
+interface Props {
+  singleProData: IProduct;
+}
+
+const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
   return (
     <div className="lg:hidden">
       <div className="bg-gray-100 mb-10 ">
         <div>
-          <SingleProductSwiper singleProData={singleProData} images={images} />
+          <SingleProductSwiper
+            singleProData={singleProData}
+            images={singleProData.productImage}
+          />
           <div className="bg-white pb-5 font-bold px-5 ">
             <p className="text-xs text-sky-500 pb-3">
               {singleProData.category} / {singleProData.subCategory}

@@ -10,6 +10,8 @@ import BasedOnUserViewsCards from "@/components/card/basedOnUserViewsCards";
 
 import { fetching } from "@/services/services";
 import Image from "next/image";
+import { IProduct } from "@/types/product";
+import { IHomePageDetail } from "@/types/homePageDetail";
 
 const getData = async () => {
   const product = await fetching("/product");
@@ -19,7 +21,6 @@ const getData = async () => {
   const digikalaSubCategories = await fetching("/DigikalaSubCategories");
   const doubleCards = await fetching("/dobleCards");
   const brands = await fetching("/brand");
-  const blogData = await fetching("/blog");
 
   return {
     product,
@@ -29,7 +30,6 @@ const getData = async () => {
     digikalaSubCategories,
     doubleCards,
     brands,
-    blogData,
   };
 };
 
@@ -42,20 +42,23 @@ const Home = async () => {
     digikalaSubCategories,
     doubleCards,
     brands,
-    blogData,
   } = await getData();
 
   const amazingProducts = product
-    ?.filter((product) => product.offer > 0)
-    ?.map((product) => product)
-    .sort((a, b) => b.sellCount - a.sellCount);
+    ?.filter((product: IProduct) => product.offer)
+    ?.map((product: IProduct) => product);
 
   const amazingSwiperColor = homePageDetail?.map(
-    (item) => item.AmazingOfferSliderColor
+    (item: any) => item.AmazingOfferSliderColor
   );
 
-  const headerCarousels = homePageDetail?.map((item) => item.carousel);
-  const quadrupleCards = homePageDetail?.map((item) => item.banner);
+  const headerCarousels = homePageDetail?.map(
+    (item: IHomePageDetail) => item.carousel
+  );
+
+  const quadrupleCards = homePageDetail?.map(
+    (item: IHomePageDetail) => item.banner
+  );
   const firstDoubleCards = doubleCards?.slice(0, 2);
   const secoundDoubleCards = doubleCards?.slice(2, 4);
   return (
@@ -66,7 +69,7 @@ const Home = async () => {
       <div className="xl:mx-28">
         <AmazingSwiper products={amazingProducts} color={amazingSwiperColor} />
         <QuadrupleCards cards={quadrupleCards} />
-        <CategoriesCards cards={mainCategory} />
+        <CategoriesCards mainCategory={mainCategory} />
         <DoubleCards cards={firstDoubleCards} />
         <SuggestionSwiper allProducts={product} />
         <PopularBrandsSwiper brands={brands} />

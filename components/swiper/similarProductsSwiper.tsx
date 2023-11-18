@@ -9,9 +9,10 @@ import { useEffect, useState } from "react";
 import { fetching } from "@/services/services";
 import Link from "next/link";
 import Image from "next/image";
+import { IProduct } from "@/types/product";
 
 const SimilarProductsSwiper = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       const fetchProducts = await fetching("/product");

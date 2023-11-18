@@ -3,8 +3,12 @@
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+import { IBrand } from "@/types/brand";
 
-const PopularBrandsSwiper = ({ brands }) => {
+interface Props {
+  brands: IBrand[];
+}
+const PopularBrandsSwiper: React.FC<Props> = ({ brands }) => {
   return (
     <div className="border rounded-2xl py-8">
       <h1 className="text-xl font-bold text-center mb-4">محبوب‌ترین برندها</h1>

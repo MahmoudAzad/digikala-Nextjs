@@ -10,19 +10,19 @@ import {
   HiOutlineBackspace,
   HiOutlineReceiptTax,
 } from "react-icons/hi";
+import { ICategory, IMainCategory } from "@/types/category";
 
 const Menu = () => {
-  const [mainCategory, setMainCategory] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [mainCategory, setMainCategory] = useState<IMainCategory[]>([]);
+  const [category, setCategory] = useState<ICategory[]>([]);
   const [show, setShow] = useState(true);
   const [hoverMainCategory, setHoverMainCategory] = useState("");
   const [hoverSubMenu, setHoverSubMenu] = useState(false);
   const [hover, sethover] = useState(false);
   const [scrollPos, setScrollPos] = useState(0);
 
-  const ulRef = useRef();
-  const productCategory = useRef();
-  const tubeLights = useRef();
+  const ulRef = useRef<HTMLDivElement>(null);
+  const tubeLights = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.addEventListener("scroll", controllNavbar);
@@ -32,11 +32,14 @@ const Menu = () => {
   });
 
   useEffect(() => {
-    ulRef.current.childNodes.forEach((links, index) => {
+    ulRef.current?.childNodes.forEach((links) => {
       links.addEventListener("mouseenter", (e) => {
-        tubeLights.current.style.left = e.target.offsetLeft + "px";
-        tubeLights.current.style.width = e.target.offsetWidth + "px";
-        tubeLights.current.style.opacity = "1";
+        const target = e.target as HTMLElement;
+        if (tubeLights.current) {
+          tubeLights.current.style.left = target.offsetLeft + "px";
+          tubeLights.current.style.width = target.offsetWidth + "px";
+          tubeLights.current.style.opacity = "1";
+        }
       });
     });
   }, []);
@@ -64,7 +67,6 @@ const Menu = () => {
   const mouseEnterMainCategory = () => {
     sethover(true);
     setHoverSubMenu(false);
-    console.log("ine");
   };
   const mouseLeaveMainCategory = () => {
     sethover(false);
@@ -84,16 +86,22 @@ const Menu = () => {
   };
 
   const hideBottomLine = () => {
-    tubeLights.current.style.opacity = "0";
-    tubeLights.current.style.width = "0";
+    if (tubeLights.current) {
+      tubeLights.current.style.opacity = "0";
+      tubeLights.current.style.width = "0";
+    }
   };
 
   const showBottomLine = () => {
-    tubeLights.current.style.opacity = "1";
+    if (tubeLights.current) {
+      tubeLights.current.style.opacity = "1";
+    }
   };
 
-  const hoverHandler = (e) => {
-    setHoverMainCategory(e.target.innerText);
+  const hoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = e.target as HTMLDivElement;
+    const hoverText = target.textContent ?? "";
+    setHoverMainCategory(hoverText);
   };
 
   const firstMainCategoryName = mainCategory.map(
@@ -108,14 +116,13 @@ const Menu = () => {
     >
       <div className="w-full bg-white">
         <div className="flex justify-between items-center">
-          <ul
+          <div
             ref={ulRef}
             onMouseLeave={hideBottomLine}
             onMouseEnter={showBottomLine}
             className=" bg-white gap-x-1 w-fit xl:flex h-full items-center relative"
           >
             <div
-              ref={productCategory}
               onMouseEnter={mouseEnterMenu}
               onMouseLeave={mouseLeaveMenu}
               className="movement relative cursor-pointer pl-4 lg:mr-4 xl:py-2 z-[999] h-full hidden  xl:flex xl:items-center text-[13px] "
@@ -180,7 +187,7 @@ const Menu = () => {
               ref={tubeLights}
               className="hidden xl:block duration-[0.3s] absolute bottom-0 opacity-0 h-[3px] w-0 bg-[#ef394e] rounded-tl rounded-tr"
             ></div>
-          </ul>
+          </div>
 
           <div className="flex items-center gap-1 ml-4">
             <div className="relative">

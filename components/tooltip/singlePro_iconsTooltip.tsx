@@ -1,6 +1,11 @@
-import { HiOutlineHeart } from "react-icons/hi";
+import { IconType } from "react-icons";
 
-const SinglePro_iconsTooltip = ({ Icon, tooltipText }) => {
+interface Props {
+  Icon: IconType;
+  tooltipText: string;
+}
+
+const SinglePro_iconsTooltip: React.FC<Props> = ({ Icon, tooltipText }) => {
   return (
     <div className="group relative w-max flex items-center gap-x-2">
       <Icon className="cursor-pointer" />

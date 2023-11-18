@@ -1,6 +1,7 @@
 import DigikalaPossibilitiesCards from "@/components/card/digikalaPossibilitiesCards";
 import SimilarProductsSwiper from "@/components/swiper/similarProductsSwiper";
 import SinglePro_iconsTooltip from "@/components/tooltip/singlePro_iconsTooltip";
+import { IProduct } from "@/types/product";
 import Image from "next/image";
 import {
   HiChevronLeft,
@@ -19,7 +20,11 @@ import {
   HiShare,
 } from "react-icons/hi";
 
-const SingleProductDesctop = ({ singleProData, images }) => {
+interface Props {
+  singleProData: IProduct;
+}
+
+const SingleProductDesctop: React.FC<Props> = ({ singleProData }) => {
   return (
     <div className="hidden lg:block">
       <div className="mt-6 mx-5">
@@ -56,17 +61,18 @@ const SingleProductDesctop = ({ singleProData, images }) => {
                   tooltipText={"افزودن به لیست"}
                 />
               </div>
-              {images && images.length > 0 && (
-                <Image
-                  src={images[0].image}
-                  width={500}
-                  height={500}
-                  alt="دیجیکالا"
-                />
-              )}
+              {singleProData.productImage &&
+                singleProData.productImage.length > 0 && (
+                  <Image
+                    src={singleProData.productImage[0].image}
+                    width={500}
+                    height={500}
+                    alt="دیجیکالا"
+                  />
+                )}
             </div>
             <div className="flex justify-center">
-              {images?.map((image, index) => (
+              {singleProData.productImage?.map((image, index) => (
                 <Image
                   key={index}
                   alt="دیجیکالا"

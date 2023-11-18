@@ -1,6 +1,8 @@
 "use client";
 
 import { convertMiladiToShamsi } from "@/hooks/useConvertMiladiToShamsi";
+import { IComment, IQuestion } from "@/types/comment";
+import { IProduct } from "@/types/product";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
@@ -31,11 +33,15 @@ const fetchQuestionsData = async () => {
   return data;
 };
 
-const SingleProductMenu = ({ singleProData, images }) => {
-  const [activeItem, setActiveItem] = useState(null);
-  const [comments, setComments] = useState();
+interface Props {
+  singleProData: IProduct;
+}
+
+const SingleProductMenu: React.FC<Props> = ({ singleProData }) => {
+  const [activeItem, setActiveItem] = useState<number | null>(null);
+  const [comments, setComments] = useState<IComment[]>();
   const [showMore, setShowMore] = useState(false);
-  const [questions, setQuestions] = useState();
+  const [questions, setQuestions] = useState<IQuestion[]>();
   const menuItems = [
     { id: 1, label: "دیدگاه‌ها" },
     { id: 2, label: "معرفی" },
@@ -44,15 +50,16 @@ const SingleProductMenu = ({ singleProData, images }) => {
     { id: 5, label: "پرسش‌ها" },
   ];
 
-  const handleMenuItemClick = (itemId) => {
+  const handleMenuItemClick = (itemId: number) => {
     setActiveItem(itemId);
 
     const element = document.getElementById(`item-${itemId}`);
-    const topOffset = 5;
-    const clientHeightOffset = element.clientHeight + topOffset;
-
-    const scrollTo = element.offsetTop - clientHeightOffset;
-    window.scrollTo({ top: scrollTo, behavior: "smooth" });
+    if (element) {
+      const topOffset = 5;
+      const clientHeightOffset = element.clientHeight + topOffset;
+      const scrollTo = element.offsetTop - clientHeightOffset;
+      window.scrollTo({ top: scrollTo, behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -311,15 +318,16 @@ const SingleProductMenu = ({ singleProData, images }) => {
           <div className="sticky top-32">
             <div className="basis-1/3 border-2 bg-slate-100 rounded-xl mr-3 p-5">
               <div className="flex items-start gap-x-5 border-b pb-3">
-                {images && images.length > 0 && (
-                  <Image
-                    src={images[0].image}
-                    alt="دیجیکالا"
-                    width={100}
-                    height={100}
-                    className="bg-red-500"
-                  />
-                )}
+                {singleProData.productImage &&
+                  singleProData.productImage.length > 0 && (
+                    <Image
+                      src={singleProData.productImage[0].image}
+                      alt="دیجیکالا"
+                      width={100}
+                      height={100}
+                      className="bg-red-500"
+                    />
+                  )}
                 <p className="text-xs leading-7 line-clamp-2 font-bold text-gray-600">
                   {singleProData.name}
                 </p>

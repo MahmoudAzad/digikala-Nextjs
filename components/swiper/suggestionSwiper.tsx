@@ -10,8 +10,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Grid } from "swiper";
 import Image from "next/image";
 import Link from "next/link";
+import { IProduct } from "@/types/product";
 
-const SuggestionSwiper = ({ allProducts }) => {
+interface Props {
+  allProducts: IProduct[];
+}
+
+const SuggestionSwiper‌ : React.FC<Props> = ({ allProducts }) => {
   return (
     <>
       <p className="text-center text-xl font-bold mb-5">پیشنهاد دیجی‌کالا</p>
@@ -43,7 +48,7 @@ const SuggestionSwiper = ({ allProducts }) => {
           className="suggestionSwiper w-full h-full rounded-2xl border"
         >
           {allProducts
-            ?.filter((products) => products.isSuggest == true)
+            ?.filter((products :IProduct ) => products.isSuggest == true)
             .slice(0, 14)
             .map((product, index) => {
               return (
@@ -70,4 +75,4 @@ const SuggestionSwiper = ({ allProducts }) => {
   );
 };
 
-export default SuggestionSwiper;
+export default SuggestionSwiper‌;

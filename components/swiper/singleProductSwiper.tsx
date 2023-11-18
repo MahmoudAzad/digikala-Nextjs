@@ -1,8 +1,16 @@
 import "swiper/css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
 import Image from "next/image";
-const SingleProductSwiper = ({ singleProData, images }) => {
+import { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { IProduct } from "@/types/product";
+import { IGallery } from "@/types/category";
+
+interface Props {
+  singleProData: IProduct;
+  images: IGallery[];
+}
+
+const SingleProductSwiper: React.FC<Props> = ({ singleProData, images }) => {
   return (
     <div className="bg-white">
       <p className="text-xs text-gray-500 m-5">

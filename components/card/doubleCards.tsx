@@ -1,6 +1,11 @@
 import Image from "next/image";
+import { IGallery } from "@/types/category";
 
-const DoubleCards = ({ cards }) => {
+interface Props {
+  cards: IGallery[];
+}
+
+const DoubleCards: React.FC<Props> = ({ cards }) => {
   return (
     <div className="grid grid-cols-2 w-full gap-5 my-14">
       {cards?.map((card, index) => (

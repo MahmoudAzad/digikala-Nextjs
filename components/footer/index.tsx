@@ -9,8 +9,13 @@ import {
   AiOutlineWhatsApp,
   AiOutlineUp,
 } from "react-icons/ai";
+import { IFooter } from "@/types/footer";
 
-const Footer = ({ footerData }) => {
+interface Props {
+  footerData: IFooter[];
+}
+
+const Footer: React.FC<Props> = ({ footerData }) => {
   const categories = footerData[0].categories;
   const footerIcons = footerData[1].icons;
   const footerBrands = footerData[2].brands;
@@ -157,5 +162,4 @@ const Footer = ({ footerData }) => {
     </>
   );
 };
-
 export default Footer;

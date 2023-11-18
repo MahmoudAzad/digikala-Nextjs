@@ -1,11 +1,16 @@
 import Image from "next/image";
+import { IMainCategory } from "@/types/category";
 
-const CategoriesCards = ({ cards }) => {
+interface Props {
+  mainCategory: IMainCategory[];
+}
+
+const CategoriesCards: React.FC<Props> = ({ mainCategory }) => {
   return (
     <div className="mt-10">
       <h1 className="text-center font-bold text-xl">دسته‌بندی‌های دیجی‌کالا</h1>
       <div className="w-full h-auto gap-y-16 flex flex-wrap justify-center mt-2">
-        {cards?.map((card, index) => (
+        {mainCategory?.map((card, index) => (
           <div
             key={index}
             className="w-1/2 sm:w-1/3 lg:w-1/5 flex justify-center flex-col items-center"

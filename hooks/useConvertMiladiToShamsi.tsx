@@ -1,5 +1,5 @@
-export function convertMiladiToShamsi(miladiDate) {
-  const options = {
+export function convertMiladiToShamsi(miladiDate: Date) {
+  const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",

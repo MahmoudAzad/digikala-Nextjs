@@ -4,18 +4,26 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import Image from "next/image";
 import AmazingSwiperImg from "../../public/assets/svg/amazingSwiperImg.svg";
 import { useEffect, useRef } from "react";
 import { HiArrowSmLeft, HiChevronLeft } from "react-icons/hi";
 import Link from "next/link";
+import { IProduct } from "@/types/product";
 
-const AmazingSwiper = ({ products, color }) => {
-  const amazingSwiperRef = useRef();
+interface Props {
+  products: IProduct[];
+  color: string;
+}
+
+const AmazingSwiper: React.FC<Props> = ({ products, color }) => {
+  const amazingSwiperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    amazingSwiperRef.current.style.background = color;
+    if (amazingSwiperRef.current) {
+      amazingSwiperRef.current.style.background = color;
+    }
   }, [color]);
   return (
     <div ref={amazingSwiperRef} className="rounded-2xl py-5 px-2 mb-4 mt-4">

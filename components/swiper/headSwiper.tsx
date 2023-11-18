@@ -7,8 +7,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
+import { IGallery } from "@/types/category";
 
-const HeadSwiper = ({ carousels }) => {
+interface Props {
+  carousels: IGallery[][];
+}
+const HeadSwiper: React.FC<Props> = ({ carousels }) => {
   return (
     <Swiper
       slidesPerView={1}
