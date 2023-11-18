@@ -1,6 +1,6 @@
 const rootApi = "https://digikala-d567.onrender.com";
 
-export const fetching = async (endPoint) => {
+export const fetching = async (endPoint: string) => {
   try {
     const fetchData = await fetch(rootApi + endPoint);
     const data = await fetchData.json();
@@ -10,7 +10,7 @@ export const fetching = async (endPoint) => {
   }
 };
 
-export const fetchSingleProduct = async (id) => {
+export const fetchSingleProduct = async (id: string) => {
   try {
     const res = await fetch(rootApi + `/product/${id}`);
     let data = await res.json();

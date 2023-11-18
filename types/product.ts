@@ -1,3 +1,5 @@
+import { IGallery } from "./category";
+
 export interface IProductsValues {
   id: number;
   filter: string;
@@ -10,7 +12,7 @@ export interface ISellerView {
   rate: string;
 }
 
-interface Image {
+interface Images {
   image: string;
 }
 
@@ -34,7 +36,7 @@ export interface IProduct {
   productsValues: IProductsValues[];
   timeStartOffer: Date;
   timeEndOffer: number;
-  productImage: Image[];
+  productImage: IGallery[];
   productVideo: string[];
   sellerView: ISellerView[];
   isSuggest: boolean;

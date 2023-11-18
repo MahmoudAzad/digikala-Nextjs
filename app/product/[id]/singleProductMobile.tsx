@@ -20,6 +20,7 @@ interface Props {
 }
 
 const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
+  console.log("single pro data => ", singleProData);
   return (
     <div className="lg:hidden">
       <div className="bg-gray-100 mb-10 ">
