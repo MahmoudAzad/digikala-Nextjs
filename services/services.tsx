@@ -12,7 +12,7 @@ export const fetching = async (endPoint: string) => {
 
 export const fetchSingleProduct = async (id: string) => {
   try {
-    const res = await fetch(rootApi + `/product/${id}`);
+    const res = await fetch(rootApi + `/product/${id}`, { cache: "no-store" });
     let data = await res.json();
     return data;
   } catch (error) {

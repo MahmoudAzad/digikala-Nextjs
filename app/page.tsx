@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CategoriesCards from "@/components/card/categoriesCards";
 import DoubleCards from "@/components/card/doubleCards";
 import QuadrupleCards from "@/components/card/quadrupleCards";
@@ -7,9 +8,7 @@ import HeadSwiper from "@/components/swiper/headSwiper";
 import PopularBrandsSwiper from "@/components/swiper/popularBrandsSwiper";
 import SuggestionSwiper from "@/components/swiper/suggestionSwiper";
 import BasedOnUserViewsCards from "@/components/card/basedOnUserViewsCards";
-
 import { fetching } from "@/services/services";
-import Image from "next/image";
 import { IProduct } from "@/types/product";
 import { IHomePageDetail } from "@/types/homePageDetail";
 

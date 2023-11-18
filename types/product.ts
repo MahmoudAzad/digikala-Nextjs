@@ -12,10 +12,6 @@ export interface ISellerView {
   rate: string;
 }
 
-interface Images {
-  image: string;
-}
-
 export interface IProduct {
   id: number;
   name: string;
