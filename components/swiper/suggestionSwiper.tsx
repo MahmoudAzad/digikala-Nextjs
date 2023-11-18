@@ -16,7 +16,7 @@ interface Props {
   allProducts: IProduct[];
 }
 
-const SuggestionSwiper‌ : React.FC<Props> = ({ allProducts }) => {
+const SuggestionSwiper: React.FC<Props> = ({ allProducts }) => {
   return (
     <>
       <p className="text-center text-xl font-bold mb-5">پیشنهاد دیجی‌کالا</p>
@@ -48,7 +48,7 @@ const SuggestionSwiper‌ : React.FC<Props> = ({ allProducts }) => {
           className="suggestionSwiper w-full h-full rounded-2xl border"
         >
           {allProducts
-            ?.filter((products :IProduct ) => products.isSuggest == true)
+            ?.filter((products: IProduct) => products.isSuggest == true)
             .slice(0, 14)
             .map((product, index) => {
               return (
@@ -75,4 +75,4 @@ const SuggestionSwiper‌ : React.FC<Props> = ({ allProducts }) => {
   );
 };
 
-export default SuggestionSwiper‌;
+export default SuggestionSwiper;
