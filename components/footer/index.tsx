@@ -7,6 +7,7 @@ import CategoriesList from "./categoriesList";
 import SocialNetworks from "./socialNetworks";
 import Banner from "./banner";
 import E_NamadContent from "./e_namadContent";
+import Brands from "./brands";
 
 interface Props {
   footerData: IFooter[];
@@ -44,17 +45,7 @@ const Footer: React.FC<Props> = ({ footerData }) => {
         <E_NamadContent footerSymbols={footerSymbols} />
       </div>
       <div className="grid grid-cols-3 lg:grid-cols-9 bg-zinc-200">
-        {footerBrands?.map((brand, index) => (
-          <div key={index} className="py-5 place-self-center">
-            <Image
-              src={brand.image}
-              alt="دیجی کالا"
-              width={100}
-              height={100}
-              className="place-self-center"
-            />
-          </div>
-        ))}
+        <Brands footerBrands={footerBrands} />
       </div>
     </>
   );
