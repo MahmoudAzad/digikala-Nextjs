@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import digikalaFooterLogo from "../../public/assets/svg/digikalaFooterLogo.svg";
 import {
@@ -7,9 +5,9 @@ import {
   AiOutlineTwitter,
   AiFillLinkedin,
   AiOutlineWhatsApp,
-  AiOutlineUp,
 } from "react-icons/ai";
 import { IFooter } from "@/types/footer";
+import BackToTop from "./backToTop";
 
 interface Props {
   footerData: IFooter[];
@@ -21,9 +19,6 @@ const Footer: React.FC<Props> = ({ footerData }) => {
   const footerBrands = footerData[2].brands;
   const footerBanner = footerData[3].banner;
   const footerSymbols = footerData[4].symbols;
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <>
@@ -39,13 +34,7 @@ const Footer: React.FC<Props> = ({ footerData }) => {
             <p>تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱</p>
             <p>۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</p>
           </div>
-          <div
-            onClick={scrollToTop}
-            className="border rounded-xl p-3 cursor-pointer flex gap-x-3 text-xs text-gray-800"
-          >
-            <p>بازگشت به بالا</p>
-            <AiOutlineUp />
-          </div>
+          <BackToTop />
         </div>
         <div className="hidden lg:flex justify-around items-center mt-10 flex-wrap">
           {footerIcons?.map((icon, index) => (
