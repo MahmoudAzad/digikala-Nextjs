@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import { IFooter } from "@/types/footer";
 import BackToTop from "./backToTop";
+import IconCards from "./iconCards";
 
 interface Props {
   footerData: IFooter[];
@@ -36,17 +37,7 @@ const Footer: React.FC<Props> = ({ footerData }) => {
           </div>
           <BackToTop />
         </div>
-        <div className="hidden lg:flex justify-around items-center mt-10 flex-wrap">
-          {footerIcons?.map((icon, index) => (
-            <div
-              className="flex flex-col justify-center items-center  gap-y-1"
-              key={index}
-            >
-              <Image src={icon.image} alt={icon.name} width={50} height={50} />
-              <p className="text-xs">{icon.name}</p>
-            </div>
-          ))}
-        </div>
+        <IconCards footerIcons={footerIcons} />
         <div className="grid grid-cols-2 mt-5 gap-y-4 lg:grid-cols-4 lg:mt-10">
           {categories?.map((category, index) => (
             <div key={index}>
