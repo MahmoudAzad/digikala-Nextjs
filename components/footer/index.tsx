@@ -9,6 +9,7 @@ import {
 import { IFooter } from "@/types/footer";
 import BackToTop from "./backToTop";
 import IconCards from "./iconCards";
+import CategoriesList from "./categoriesList";
 
 interface Props {
   footerData: IFooter[];
@@ -39,21 +40,7 @@ const Footer: React.FC<Props> = ({ footerData }) => {
         </div>
         <IconCards footerIcons={footerIcons} />
         <div className="grid grid-cols-2 mt-5 gap-y-4 lg:grid-cols-4 lg:mt-10">
-          {categories?.map((category, index) => (
-            <div key={index}>
-              <h2 className="font-bold mb-2 text-sm lg:text-lg">
-                {category.name}
-              </h2>
-              {category.subCategory.map((sub, index) => (
-                <p
-                  className="text-gray-600 text-xs lg:text-sm py-2 cursor-pointer"
-                  key={index}
-                >
-                  {sub.name}
-                </p>
-              ))}
-            </div>
-          ))}
+          <CategoriesList categories={categories} />
           <div className="flex justify-between items-center col-span-2 lg:block lg:col-span-1">
             <h2 className="mb-2 font-bold">همراه ما باشید!</h2>
             <div className="grid grid-cols-4 gap-x-4 text-4xl text-gray-600 py-2">
