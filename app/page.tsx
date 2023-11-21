@@ -67,7 +67,7 @@ const Home = async () => {
 
       <div className="xl:mx-28">
         <AmazingSwiper products={amazingProducts} color={amazingSwiperColor} />
-        <QuadrupleCards cards={quadrupleCards} />
+        <QuadrupleCards cards={quadrupleCards[0]} />
         <CategoriesCards mainCategory={mainCategory} />
         <DoubleCards cards={firstDoubleCards} />
         <SuggestionSwiper allProducts={product} />

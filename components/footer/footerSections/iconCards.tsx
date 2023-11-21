@@ -5,7 +5,6 @@ interface Props {
   footerIcons: IGallery[];
 }
 const IconCards: React.FC<Props> = ({ footerIcons }) => {
-  console.log("footer icons => ", footerIcons);
   return (
     <div className="hidden lg:flex justify-around items-center mt-10 flex-wrap">
       {footerIcons?.map((icon, index) => (

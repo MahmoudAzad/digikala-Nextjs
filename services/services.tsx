@@ -19,3 +19,16 @@ export const fetchSingleProduct = async (id: string) => {
     console.log(error);
   }
 };
+
+export const fetchMainPage = async (id: string) => {
+  try {
+    const res = await fetch(rootApi + `/mainCategory/${id}`, {
+      cache: "no-store",
+    });
+    let data = await res.json();
+    console.log("data Service => ", data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -2,13 +2,13 @@ import { IGallery } from "@/types/category";
 import Image from "next/image";
 
 interface Props {
-  cards: IGallery[][];
+  cards: IGallery[];
 }
 
 const QuadrupleCards: React.FC<Props> = ({ cards }) => {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 ">
-      {cards[0]?.map((card: IGallery, index: number) => (
+      {cards?.map((card: IGallery, index: number) => (
         <div key={index}>
           <Image
             alt="دیجیکالا"

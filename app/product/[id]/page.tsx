@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import SingleProductDesctop from "./singleProductDesctop";
 import SingleProductMobile from "./singleProductMobile";
 import SingleProductMenu from "@/components/menu/singleProductMenu";
@@ -6,16 +7,13 @@ import { fetchSingleProduct } from "@/services/services";
 interface ParamsId {
   id: string;
 }
-interface Params {
-  params: ParamsId;
-}
 
 const getData = async (id: string) => {
   const singleProductData = await fetchSingleProduct(id);
   return singleProductData;
 };
 
-const SingleProduct: React.FC<Params> = async ({ params }) => {
+const SingleProduct: NextPage<{ params: ParamsId }> = async ({ params }) => {
   const singleProductData = await getData(params.id);
 
   if (!singleProductData) {
