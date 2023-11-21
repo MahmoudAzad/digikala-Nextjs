@@ -1,8 +1,8 @@
-import DigikalaPossibilitiesCards from "@/components/card/digikalaPossibilitiesCards";
-import SimilarProductsSwiper from "@/components/swiper/similarProductsSwiper";
+import Image from "next/image";
+import DigikalaPossibilitiesCards from "@/components/cards/digikalaPossibilitiesCards";
+import SimilarProductsSwiper from "@/components/swipers/similarProductsSwiper";
 import SinglePro_iconsTooltip from "@/components/tooltip/singlePro_iconsTooltip";
 import { IProduct } from "@/types/product";
-import Image from "next/image";
 import {
   HiChevronLeft,
   HiClipboardCheck,
@@ -26,7 +26,7 @@ interface Props {
 
 const SingleProductDesctop: React.FC<Props> = ({ singleProData }) => {
   return (
-    <div className="hidden lg:block">
+    <div className="hidden lg:block pt-24">
       <div className="mt-6 mx-5">
         <p className="text-sm text-gray-500 ">
           دیجی کالا / {singleProData.mainCategory} / {singleProData.category}/{" "}

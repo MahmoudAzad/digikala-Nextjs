@@ -1,5 +1,5 @@
-import DigikalaPossibilitiesCards from "@/components/card/digikalaPossibilitiesCards";
-import SingleProductSwiper from "@/components/swiper/singleProductSwiper";
+import DigikalaPossibilitiesCards from "@/components/cards/digikalaPossibilitiesCards";
+import SingleProductSwiper from "@/components/swipers/singleProductSwiper";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
 import {

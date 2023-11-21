@@ -1,13 +1,13 @@
 import Image from "next/image";
 import digikalaFooterLogo from "../../public/assets/svg/digikalaFooterLogo.svg";
 import { IFooter } from "@/types/footer";
-import BackToTop from "./backToTop";
-import IconCards from "./iconCards";
-import CategoriesList from "./categoriesList";
-import SocialNetworks from "./socialNetworks";
-import Banner from "./banner";
-import E_NamadContent from "./e_namadContent";
-import Brands from "./brands";
+import BackToTop from "./footerSections/backToTop";
+import IconCards from "./footerSections/iconCards";
+import CategoriesList from "./footerSections/categoriesList";
+import SocialNetworks from "./footerSections/socialNetworks";
+import Banner from "./footerSections/banner";
+import E_NamadContent from "./footerSections/e_namadContent";
+import Brands from "./footerSections/brands";
 
 interface Props {
   footerData: IFooter[];

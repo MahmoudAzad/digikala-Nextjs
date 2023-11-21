@@ -110,7 +110,7 @@ const Menu = () => {
 
   return (
     <div
-      className={`hidden xl:block text-[11px] h-auto bg-white xl:px-0 w-full font-bold fixed z-[5] mt-[59px] transition-all duration-1000 shadow-md pt-3 ${
+      className={`hidden  xl:block text-[11px] h-auto bg-white xl:px-0 w-full font-bold fixed z-[5] mt-[59px] transition-all duration-1000 shadow-md pt-3 ${
         show ? "translate-y-0 " : "!-translate-y-  !mt-0 "
       }`}
     >
