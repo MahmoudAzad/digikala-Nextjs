@@ -12,7 +12,10 @@ const SearchProductsCards: React.FC<Props> = ({ searchProducts }) => {
       {searchProducts.length > 0 ? (
         <div className="grid  sm:grid-cols-2 md:grid-cols-3 lg:mt-10">
           {searchProducts.map((item) => (
-            <div className="flex items-center border-b px-2 py-5 sm:flex-col sm:px-5">
+            <div
+              key={item.id}
+              className="flex items-center border-b px-2 py-5 sm:flex-col sm:px-5"
+            >
               <Image
                 alt="دیجیکالا"
                 src={item.productImage[0].image}

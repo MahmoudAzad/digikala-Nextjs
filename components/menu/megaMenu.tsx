@@ -270,7 +270,7 @@ const Menu = () => {
                     <li>
                       <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
                         <Link href={`/search/${category.slug}`}>
-                          {category.name}1
+                          {category.name}
                         </Link>
                       </div>
                     </li>
