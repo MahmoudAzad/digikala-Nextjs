@@ -9,7 +9,6 @@ interface IParams {
 
 const getData = async (id: string) => {
   const data = await fetchMainPage(id);
-  console.log("Data => ", data);
   return data;
 };
 

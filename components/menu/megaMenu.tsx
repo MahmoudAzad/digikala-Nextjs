@@ -238,8 +238,10 @@ const Menu = () => {
                   return (
                     <div key={index}>
                       <li>
-                        <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
-                          {category.name}
+                        <div className="text-[rgb(12,12,12)] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
+                          <Link href={`/search/${category.slug}`}>
+                            {category.name}
+                          </Link>
                         </div>
                       </li>
                       {category.subCategory?.map((subCategory, index) => {
@@ -247,7 +249,9 @@ const Menu = () => {
                           subCategory.name != "" && (
                             <li key={index}>
                               <div className="text-[#81858b] !leading-[2.17rem] text-xs h-auto w-auto ml-12 hover:text-[#ef394e]">
-                                {subCategory.name}
+                                <Link href={`/search/${subCategory.slug}`}>
+                                  {subCategory.name}
+                                </Link>
                               </div>
                             </li>
                           )
@@ -265,7 +269,9 @@ const Menu = () => {
                   <div key={index}>
                     <li>
                       <div className="text-[#0c0c0c] !leading-[2.15rem] text-sm h-auto w-auto ml-12 hover:text-[#ef394e]">
-                        {category.name}
+                        <Link href={`/search/${category.slug}`}>
+                          {category.name}1
+                        </Link>
                       </div>
                     </li>
                     {category.subCategory?.map((subCategory, index) => {
@@ -273,7 +279,9 @@ const Menu = () => {
                         subCategory.name != "" && (
                           <li key={index}>
                             <div className="text-[#81858b] !leading-[2.17rem] text-xs h-auto w-auto ml-12 hover:text-[#ef394e]">
-                              {subCategory.name}
+                              <Link href={`/search/${subCategory.slug}`}>
+                                {subCategory.name}
+                              </Link>
                             </div>
                           </li>
                         )

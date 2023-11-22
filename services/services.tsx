@@ -26,7 +26,6 @@ export const fetchMainPage = async (id: string) => {
       cache: "no-store",
     });
     let data = await res.json();
-    console.log("data Service => ", data);
     return data;
   } catch (error) {
     console.log(error);
