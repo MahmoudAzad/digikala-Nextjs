@@ -26,8 +26,8 @@ const SearchPage: NextPage<{ params: IParams }> = async ({ params }) => {
   const searchProducts = await getData(params.slug);
   return (
     <>
-      <div className="flex">
-        <SearchFilterBox />
+      <div className="flex items-start lg:pt-20">
+        <SearchFilterBox slug={params.slug} />
         <SearchProductsCards searchProducts={searchProducts} />
       </div>
     </>

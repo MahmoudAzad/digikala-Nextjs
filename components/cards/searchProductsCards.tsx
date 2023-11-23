@@ -10,7 +10,7 @@ const SearchProductsCards: React.FC<Props> = ({ searchProducts }) => {
   return (
     <div className="">
       {searchProducts.length > 0 ? (
-        <div className="grid  sm:grid-cols-2 md:grid-cols-3 lg:mt-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:mt-10 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {searchProducts.map((item) => (
             <div
               key={item.id}
