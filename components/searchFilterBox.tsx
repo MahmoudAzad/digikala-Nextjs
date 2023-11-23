@@ -2,14 +2,15 @@
 
 import { fetching } from "@/services/services";
 import { IBrand } from "@/types/brand";
+import { IFilterItem } from "@/types/filter";
 import { useEffect, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 
-const SearchFilterBox: React.FC = ({ slug }) => {
+const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
   const [allBrands, setAllBrands] = useState<IBrand[]>([]);
-  const [filterItems, setFilterItems] = useState(null);
+  const [filterItems, setFilterItems] = useState<IFilterItem[] | null>(null);
   const [openBrand, setOpenBrand] = useState(false);
-  const [openAccordion, setOpenAccordion] = useState(false);
+  const [openAccordion, setOpenAccordion] = useState<boolean | number>(false);
 
   const brands = allBrands.slice(0, 4);
   useEffect(() => {
@@ -26,24 +27,22 @@ const SearchFilterBox: React.FC = ({ slug }) => {
   const filtersData =
     filterItems &&
     filterItems
-      .map((filter) => filter)
+      ?.map((filter) => filter)
       .filter(
         (filters) =>
           filters.subCategorySlug == slug || filters.CategorySlug == slug
       );
 
-  console.log("filtersData =====> ", filtersData);
-
   const openBrandHandler = () => {
     setOpenBrand(!openBrand);
   };
 
-  const openAccordionHandler = (e) => {
-    if (openAccordion == e) {
-      return setOpenAccordion(null);
+  const openAccordionHandler = (itemId: number) => {
+    if (openAccordion == itemId) {
+      return setOpenAccordion(false);
     }
 
-    setOpenAccordion(e);
+    setOpenAccordion(itemId);
   };
 
   return (
@@ -111,40 +110,41 @@ const SearchFilterBox: React.FC = ({ slug }) => {
           ></div>
         </label>
       </div>
-      {/* item.filterProduct */}
       {filtersData?.map((item) => {
         return (
-          <div
-            onClick={() => openAccordionHandler(item.id)}
-            className={`flex justify-between cursor-pointer pb-3 ${
-              !openBrand && "border-b"
-            }`}
-          >
-            <p>{item.filterProduct}</p>
-            {openBrand ? <HiChevronUp /> : <HiChevronDown />}
+          <>
+            <div
+              onClick={() => openAccordionHandler(item.id)}
+              className={`flex justify-between cursor-pointer py-3 ${
+                openAccordion !== item.id && "border-b"
+              }`}
+            >
+              <p>{item.filterProduct}</p>
+              {openAccordion === item.id ? <HiChevronUp /> : <HiChevronDown />}
+            </div>
             <div
               className={` ${
-                openAccordion == item.id
-                  ? "max-h-[200px] scrollCustomer overflow-y-scroll visible"
-                  : "invisible h-0"
+                openAccordion == item.id ? "visible" : "invisible h-0"
               } `}
             >
-              {item.productValues.map((brand) => (
+              {item.productValues.map((propertyValue) => (
                 <div
-                  key={brand.id}
+                  key={propertyValue.id}
                   className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
                 >
                   <input
                     type="checkbox"
-                    name={brand.name}
-                    id={brand.name}
+                    name={propertyValue.specifications}
+                    id={propertyValue.specifications}
                     className="w-[15px] h-[15px] "
                   />
-                  <label htmlFor={brand.name}>{brand.value}</label>
+                  <label htmlFor={propertyValue.specifications}>
+                    {propertyValue.value}
+                  </label>
                 </div>
               ))}
             </div>
-          </div>
+          </>
         );
       })}
     </div>
