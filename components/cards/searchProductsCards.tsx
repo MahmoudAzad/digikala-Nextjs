@@ -3,15 +3,16 @@ import Image from "next/image";
 import { LuHistory, LuStar, LuTruck } from "react-icons/lu";
 
 interface Props {
-  searchProducts: IProduct[] | [];
+  products: IProduct[] | [];
 }
 
-const SearchProductsCards: React.FC<Props> = ({ searchProducts }) => {
+const SearchProductsCards: React.FC<Props> = ({ products }) => {
+  console.log("products carts are =>", products);
   return (
     <div className="">
-      {searchProducts.length > 0 ? (
+      {products.length > 0 ? (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:mt-10 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-          {searchProducts.map((item) => (
+          {products.map((item) => (
             <div
               key={item.id}
               className="flex items-center border-b px-2 py-5 sm:flex-col sm:px-5"

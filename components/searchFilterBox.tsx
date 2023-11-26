@@ -3,26 +3,103 @@
 import { fetching } from "@/services/services";
 import { IBrand } from "@/types/brand";
 import { IFilterItem } from "@/types/filter";
+import { IProduct } from "@/types/product";
 import { useEffect, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
+import SearchProductsCards from "./cards/searchProductsCards";
 
 const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[] | any[]>(
+    []
+  );
   const [allBrands, setAllBrands] = useState<IBrand[]>([]);
   const [filterItems, setFilterItems] = useState<IFilterItem[] | null>(null);
   const [openBrand, setOpenBrand] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<boolean | number>(false);
+
+  const [searchByDiscount, setSearchByDiscount] = useState(false);
+  const [searchByAvailable, setSearchByAvailable] = useState(false);
+  const [searchByBrand, setSearchByBrand] = useState([]);
+  const [searchByProductsValue, setSearchByProductsValue] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const getAllProducts = await fetching("/product");
+      const getSearchProducts = getAllProducts
+        .map((a: IProduct) => a)
+        .filter((product: IProduct) =>
+          product.subCategorySlug == slug
+            ? product.subCategorySlug == slug
+            : product.categorySlug == slug
+            ? product.categorySlug == slug
+            : null
+        );
+      setProducts(getSearchProducts);
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
 
   const brands = allBrands.slice(0, 4);
   useEffect(() => {
     const getData = async () => {
       const getAllBrands = await fetching("/brand");
       const getFilterItems = await fetching("/filterProduct");
-      console.log("filterItems => ", getFilterItems);
       setAllBrands(getAllBrands);
       setFilterItems(getFilterItems);
     };
     getData();
   }, []);
+
+  useEffect(() => {
+    let filteredArray = products && [...products];
+
+    if (searchByProductsValue.length != 0) {
+      filteredArray = filteredArray
+        .filter((data) => searchByProductsValue.includes(data.brand))
+        .map((filteredName) => {
+          return filteredName;
+        });
+      setFilteredProducts(filteredArray);
+    }
+
+    if (searchByBrand.length != 0) {
+      filteredArray = filteredArray
+        .filter((data) =>
+          data.productsValues.some((elemet) =>
+            searchByBrand.includes(elemet.value)
+          )
+        )
+        .map((filteredName) => {
+          return filteredName;
+        });
+      setFilteredProducts(filteredArray);
+    }
+    if (searchByDiscount) {
+      filteredArray = filteredArray.filter((data) => Number(data.offer) > 0);
+      setFilteredProducts(filteredArray);
+    } else {
+      filteredArray = filteredArray.filter((data) => Number(data.offer) >= 0);
+      setFilteredProducts(filteredArray);
+    }
+    if (searchByAvailable) {
+      filteredArray = filteredArray.filter((data) => Number(data.stock) > 0);
+      setFilteredProducts(filteredArray);
+    } else {
+      filteredArray = filteredArray.filter((data) => Number(data.stock) >= 0);
+      setFilteredProducts(filteredArray);
+    }
+    setFilteredProducts(filteredArray);
+  }, [
+    searchByDiscount,
+    searchByAvailable,
+    searchByBrand,
+    searchByProductsValue,
+  ]);
 
   const filtersData =
     filterItems &&
@@ -45,108 +122,152 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
     setOpenAccordion(itemId);
   };
 
+  const searchByDiscountHandler = () => {
+    setSearchByDiscount(!searchByDiscount);
+  };
+  const searchByAvailableHandler = () => {
+    setSearchByAvailable(!searchByAvailable);
+  };
+  const searchByBrandHandler = (brandName: string) => {
+    const currentIndex = searchByBrand.indexOf(brandName);
+    const newChecked = [...searchByBrand];
+
+    if (currentIndex === -1) {
+      newChecked.push(brandName);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+    setSearchByBrand(newChecked);
+  };
+  const searchByPropertyValue = (id) => {
+    const currentIndex = searchByProductsValue.indexOf(id);
+    const newChecked = [...searchByProductsValue];
+
+    if (currentIndex === -1) {
+      newChecked.push(id);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+    setSearchByProductsValue(newChecked);
+  };
+
   return (
-    <div className="mt-24 mr-5 hidden lg:block w-1/3 border p-6 ">
-      <h1 className="font-bold mb-5">فیلترها</h1>
-      <div
-        onClick={() => openBrandHandler()}
-        className={`flex justify-between cursor-pointer pb-3 ${
-          !openBrand && "border-b"
-        }`}
-      >
-        <p>برند</p>
-        {openBrand ? <HiChevronUp /> : <HiChevronDown />}
-      </div>
-      {openBrand && (
-        <>
-          {brands.map((brand) => (
-            <div
-              key={brand.id}
-              className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
-            >
-              <input
-                type="checkbox"
-                name={brand.name}
-                id={brand.name}
-                className="w-[15px] h-[15px] "
-              />
-              <label htmlFor={brand.name}>{brand.name}</label>
-            </div>
-          ))}
-        </>
-      )}
-
-      <div className="flex justify-between items-center border-b py-3">
-        <label htmlFor="discounted-toggle">فقط کالا های تخفیف دار</label>
-        <label htmlFor="discounted-toggle" className="relative inline-flex">
-          <input
-            className="sr-only peer"
-            type="checkbox"
-            id="discounted-toggle"
-          />
-          <div
-            className="w-11 h-6 bg-slate-300 rounded-full after:absolute after:w-5 after:h-5 after:top-[2px] 
-            after:left-[1px] after:bg-white after:rounded-full after:transition-all peer-checked:bg-blue-700 
-            peer-checked:after:translate-x-full peer-checked:border-2 cursor-pointer"
-          ></div>
-        </label>
-      </div>
-
-      <div className="flex justify-between items-center border-b py-3">
-        <label htmlFor="availableProducts-toggle">فقط کالا های موجود</label>
-        <label
-          htmlFor="availableProducts-toggle"
-          className="relative inline-flex"
+    <div className="flex items-start lg:pt-20">
+      <div className="mt-24 mr-5 hidden lg:block w-1/3 border p-6 ">
+        <h1 className="font-bold mb-5">فیلترها</h1>
+        <div
+          onClick={() => openBrandHandler()}
+          className={`flex justify-between cursor-pointer pb-3 ${
+            !openBrand && "border-b"
+          }`}
         >
-          <input
-            className="sr-only peer"
-            type="checkbox"
-            id="availableProducts-toggle"
-          />
-          <div
-            className="w-11 h-6 bg-slate-300 rounded-full after:absolute after:w-5 after:h-5 after:top-[2px] 
-            after:left-[1px] after:bg-white after:rounded-full after:transition-all peer-checked:bg-blue-700 
-            peer-checked:after:translate-x-full peer-checked:border-2 cursor-pointer"
-          ></div>
-        </label>
-      </div>
-      {filtersData?.map((item) => {
-        return (
+          <p>برند</p>
+          {openBrand ? <HiChevronUp /> : <HiChevronDown />}
+        </div>
+        {openBrand && (
           <>
-            <div
-              onClick={() => openAccordionHandler(item.id)}
-              className={`flex justify-between cursor-pointer py-3 ${
-                openAccordion !== item.id && "border-b"
-              }`}
-            >
-              <p>{item.filterProduct}</p>
-              {openAccordion === item.id ? <HiChevronUp /> : <HiChevronDown />}
-            </div>
-            <div
-              className={` ${
-                openAccordion == item.id ? "visible" : "invisible h-0"
-              } `}
-            >
-              {item.productValues.map((propertyValue) => (
+            {brands.map((brand) => (
+              <label htmlFor={brand.name}>
                 <div
-                  key={propertyValue.id}
+                  key={brand.id}
                   className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
                 >
                   <input
                     type="checkbox"
-                    name={propertyValue.specifications}
-                    id={propertyValue.specifications}
-                    className="w-[15px] h-[15px] "
+                    name={brand.name}
+                    id={brand.name}
+                    className="w-[15px] h-[15px]"
+                    onChange={() => searchByBrandHandler(brand.name)}
                   />
-                  <label htmlFor={propertyValue.specifications}>
-                    {propertyValue.value}
-                  </label>
+                  {brand.name}
                 </div>
-              ))}
-            </div>
+              </label>
+            ))}
           </>
-        );
-      })}
+        )}
+
+        <div className="flex justify-between items-center border-b py-3">
+          <label htmlFor="discounted-toggle">فقط کالا های تخفیف دار</label>
+          <label htmlFor="discounted-toggle" className="relative inline-flex">
+            <input
+              className="sr-only peer"
+              type="checkbox"
+              id="discounted-toggle"
+              onChange={() => searchByDiscountHandler()}
+            />
+            <div
+              className="w-11 h-6 bg-slate-300 rounded-full after:absolute after:w-5 after:h-5 after:top-[2px] 
+            after:left-[1px] after:bg-white after:rounded-full after:transition-all peer-checked:bg-blue-700 
+            peer-checked:after:translate-x-full peer-checked:border-2 cursor-pointer"
+            ></div>
+          </label>
+        </div>
+
+        <div className="flex justify-between items-center border-b py-3">
+          <label htmlFor="availableProducts-toggle">فقط کالا های موجود</label>
+          <label
+            htmlFor="availableProducts-toggle"
+            className="relative inline-flex"
+          >
+            <input
+              onChange={() => searchByAvailableHandler()}
+              className="sr-only peer"
+              type="checkbox"
+              id="availableProducts-toggle"
+            />
+            <div
+              className="w-11 h-6 bg-slate-300 rounded-full after:absolute after:w-5 after:h-5 after:top-[2px] 
+            after:left-[1px] after:bg-white after:rounded-full after:transition-all peer-checked:bg-blue-700 
+            peer-checked:after:translate-x-full peer-checked:border-2 cursor-pointer"
+            ></div>
+          </label>
+        </div>
+        {filtersData?.map((item) => {
+          return (
+            <>
+              <div
+                onClick={() => openAccordionHandler(item.id)}
+                className={`flex justify-between cursor-pointer py-3 ${
+                  openAccordion !== item.id && "border-b"
+                }`}
+              >
+                <p>{item.filterProduct}</p>
+                {openAccordion === item.id ? (
+                  <HiChevronUp />
+                ) : (
+                  <HiChevronDown />
+                )}
+              </div>
+              <div
+                className={` ${
+                  openAccordion == item.id ? "visible" : "invisible h-0"
+                } `}
+              >
+                {item.productValues.map((propertyValue) => (
+                  <div
+                    key={propertyValue.id}
+                    className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
+                  >
+                    <input
+                      type="checkbox"
+                      id={propertyValue.id.toString()}
+                      className="w-[15px] h-[15px] "
+                      onChange={() =>
+                        searchByPropertyValue(propertyValue.value)
+                      }
+                    />
+                    <label htmlFor={propertyValue.id.toString()}>
+                      {propertyValue.value}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </>
+          );
+        })}
+      </div>
+
+      <SearchProductsCards products={filteredProducts} />
     </div>
   );
 };

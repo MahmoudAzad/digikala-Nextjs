@@ -8,27 +8,26 @@ interface IParams {
   slug: string;
 }
 
-const getData = async (slug: string) => {
-  const getAllProducts = await fetching("/product");
-  const getSearchProducts = getAllProducts
-    .map((a: IProduct) => a)
-    .filter((product: IProduct) =>
-      product.subCategorySlug == slug
-        ? product.subCategorySlug == slug
-        : product.categorySlug == slug
-        ? product.categorySlug == slug
-        : null
-    );
-  return getSearchProducts;
-};
+// const getData = async (slug: string) => {
+//   const getAllProducts = await fetching("/product");
+//   const getSearchProducts = getAllProducts
+//     .map((a: IProduct) => a)
+//     .filter((product: IProduct) =>
+//       product.subCategorySlug == slug
+//         ? product.subCategorySlug == slug
+//         : product.categorySlug == slug
+//         ? product.categorySlug == slug
+//         : null
+//     );
+//   return getSearchProducts;
+// };
 
 const SearchPage: NextPage<{ params: IParams }> = async ({ params }) => {
-  const searchProducts = await getData(params.slug);
+  // const searchProducts = await getData(params.slug);
   return (
     <>
-      <div className="flex items-start lg:pt-20">
+      <div>
         <SearchFilterBox slug={params.slug} />
-        <SearchProductsCards searchProducts={searchProducts} />
       </div>
     </>
   );
