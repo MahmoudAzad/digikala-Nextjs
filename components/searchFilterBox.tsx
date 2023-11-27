@@ -20,9 +20,12 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
 
   const [searchByDiscount, setSearchByDiscount] = useState(false);
   const [searchByAvailable, setSearchByAvailable] = useState(false);
-  const [searchByBrand, setSearchByBrand] = useState([]);
-  const [searchByProductsValue, setSearchByProductsValue] = useState([]);
+  const [searchByBrand, setSearchByBrand] = useState<string[]>([]);
+  const [searchByProductsValue, setSearchByProductsValue] = useState<string[]>(
+    []
+  );
 
+  // fetch products by slug
   useEffect(() => {
     const getData = async () => {
       const getAllProducts = await fetching("/product");
@@ -40,10 +43,12 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
     getData();
   }, []);
 
+  // set initial filteredProducts
   useEffect(() => {
     setFilteredProducts(products);
   }, [products]);
 
+  // fetch brands and filter items
   const brands = allBrands.slice(0, 4);
   useEffect(() => {
     const getData = async () => {
@@ -55,23 +60,24 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
     getData();
   }, []);
 
+  // set FilteredProducts by user search
   useEffect(() => {
     let filteredArray = products && [...products];
 
-    if (searchByProductsValue.length != 0) {
+    if (searchByBrand.length != 0) {
       filteredArray = filteredArray
-        .filter((data) => searchByProductsValue.includes(data.brand))
+        .filter((data) => searchByBrand.includes(data.brand))
         .map((filteredName) => {
           return filteredName;
         });
       setFilteredProducts(filteredArray);
     }
 
-    if (searchByBrand.length != 0) {
+    if (searchByProductsValue.length != 0) {
       filteredArray = filteredArray
         .filter((data) =>
           data.productsValues.some((elemet) =>
-            searchByBrand.includes(elemet.value)
+            searchByProductsValue.includes(elemet.value)
           )
         )
         .map((filteredName) => {
@@ -139,18 +145,17 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
     }
     setSearchByBrand(newChecked);
   };
-  const searchByPropertyValue = (id) => {
-    const currentIndex = searchByProductsValue.indexOf(id);
+  const searchByPropertyValue = (propertyValue: string) => {
+    const currentIndex = searchByProductsValue.indexOf(propertyValue);
     const newChecked = [...searchByProductsValue];
 
     if (currentIndex === -1) {
-      newChecked.push(id);
+      newChecked.push(propertyValue);
     } else {
       newChecked.splice(currentIndex, 1);
     }
     setSearchByProductsValue(newChecked);
   };
-
   return (
     <div className="flex items-start lg:pt-20">
       <div className="mt-24 mr-5 hidden lg:block w-1/3 border p-6 ">

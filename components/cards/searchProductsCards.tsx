@@ -7,7 +7,6 @@ interface Props {
 }
 
 const SearchProductsCards: React.FC<Props> = ({ products }) => {
-  console.log("products carts are =>", products);
   return (
     <div className="">
       {products.length > 0 ? (
@@ -47,9 +46,9 @@ const SearchProductsCards: React.FC<Props> = ({ products }) => {
           ))}
         </div>
       ) : (
-        <>
+        <div className="pt-32">
           <h1>محصول مورد نظر پیدا نشد .</h1>
-        </>
+        </div>
       )}
     </div>
   );
