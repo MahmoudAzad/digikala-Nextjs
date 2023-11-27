@@ -41,7 +41,7 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
       setProducts(getSearchProducts);
     };
     getData();
-  }, []);
+  }, [slug]);
 
   // set initial filteredProducts
   useEffect(() => {
@@ -105,6 +105,7 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
     searchByAvailable,
     searchByBrand,
     searchByProductsValue,
+    products,
   ]);
 
   const filtersData =
@@ -172,7 +173,7 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
         {openBrand && (
           <>
             {brands.map((brand) => (
-              <label htmlFor={brand.name}>
+              <label htmlFor={brand.name} key={brand.id}>
                 <div
                   key={brand.id}
                   className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
@@ -227,9 +228,9 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
             ></div>
           </label>
         </div>
-        {filtersData?.map((item) => {
+        {filtersData?.map((item, index) => {
           return (
-            <>
+            <div key={index}>
               <div
                 onClick={() => openAccordionHandler(item.id)}
                 className={`flex justify-between cursor-pointer py-3 ${
@@ -267,7 +268,7 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
                   </div>
                 ))}
               </div>
-            </>
+            </div>
           );
         })}
       </div>
