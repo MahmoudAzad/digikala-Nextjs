@@ -6,13 +6,11 @@ import { IFilterItem } from "@/types/filter";
 import { IProduct } from "@/types/product";
 import { useEffect, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
-import SearchProductsCards from "./cards/searchProductsCards";
+import Pagination from "./pagination";
 
 const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<IProduct[] | any[]>(
-    []
-  );
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [allBrands, setAllBrands] = useState<IBrand[]>([]);
   const [filterItems, setFilterItems] = useState<IFilterItem[] | null>(null);
   const [openBrand, setOpenBrand] = useState(false);
@@ -24,6 +22,8 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
   const [searchByProductsValue, setSearchByProductsValue] = useState<string[]>(
     []
   );
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   // fetch products by slug
   useEffect(() => {
@@ -99,6 +99,7 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
       filteredArray = filteredArray.filter((data) => Number(data.stock) >= 0);
       setFilteredProducts(filteredArray);
     }
+    setCurrentPage(1);
     setFilteredProducts(filteredArray);
   }, [
     searchByDiscount,
@@ -273,7 +274,12 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
         })}
       </div>
 
-      <SearchProductsCards products={filteredProducts} />
+      <Pagination
+        filteredProducts={filteredProducts}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        contentPerPage={8}
+      />
     </div>
   );
 };
