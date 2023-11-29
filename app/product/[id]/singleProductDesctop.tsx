@@ -40,6 +40,7 @@ const SingleProductDesctop: React.FC<Props> = ({ singleProData }) => {
                   Icon={HiOutlineHeart}
                   tooltipText="اضافه به علاقه‌مندی"
                 />
+
                 <SinglePro_iconsTooltip
                   Icon={HiShare}
                   tooltipText={"به اشتراک‌گذاری کالا"}
