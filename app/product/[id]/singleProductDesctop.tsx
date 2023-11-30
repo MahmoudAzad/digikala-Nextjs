@@ -6,18 +6,12 @@ import { IProduct } from "@/types/product";
 import {
   HiChevronLeft,
   HiClipboardCheck,
-  HiOutlineBell,
-  HiOutlineChartSquareBar,
   HiOutlineClock,
   HiOutlineDatabase,
-  HiOutlineHeart,
   HiOutlineInformationCircle,
-  HiOutlineMenu,
   HiOutlineShieldCheck,
   HiOutlineStar,
   HiOutlineTruck,
-  HiRefresh,
-  HiShare,
 } from "react-icons/hi";
 
 interface Props {
@@ -36,31 +30,7 @@ const SingleProductDesctop: React.FC<Props> = ({ singleProData }) => {
           <div className="flex flex-col basis-1/3">
             <div className="flex items-start">
               <div className="flex-col space-y-5 mt-20 gap-y-4 text-2xl text-gray-600">
-                <SinglePro_iconsTooltip
-                  Icon={HiOutlineHeart}
-                  tooltipText="اضافه به علاقه‌مندی"
-                />
-
-                <SinglePro_iconsTooltip
-                  Icon={HiShare}
-                  tooltipText={"به اشتراک‌گذاری کالا"}
-                />
-                <SinglePro_iconsTooltip
-                  Icon={HiOutlineBell}
-                  tooltipText={"اطلاع‌رسانی شگفت‌انگیز"}
-                />
-                <SinglePro_iconsTooltip
-                  Icon={HiOutlineChartSquareBar}
-                  tooltipText={"نمودار قیمت"}
-                />
-                <SinglePro_iconsTooltip
-                  Icon={HiRefresh}
-                  tooltipText={"مقایسه کالا"}
-                />
-                <SinglePro_iconsTooltip
-                  Icon={HiOutlineMenu}
-                  tooltipText={"افزودن به لیست"}
-                />
+                <SinglePro_iconsTooltip product={singleProData} />
               </div>
               {singleProData.productImage &&
                 singleProData.productImage.length > 0 && (

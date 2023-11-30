@@ -1,7 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
+"use client";
 
+import { configureStore } from "@reduxjs/toolkit";
+import wishListReducer from "./features/wishListSlice";
+import wishListSlice from "./features/wishListSlice";
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    wishList: wishListSlice,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,8 +1,4 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 
 const wishListAdapter = createEntityAdapter();
 const initialState = wishListAdapter.getInitialState();
@@ -11,8 +7,11 @@ const wishListSlice = createSlice({
   name: "wishList",
   initialState,
   reducers: {
-    addToWishList: (state, action: PayloadAction<string>) => {
+    addToWishList: (state, action) => {
       wishListAdapter.addOne(state, action.payload);
+    },
+    removeFromWishList: (state, action) => {
+      wishListAdapter.removeOne(state, action.payload);
     },
   },
 });

@@ -19,15 +19,15 @@ export default async function RootLayout({
 }) {
   const { footerData } = await getFooterData();
   return (
-    <html>
-      <body dir="rtl" lang="fa" className="overflow-x-hidden">
-        <ReduxProvider>
+    <ReduxProvider>
+      <html>
+        <body dir="rtl" lang="fa" className="overflow-x-hidden">
           <Navbar />
           <Menu />
           {children}
           <Footer footerData={footerData} />
-        </ReduxProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ReduxProvider>
   );
 }
