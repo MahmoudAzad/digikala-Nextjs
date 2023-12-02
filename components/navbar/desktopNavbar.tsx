@@ -4,6 +4,7 @@ import {
   HiOutlineShoppingBag,
   HiOutlineLogin,
 } from "react-icons/hi";
+import UserDashbordBox from "./UserDashbordBox";
 
 const DesctopNavbar = () => {
   return (
@@ -27,11 +28,7 @@ const DesctopNavbar = () => {
         </form>
       </div>
       <div className="flex items-center">
-        <div className=" rounded-lg flex items-center p-2 cursor-pointer border">
-          <HiOutlineLogin className="w-6 h-6" />
-          <p className="text-xs font-bold border-l-2 border-black px-2">ورود</p>
-          <p className="text-xs font-bold pr-2">ثبت نام</p>
-        </div>
+        <UserDashbordBox />
         <HiOutlineShoppingBag className="w-16 h-6 border-r-2 mr-3 cursor-pointer" />
       </div>
     </nav>
