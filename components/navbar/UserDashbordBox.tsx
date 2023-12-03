@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import {
   FaRegUser,
   FaAngleLeft,
@@ -6,15 +8,22 @@ import {
   FaHeart,
 } from "react-icons/fa";
 const UserDashbordBox = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
   return (
     <div className="flex flex-col">
       <div className="relative group">
-        <div className="text-center flex p-5">
+        <div
+          className="text-center flex p-5"
+          onClick={() => setShowDropdown(!showDropdown)}
+        >
           <FaRegUser className="text-xl" />
           <FaCaretDown />
         </div>
-
-        <div className="absolute z-10 hidden bg-grey-200 group-hover:block w-56 left-0">
+        <div
+          className={`${
+            showDropdown ? "absolute z-10  bg-gray-200 w-56 left-0" : "hidden"
+          }`}
+        >
           <div className="px-2 pt-2 pb-4 bg-white border border-gray-300 rounded-lg shadow-2xl ">
             <div className="dropdown-menu">
               <ul>
