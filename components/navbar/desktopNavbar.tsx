@@ -1,10 +1,6 @@
 import Image from "next/image";
-import {
-  HiOutlineSearch,
-  HiOutlineShoppingBag,
-  HiOutlineLogin,
-} from "react-icons/hi";
-import UserDashbordBox from "./UserDashbordBox";
+import { HiOutlineSearch, HiOutlineShoppingBag } from "react-icons/hi";
+import UserDashboardBox from "./UserDashbordBox";
 
 const DesctopNavbar = () => {
   return (
@@ -28,7 +24,7 @@ const DesctopNavbar = () => {
         </form>
       </div>
       <div className="flex items-center">
-        <UserDashbordBox />
+        <UserDashboardBox />
         <HiOutlineShoppingBag className="w-16 h-6 border-r-2 mr-3 cursor-pointer" />
       </div>
     </nav>
