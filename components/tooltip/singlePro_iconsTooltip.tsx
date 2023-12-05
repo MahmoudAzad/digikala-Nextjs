@@ -1,7 +1,7 @@
 "use client";
 import { IconType } from "react-icons";
 import { singleProTooltips } from "./data";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToWishList } from "@/redux/features/wishListSlice";
 import { IProduct } from "@/types/product";
 

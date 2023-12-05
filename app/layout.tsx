@@ -18,6 +18,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { footerData } = await getFooterData();
+
   return (
     <ReduxProvider>
       <html>

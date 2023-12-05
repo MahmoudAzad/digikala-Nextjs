@@ -1,13 +1,23 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
-import wishListReducer from "./features/wishListSlice";
-import wishListSlice from "./features/wishListSlice";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import reducers from "./rootReducer";
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["wishList"],
+};
+const persistedReducer = persistReducer(persistConfig, reducers);
+
 export const store = configureStore({
   reducer: {
-    wishList: wishListSlice,
+    reducer: persistedReducer,
   },
 });
 
+export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
