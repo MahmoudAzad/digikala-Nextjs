@@ -110,7 +110,7 @@ const Menu = () => {
 
   return (
     <div
-      className={`hidden  xl:block text-[11px] h-auto bg-white xl:px-0 w-full font-bold fixed z-[5] mt-[59px] transition-all duration-1000 shadow-md pt-3  ${
+      className={`hidden  lg:block text-[11px] h-auto bg-white lg:px-0 w-full font-bold fixed z-[5] mt-[59px] transition-all duration-1000 shadow-md pt-3  ${
         show ? "translate-y-0 " : "!-translate-y-  !mt-0 "
       }`}
     >
@@ -120,12 +120,12 @@ const Menu = () => {
             ref={ulRef}
             onMouseLeave={hideBottomLine}
             onMouseEnter={showBottomLine}
-            className=" bg-white gap-x-1 w-fit xl:flex h-full items-center relative"
+            className=" bg-white gap-x-1 w-fit lg:flex h-full items-center relative"
           >
             <div
               onMouseEnter={mouseEnterMenu}
               onMouseLeave={mouseLeaveMenu}
-              className="movement relative cursor-pointer pl-4 lg:mr-4 xl:py-2 z-[999] h-full hidden  xl:flex xl:items-center text-[13px] "
+              className="movement relative cursor-pointer pl-4 lg:mr-4 lg:py-2 z-[999] h-full hidden  lg:flex lg:items-center text-[13px] "
             >
               <li className="flex">
                 <HiMenu />
@@ -133,7 +133,7 @@ const Menu = () => {
               </li>
               <div className="w-[1px] h-[16px] bg-[#ceced8]   absolute left-0"></div>
             </div>
-            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D]  py-4 cursor-pointer">
+            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D]  py-4 cursor-pointer">
               <Link
                 href={{ pathname: "search/", query: { name: "leangchhean" } }}
                 className="flex items-center"
@@ -145,7 +145,7 @@ const Menu = () => {
               </Link>
             </div>
 
-            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer">
+            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
               <Link href="/" className="active-a">
                 <li className="flex">
                   <HiOutlineFire className="text-base" />
@@ -154,7 +154,7 @@ const Menu = () => {
               </Link>
             </div>
 
-            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer">
+            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
               <Link href="/">
                 <li className="flex">
                   <HiOutlineBackspace className="text-base" />
@@ -163,7 +163,7 @@ const Menu = () => {
               </Link>
             </div>
 
-            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer flex items-center">
+            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer flex items-center">
               <Link href="/">
                 <li className="flex">
                   <HiOutlineReceiptTax className="text-base" />
@@ -172,20 +172,20 @@ const Menu = () => {
               </Link>
             </div>
 
-            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer">
+            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
               <Link href="/">
                 <li>سوالی دارید؟</li>
               </Link>
             </div>
 
-            <div className="movement  text-[12px] px-2 xl:py-2 text-[#62666D] py-4 cursor-pointer">
+            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
               <Link href="/">
                 <li>فروشنده شوید!</li>
               </Link>
             </div>
             <div
               ref={tubeLights}
-              className="hidden xl:block duration-[0.3s] absolute bottom-0 opacity-0 h-[3px] w-0 bg-[#ef394e] rounded-tl rounded-tr"
+              className="hidden lg:block duration-[0.3s] absolute bottom-0 opacity-0 h-[3px] w-0 bg-[#ef394e] rounded-tl rounded-tr"
             ></div>
           </div>
 
