@@ -1,7 +1,13 @@
 import Link from "next/link";
+import { ReactNode } from "react";
 import { HiArrowRight, HiOutlineShoppingBag } from "react-icons/hi";
 import { HiOutlineHeart } from "react-icons/hi";
-export default async function ListsLayout({ children }) {
+export default async function ListsLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  console.log("children => ", children);
   return (
     <div className="flex gap-x-5 lg:px-5 lg:pt-32">
       <ul className="w-2/6 hidden lg:block border rounded-lg">
