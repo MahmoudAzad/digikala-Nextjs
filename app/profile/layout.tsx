@@ -28,13 +28,19 @@ export default async function ListsLayout({
         </div>
         <div className="bg-gray-200 w-full h-3 lg:hidden"></div>
         <ul className="py-5 border-b flex justify-around lg:justify-start lg:gap-x-5 lg:px-5 ">
-          <Link className="text-sm  text" href={"/profile/lists/vishList"}>
-            <li>لیست علاقه مندی</li>
+          <Link
+            className="text-xs font-bold lg:text-base"
+            href={"/profile/lists/vishList"}
+          >
+            <li className="">لیست علاقه مندی</li>
           </Link>
-          <Link className="text-sm " href={"/profile/lists/generalList"}>
+          <Link
+            className="text-xs font-bold lg:text-base"
+            href={"/profile/lists/generalList"}
+          >
             <li>لیست عمومی</li>
           </Link>
-          <li className="text-sm">اطلاع رسانی ها</li>
+          <li className="text-xs font-bold lg:text-base">اطلاع رسانی ها</li>
         </ul>
         {children}
       </div>
