@@ -4,18 +4,23 @@ import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { HiOutlineShoppingCart, HiOutlineTrash } from "react-icons/hi";
+import { IWishListRootState } from "@/types/wishList";
+import { IProduct } from "@/types/product";
 
 const VishListPage: NextPage = () => {
-  const [myState, setMyState] = useState([]);
-  const vishList = useSelector((state) => state.wishList.entities);
+  const [favoriteProducts, setFavoriteProducts] = useState<IProduct[]>([]);
+  const vishList = useSelector(
+    (state: IWishListRootState) => state.wishList.entities
+  );
+
   useEffect(() => {
-    setMyState(Object.values(vishList));
+    setFavoriteProducts(Object.values(vishList));
   }, []);
 
   return (
     <>
       <div className="lg:grid lg:grid-cols-2">
-        {myState?.map((item) => (
+        {favoriteProducts?.map((item) => (
           <div key={item.id} className="cursor-pointer px-3 border-b pb-2 ">
             <div className="flex items-center gap-x-4 pt-8  lg:flex-col">
               <Image
