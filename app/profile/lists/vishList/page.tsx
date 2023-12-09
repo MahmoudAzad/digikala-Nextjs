@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { HiOutlineShoppingCart, HiOutlineTrash } from "react-icons/hi";
 import { IWishListRootState } from "@/types/wishList";
 import { IProduct } from "@/types/product";
+import Link from "next/link";
 
 const VishListPage: NextPage = () => {
   const [favoriteProducts, setFavoriteProducts] = useState<IProduct[]>([]);
@@ -21,7 +22,11 @@ const VishListPage: NextPage = () => {
     <>
       <div className="lg:grid lg:grid-cols-2">
         {favoriteProducts?.map((item) => (
-          <div key={item.id} className="cursor-pointer px-3 border-b pb-2 ">
+          <Link
+            href={`/product/${item.id}`}
+            key={item.id}
+            className="cursor-pointer px-3 border-b pb-2 hover:border-2 hover:border-gray-100 hover:shadow-xl "
+          >
             <div className="flex items-center gap-x-4 pt-8  lg:flex-col">
               <Image
                 alt={item.name}
@@ -45,7 +50,7 @@ const VishListPage: NextPage = () => {
                 <p className="text-sm font-bold">اضافه به سبد خرید</p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>
