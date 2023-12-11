@@ -11,7 +11,6 @@ const wishListSlice = createSlice({
       wishListAdapter.addOne(state, action.payload);
     },
     removeFromWishList: (state, action) => {
-      console.log("Action.payload is => ", action.payload);
       const { id } = action.payload;
       wishListAdapter.removeOne(state, id);
     },

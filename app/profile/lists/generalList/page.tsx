@@ -1,7 +1,8 @@
+import { NextPage } from "next";
 import Image from "next/image";
 import { HiOutlinePlusSm } from "react-icons/hi";
 
-const GeneralListPage = () => {
+const GeneralListPage: NextPage = () => {
   return (
     <div className="flex flex-col items-center gap-y-5 px-5">
       <Image
