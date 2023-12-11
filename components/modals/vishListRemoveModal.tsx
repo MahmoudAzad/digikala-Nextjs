@@ -1,8 +1,16 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { IProduct } from "@/types/product";
 import { HiOutlineTrash, HiOutlineX } from "react-icons/hi";
+import { removeFromWishList } from "@/redux/features/wishListSlice";
 
-const VishListRemoveModal = () => {
+interface Props {
+  product: IProduct;
+}
+
+const VishListRemoveModal: React.FC<Props> = ({ product }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const openModal = () => {
     setIsOpen(true);
@@ -12,6 +20,11 @@ const VishListRemoveModal = () => {
   const closeModal = () => {
     setIsOpen(false);
     document.body.style.overflow = "auto";
+  };
+
+  const removeWishListHandler = () => {
+    dispatch(removeFromWishList(product));
+    closeModal();
   };
 
   return (
@@ -42,7 +55,7 @@ const VishListRemoveModal = () => {
               <div className="flex gap-x-2">
                 <button
                   className="mt-4 bg-red-500 text-white py-2 px-4 rounded w-1/2"
-                  onClick={closeModal}
+                  onClick={removeWishListHandler}
                 >
                   حذف کالا
                 </button>
@@ -72,7 +85,7 @@ const VishListRemoveModal = () => {
               <div className="flex gap-x-2">
                 <button
                   className="mt-4 bg-red-500 text-white py-2 px-4 rounded w-1/2"
-                  onClick={closeModal}
+                  onClick={removeWishListHandler}
                 >
                   حذف کالا
                 </button>
