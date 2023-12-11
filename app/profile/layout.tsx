@@ -7,7 +7,6 @@ export default async function ListsLayout({
 }: {
   children: ReactNode;
 }) {
-  console.log("children => ", children);
   return (
     <div className="flex gap-x-5 lg:px-5 lg:pt-32">
       <ul className="w-2/6 hidden lg:block border rounded-lg">
@@ -40,7 +39,12 @@ export default async function ListsLayout({
           >
             <li>لیست عمومی</li>
           </Link>
-          <li className="text-xs font-bold lg:text-base">اطلاع رسانی ها</li>
+          <Link
+            className="text-xs font-bold lg:text-base"
+            href={"/profile/lists/amazingInformation"}
+          >
+            <li>اطلاع رسانی ها</li>
+          </Link>
         </ul>
         {children}
       </div>

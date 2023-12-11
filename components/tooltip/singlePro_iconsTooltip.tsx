@@ -5,11 +5,12 @@ import { IProduct } from "@/types/product";
 import { addToWishList } from "@/redux/features/wishListSlice";
 import {
   HiHeart,
-  HiOutlineChartSquareBar,
+  HiOutlineBell,
   HiOutlineMenu,
   HiRefresh,
   HiShare,
 } from "react-icons/hi";
+import { addToAmazingInfo } from "@/redux/features/amazingInfoSlice";
 
 interface Props {
   product: IProduct;
@@ -19,9 +20,12 @@ const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
   const [iconClick, setIconClick] = useState(false);
   const dispatch = useDispatch();
 
-  const vishListHandler = () => {
+  const addToVishListHandler = () => {
     dispatch(addToWishList(product));
     setIconClick(!iconClick);
+  };
+  const addToAmazingInfoHandler = () => {
+    dispatch(addToAmazingInfo(product));
   };
 
   return (
@@ -29,7 +33,7 @@ const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
       <div className="group relative w-max flex items-center gap-x-2">
         <div>
           <HiHeart
-            onClick={vishListHandler}
+            onClick={addToVishListHandler}
             className={`${iconClick ? "text-red-600" : ""}`}
           />
           <span className="pointer-events-none text-white text-xs font-bold p-3 rounded-md absolute w-max right-0 top-0 mr-7 opacity-0 group-hover:opacity-100 bg-slate-700">
@@ -47,9 +51,9 @@ const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
       </div>
       <div className="group relative w-max flex items-center gap-x-2">
         <div>
-          <HiOutlineChartSquareBar />
+          <HiOutlineBell onClick={addToAmazingInfoHandler} />
           <span className="pointer-events-none text-white text-xs font-bold p-3 rounded-md absolute w-max right-0 top-0 mr-7 opacity-0 group-hover:opacity-100 bg-slate-700">
-            نمودار قیمت
+            اطلاع‌رسانی شگفت‌انگیز
           </span>
         </div>
       </div>

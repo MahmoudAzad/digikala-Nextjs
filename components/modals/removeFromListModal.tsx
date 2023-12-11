@@ -3,12 +3,14 @@ import { useDispatch } from "react-redux";
 import { IProduct } from "@/types/product";
 import { HiOutlineTrash, HiOutlineX } from "react-icons/hi";
 import { removeFromWishList } from "@/redux/features/wishListSlice";
+import { removeFromAmazingInfo } from "@/redux/features/amazingInfoSlice";
 
 interface Props {
   product: IProduct;
+  title: string;
 }
 
-const VishListRemoveModal: React.FC<Props> = ({ product }) => {
+const RemoveFromListModal: React.FC<Props> = ({ product, title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -23,7 +25,12 @@ const VishListRemoveModal: React.FC<Props> = ({ product }) => {
   };
 
   const removeWishListHandler = () => {
-    dispatch(removeFromWishList(product));
+    if (title === "علاقه‌مندی‌ها") {
+      dispatch(removeFromWishList(product));
+    }
+    if (title === "اطلاع‌رسانی‌ها") {
+      dispatch(removeFromAmazingInfo(product));
+    }
     closeModal();
   };
 
@@ -31,7 +38,7 @@ const VishListRemoveModal: React.FC<Props> = ({ product }) => {
     <div>
       <div
         onClick={openModal}
-        className="flex items-center px-4 py-1 text-gray-500 gap-x-2 cursor-pointer"
+        className="flex items-center px-4 py-1 text-gray-500 gap-x-2 cursor-pointer  border-2 rounded-lg "
       >
         <HiOutlineTrash className="text-2xl" />
         حذف
@@ -50,7 +57,7 @@ const VishListRemoveModal: React.FC<Props> = ({ product }) => {
                 <HiOutlineX onClick={closeModal} />
               </div>
               <p className="py-4 border-b text-sm">
-                آیا از حذف این کالا از لیست علاقه‌مندی‌ها اطمینان دارید؟
+                آیا از حذف این کالا از لیست {title} اطمینان دارید؟
               </p>
               <div className="flex gap-x-2">
                 <button
@@ -80,7 +87,7 @@ const VishListRemoveModal: React.FC<Props> = ({ product }) => {
                 <HiOutlineX onClick={closeModal} />
               </div>
               <p className="py-4 border-b text-sm">
-                آیا از حذف این کالا از لیست علاقه‌مندی‌ها اطمینان دارید؟
+                آیا از حذف این کالا از لیست {title} اطمینان دارید؟
               </p>
               <div className="flex gap-x-2">
                 <button
@@ -104,4 +111,4 @@ const VishListRemoveModal: React.FC<Props> = ({ product }) => {
   );
 };
 
-export default VishListRemoveModal;
+export default RemoveFromListModal;

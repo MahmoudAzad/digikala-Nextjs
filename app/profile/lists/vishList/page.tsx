@@ -7,7 +7,7 @@ import { HiOutlineShoppingCart, HiOutlineTrash } from "react-icons/hi";
 import { IWishListRootState } from "@/types/wishList";
 import { IProduct } from "@/types/product";
 import Link from "next/link";
-import VishListRemoveModal from "@/components/modals/vishListRemoveModal";
+import RemoveFromListModal from "@/components/modals/removeFromListModal";
 
 const VishListPage: NextPage = () => {
   const [favoriteProducts, setFavoriteProducts] = useState<IProduct[]>([]);
@@ -45,7 +45,7 @@ const VishListPage: NextPage = () => {
                 {item.price} تومان
               </p>
               <div className="flex gap-x-4 ">
-                <VishListRemoveModal product={item} />
+                <RemoveFromListModal product={item} title="علاقه‌مندی‌ها" />
                 <div className="border border-red-500 rounded-lg flex items-center justify-center py-1 text-red-500  w-full gap-x-2 ">
                   <HiOutlineShoppingCart className="text-2xl" />
                   <p className="text-sm font-bold">اضافه به سبد خرید</p>
