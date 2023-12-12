@@ -16,6 +16,7 @@ import {
   HiOutlineTruck,
   HiStar,
 } from "react-icons/hi";
+import AddToCartBtn from "../buttons/addToCartBtn";
 
 const fetchCommentsData = async () => {
   const response = await fetch(
@@ -354,9 +355,7 @@ const SingleProductMenu: React.FC<Props> = ({ singleProData }) => {
                 </p>
                 <p className="text-lg font-bold">{singleProData.price} تومان</p>
               </div>
-              <button className="bg-rose-500 text-white text-xs font-bold w-full mt-4 rounded-lg py-3">
-                افزودن به سبد خرید
-              </button>
+              <AddToCartBtn classes={"w-full mt-4"} product={singleProData} />
             </div>
           </div>
         </div>

@@ -13,6 +13,7 @@ import {
   HiOutlineStar,
   HiOutlineTruck,
 } from "react-icons/hi";
+import AddToCartBtn from "@/components/buttons/addToCartBtn";
 
 interface Props {
   singleProData: IProduct;
@@ -176,9 +177,7 @@ const SingleProductDesctop: React.FC<Props> = ({ singleProData }) => {
                     {singleProData.price} تومان
                   </p>
                 </div>
-                <button className="bg-rose-500 text-white text-xs font-bold w-full mt-4 rounded-lg py-3">
-                  افزودن به سبد خرید
-                </button>
+                <AddToCartBtn product={singleProData} classes={"w-full my-5"} />
               </div>
             </div>
           </div>

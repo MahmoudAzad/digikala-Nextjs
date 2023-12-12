@@ -1,3 +1,4 @@
+import AddToCartBtn from "@/components/buttons/addToCartBtn";
 import DigikalaPossibilitiesCards from "@/components/cards/digikalaPossibilitiesCards";
 import SingleProductSwiper from "@/components/swipers/singleProductSwiper";
 import { IProduct } from "@/types/product";
@@ -159,9 +160,7 @@ const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
 
       <div className="bottom-0  z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
         <div className="flex justify-between items-center">
-          <button className="bg-rose-500 text-white text-xs font-bold w-1/2 rounded-lg py-3">
-            افزودن به سبد خرید
-          </button>
+          <AddToCartBtn product={singleProData} classes={"w-1/2"} />
           <p>۵۳۴۰۰۰۰ تومان</p>
         </div>
       </div>

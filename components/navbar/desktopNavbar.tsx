@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
 import { HiOutlineSearch, HiOutlineShoppingBag } from "react-icons/hi";
-import UserDashboardBox from "./UserDashbordBox";
+import UserDashboardBox from "./userDashbordBox";
+import { useSelector } from "react-redux";
+import { ICartRootState } from "@/types/cart";
 
 const DesctopNavbar = () => {
+  const cartLength = useSelector(
+    (state: ICartRootState) => Object.values(state.cart.entities).length
+  );
   return (
     <nav className="hidden bg-white top-0  items-center justify-between w-full px-5 py-3 z-20 lg:flex lg:fixed">
       <div className="flex">
@@ -25,7 +31,15 @@ const DesctopNavbar = () => {
       </div>
       <div className="flex items-center">
         <UserDashboardBox />
-        <HiOutlineShoppingBag className="w-16 h-6 border-r-2 mr-3 cursor-pointer" />
+        <div className="border-r-2"></div>
+        <div className="relative pr-2   cursor-pointer">
+          <HiOutlineShoppingBag className="text-2xl" />
+          {cartLength ? (
+            <span className="bg-red-500 text-white px-2 py-1 rounded-full absolute -bottom-3 right-0 transform translate-x-0 translate-y-0 text-xs font-bold">
+              {cartLength}
+            </span>
+          ) : null}
+        </div>
       </div>
     </nav>
   );
