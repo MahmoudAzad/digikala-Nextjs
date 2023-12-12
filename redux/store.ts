@@ -7,7 +7,7 @@ import reducers from "./rootReducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["wishList", "amazingInfo"],
+  whitelist: ["wishList", "amazingInfo", "cart"],
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 
