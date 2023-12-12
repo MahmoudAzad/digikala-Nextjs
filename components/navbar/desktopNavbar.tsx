@@ -3,7 +3,7 @@ import Image from "next/image";
 import { HiOutlineSearch, HiOutlineShoppingBag } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { ICartRootState } from "@/types/cart";
-import UserDashboard from "./userDashbord";
+import UserDashboardBox from "./userDashbordBox";
 
 const DesctopNavbar = () => {
   const cartLength = useSelector(
@@ -30,7 +30,7 @@ const DesctopNavbar = () => {
         </form>
       </div>
       <div className="flex items-center">
-        <UserDashboard />
+        <UserDashboardBox />
         <div className="border-r-2"></div>
         <div className="relative pr-2   cursor-pointer">
           <HiOutlineShoppingBag className="text-2xl" />
