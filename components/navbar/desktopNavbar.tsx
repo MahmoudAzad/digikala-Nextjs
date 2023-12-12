@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import { HiOutlineSearch, HiOutlineShoppingBag } from "react-icons/hi";
-import UserDashboardBox from "./userDashbordBox";
 import { useSelector } from "react-redux";
 import { ICartRootState } from "@/types/cart";
+import UserDashboardBox from "./userDashbordBox";
 
 const DesctopNavbar = () => {
   const cartLength = useSelector(
