@@ -90,3 +90,8 @@ body {
   justify-content: flex-end;
   margin-left: 10px;
 }
+
+/* ===================================== CartBox ===================================== */
+.cart-dropdown:hover .cart-dropdown-menu {
+  display: block;
+}
