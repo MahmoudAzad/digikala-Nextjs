@@ -14,8 +14,12 @@ const nextBuySlice = createSlice({
       const { id } = action.payload;
       nextBuyAdapter.removeOne(state, id);
     },
+    removeAllFromNextBuy: (state, action) => {
+      nextBuyAdapter.removeAll(state);
+    },
   },
 });
 
-export const { addToNextBuy, removeFromNextBuy } = nextBuySlice.actions;
+export const { addToNextBuy, removeFromNextBuy, removeAllFromNextBuy } =
+  nextBuySlice.actions;
 export default nextBuySlice.reducer;
