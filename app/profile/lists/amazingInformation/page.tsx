@@ -3,16 +3,12 @@ import Image from "next/image";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import {
-  HiOutlineBell,
-  HiOutlineShoppingCart,
-  HiOutlineTrash,
-} from "react-icons/hi";
+import { HiOutlineBell } from "react-icons/hi";
 import { IProduct } from "@/types/product";
 import Link from "next/link";
-import VishListRemoveModal from "@/components/modals/removeFromListModal";
 import { IAmazingInfoRootState } from "@/types/amazingInfo";
 import RemoveFromListModal from "@/components/modals/removeFromListModal";
+import EmptyPage from "@/components/emptyPage";
 
 const AmazingInformation: NextPage = () => {
   const [amazingInfoProducts, setAmazingInfoProducts] = useState<IProduct[]>(
@@ -62,16 +58,12 @@ const AmazingInformation: NextPage = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col justify-start items-center h-screen mt-10">
-          <Image
-            src="https://www.digikala.com/statics/img/svg/favorites-list-empty.svg"
-            alt="لیست خالی"
-            width={100}
-            height={100}
-            className="w-1/4"
-          />
-          <p>لیست اطلاع‌رسانی‌های شما خالی است.</p>
-        </div>
+        <EmptyPage
+          imgSrc={
+            "https://www.digikala.com/statics/img/svg/favorites-list-empty.svg"
+          }
+          title="لیست اطلاع‌رسانی‌های"
+        />
       )}
     </>
   );

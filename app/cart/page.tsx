@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import SimilarProductsSwiper from "@/components/swipers/similarProductsSwiper";
 import Loading from "../loading";
+import EmptyPage from "../../components/emptyPage";
 import {
   HiChevronLeft,
   HiOutlineClock,
@@ -152,23 +153,17 @@ const CartPage: NextPage = () => {
               <SimilarProductsSwiper />
             </>
           ) : (
-            <div className="border flex flex-col justify-center items-center gap-y-5 m-5 rounded-lg py-5">
-              <Image
-                src="https://www.digikala.com/statics/img/svg/empty-cart.svg"
-                alt="سبد خرید خالی"
-                width="300"
-                height="300"
-                className="w-1/5"
-              />
-              <p className="text-lg font-bold">سبد خرید شما خالی است!</p>
-              <p className="text-xs ">
-                می‌توانید برای مشاهده محصولات بیشتر به صفحه اصلی بروید:
-              </p>
-            </div>
+            <EmptyPage
+              imgSrc="https://www.digikala.com/statics/img/svg/empty-cart.svg"
+              title="سبد خرید"
+            />
           )}
         </>
       ) : (
-        <h1>empty cart</h1>
+        <EmptyPage
+          imgSrc={"https://www.digikala.com/statics/img/png/empty-sfl.webp"}
+          title={"لیست خرید بعدی"}
+        />
       )}
     </div>
   );
