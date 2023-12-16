@@ -13,6 +13,7 @@ import {
   HiOutlineTrash,
   HiTruck,
 } from "react-icons/hi";
+import Link from "next/link";
 
 const CartBox: React.FC = () => {
   const [cart, setCart] = useState<IProduct[]>([]);
@@ -36,10 +37,12 @@ const CartBox: React.FC = () => {
       {cartLength ? (
         <div className="relative mt-1">
           <div className="cart-dropdown">
-            <HiOutlineShoppingBag className="text-2xl" />
-            <div className="bg-red-500 text-white px-[6px] py-[1px] rounded-md absolute -bottom-2 right-0 transform translate-x-2 -translate-y-2 text-xs font-bold">
-              {cartLength}
-            </div>
+            <Link href="/cart">
+              <HiOutlineShoppingBag className="text-2xl" />
+              <div className="bg-red-500 text-white px-[6px] py-[1px] rounded-md absolute -bottom-2 right-0 transform translate-x-2 -translate-y-2 text-xs font-bold">
+                {cartLength}
+              </div>
+            </Link>
 
             <div className="cart-dropdown-menu absolute hidden  w-[450px] -left-5 border rounded-lg shadow-2xl bg-white">
               <div className="rounded-t  py-2 px-4 block ">
@@ -101,16 +104,21 @@ const CartBox: React.FC = () => {
                     <p className="text-xs text-gray-600">مبلغ قابل پرداخت</p>
                     <p className="text-lg font-bold">12000 تومان</p>
                   </div>
-                  <div className="bg-red-500 text-white font-bold p-2 rounded-lg">
+                  <Link
+                    href="/cart"
+                    className="bg-red-500 text-white font-bold p-2 rounded-lg"
+                  >
                     ثبت سفارش
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <HiOutlineShoppingBag className="text-2xl" />
+        <Link href="/cart">
+          <HiOutlineShoppingBag className="text-2xl" />
+        </Link>
       )}
     </>
   );
