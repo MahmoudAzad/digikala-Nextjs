@@ -159,128 +159,138 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
     setSearchByProductsValue(newChecked);
   };
   return (
-    <div className="flex items-start lg:pt-20">
-      <div className="mt-24 mr-5 hidden lg:block w-1/3 border p-6 ">
-        <h1 className="font-bold mb-5">فیلترها</h1>
-        <div
-          onClick={() => openBrandHandler()}
-          className={`flex justify-between cursor-pointer pb-3 ${
-            !openBrand && "border-b"
-          }`}
-        >
-          <p>برند</p>
-          {openBrand ? <HiChevronUp /> : <HiChevronDown />}
-        </div>
-        {openBrand && (
-          <>
-            {brands.map((brand) => (
-              <label htmlFor={brand.name} key={brand.id}>
-                <div
-                  key={brand.id}
-                  className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
-                >
-                  <input
-                    type="checkbox"
-                    name={brand.name}
-                    id={brand.name}
-                    className="w-[15px] h-[15px]"
-                    onChange={() => searchByBrandHandler(brand.name)}
-                  />
-                  {brand.name}
-                </div>
-              </label>
-            ))}
-          </>
-        )}
-
-        <div className="flex justify-between items-center border-b py-3">
-          <label htmlFor="discounted-toggle">فقط کالا های تخفیف دار</label>
-          <label htmlFor="discounted-toggle" className="relative inline-flex">
-            <input
-              className="sr-only peer"
-              type="checkbox"
-              id="discounted-toggle"
-              onChange={() => searchByDiscountHandler()}
-            />
+    <>
+      {products.length > 0 && (
+        <div className="flex items-start lg:pt-20">
+          <div className="mt-24 mr-5 hidden lg:block w-1/3 border p-6 ">
+            <h1 className="font-bold mb-5">فیلترها</h1>
             <div
-              className="w-11 h-6 bg-slate-300 rounded-full after:absolute after:w-5 after:h-5 after:top-[2px] 
-            after:left-[1px] after:bg-white after:rounded-full after:transition-all peer-checked:bg-blue-700 
-            peer-checked:after:translate-x-full peer-checked:border-2 cursor-pointer"
-            ></div>
-          </label>
-        </div>
-
-        <div className="flex justify-between items-center border-b py-3">
-          <label htmlFor="availableProducts-toggle">فقط کالا های موجود</label>
-          <label
-            htmlFor="availableProducts-toggle"
-            className="relative inline-flex"
-          >
-            <input
-              onChange={() => searchByAvailableHandler()}
-              className="sr-only peer"
-              type="checkbox"
-              id="availableProducts-toggle"
-            />
-            <div
-              className="w-11 h-6 bg-slate-300 rounded-full after:absolute after:w-5 after:h-5 after:top-[2px] 
-            after:left-[1px] after:bg-white after:rounded-full after:transition-all peer-checked:bg-blue-700 
-            peer-checked:after:translate-x-full peer-checked:border-2 cursor-pointer"
-            ></div>
-          </label>
-        </div>
-        {filtersData?.map((item, index) => {
-          return (
-            <div key={index}>
-              <div
-                onClick={() => openAccordionHandler(item.id)}
-                className={`flex justify-between cursor-pointer py-3 ${
-                  openAccordion !== item.id && "border-b"
-                }`}
-              >
-                <p>{item.filterProduct}</p>
-                {openAccordion === item.id ? (
-                  <HiChevronUp />
-                ) : (
-                  <HiChevronDown />
-                )}
-              </div>
-              <div
-                className={` ${
-                  openAccordion == item.id ? "visible" : "invisible h-0"
-                } `}
-              >
-                {item.productValues.map((propertyValue) => (
-                  <div
-                    key={propertyValue.id}
-                    className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
-                  >
-                    <input
-                      type="checkbox"
-                      id={propertyValue.id.toString()}
-                      className="w-[15px] h-[15px] "
-                      onChange={() =>
-                        searchByPropertyValue(propertyValue.value)
-                      }
-                    />
-                    <label htmlFor={propertyValue.id.toString()}>
-                      {propertyValue.value}
-                    </label>
-                  </div>
-                ))}
-              </div>
+              onClick={() => openBrandHandler()}
+              className={`flex justify-between cursor-pointer pb-3 ${
+                !openBrand && "border-b"
+              }`}
+            >
+              <p>برند</p>
+              {openBrand ? <HiChevronUp /> : <HiChevronDown />}
             </div>
-          );
-        })}
-      </div>
+            {openBrand && (
+              <>
+                {brands.map((brand) => (
+                  <label htmlFor={brand.name} key={brand.id}>
+                    <div
+                      key={brand.id}
+                      className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
+                    >
+                      <input
+                        type="checkbox"
+                        name={brand.name}
+                        id={brand.name}
+                        className="w-[15px] h-[15px]"
+                        onChange={() => searchByBrandHandler(brand.name)}
+                      />
+                      {brand.name}
+                    </div>
+                  </label>
+                ))}
+              </>
+            )}
 
-      <Pagination
-        filteredProducts={filteredProducts}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        contentPerPage={8}
-      />
-    </div>
+            <div className="flex justify-between items-center border-b py-3">
+              <label htmlFor="discounted-toggle">فقط کالا های تخفیف دار</label>
+              <label
+                htmlFor="discounted-toggle"
+                className="relative inline-flex"
+              >
+                <input
+                  className="sr-only peer"
+                  type="checkbox"
+                  id="discounted-toggle"
+                  onChange={() => searchByDiscountHandler()}
+                />
+                <div
+                  className="w-11 h-6 bg-slate-300 rounded-full after:absolute after:w-5 after:h-5 after:top-[2px] 
+            after:left-[1px] after:bg-white after:rounded-full after:transition-all peer-checked:bg-blue-700 
+            peer-checked:after:translate-x-full peer-checked:border-2 cursor-pointer"
+                ></div>
+              </label>
+            </div>
+
+            <div className="flex justify-between items-center border-b py-3">
+              <label htmlFor="availableProducts-toggle">
+                فقط کالا های موجود
+              </label>
+              <label
+                htmlFor="availableProducts-toggle"
+                className="relative inline-flex"
+              >
+                <input
+                  onChange={() => searchByAvailableHandler()}
+                  className="sr-only peer"
+                  type="checkbox"
+                  id="availableProducts-toggle"
+                />
+                <div
+                  className="w-11 h-6 bg-slate-300 rounded-full after:absolute after:w-5 after:h-5 after:top-[2px] 
+            after:left-[1px] after:bg-white after:rounded-full after:transition-all peer-checked:bg-blue-700 
+            peer-checked:after:translate-x-full peer-checked:border-2 cursor-pointer"
+                ></div>
+              </label>
+            </div>
+            {filtersData?.map((item, index) => {
+              return (
+                <div key={index}>
+                  <div
+                    onClick={() => openAccordionHandler(item.id)}
+                    className={`flex justify-between cursor-pointer py-3 ${
+                      openAccordion !== item.id && "border-b"
+                    }`}
+                  >
+                    <p>{item.filterProduct}</p>
+                    {openAccordion === item.id ? (
+                      <HiChevronUp />
+                    ) : (
+                      <HiChevronDown />
+                    )}
+                  </div>
+                  <div
+                    className={` ${
+                      openAccordion == item.id ? "visible" : "invisible h-0"
+                    } `}
+                  >
+                    {item.productValues.map((propertyValue) => (
+                      <div
+                        key={propertyValue.id}
+                        className="flex items-center gap-x-4 border-b cursor-pointer py-3 "
+                      >
+                        <input
+                          type="checkbox"
+                          id={propertyValue.id.toString()}
+                          className="w-[15px] h-[15px] "
+                          onChange={() =>
+                            searchByPropertyValue(propertyValue.value)
+                          }
+                        />
+                        <label htmlFor={propertyValue.id.toString()}>
+                          {propertyValue.value}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+      <>
+        <Pagination
+          filteredProducts={filteredProducts}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          contentPerPage={8}
+        />
+      </>
+    </>
   );
 };
 

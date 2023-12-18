@@ -1,6 +1,8 @@
+import { fetching } from "@/services/services";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { LuHistory, LuStar, LuTruck } from "react-icons/lu";
 
 interface Props {
@@ -8,6 +10,15 @@ interface Props {
 }
 
 const SearchProductsCards: React.FC<Props> = ({ products }) => {
+  const [availableCategories, setAvailableCategories] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const getAvailableCategories = await fetching("/availableCategories");
+      setAvailableCategories(getAvailableCategories);
+    };
+    fetchData();
+  }, []);
+  console.log("availableCategories =>", availableCategories);
   return (
     <div className="">
       {products.length > 0 ? (
@@ -51,8 +62,25 @@ const SearchProductsCards: React.FC<Props> = ({ products }) => {
           ))}
         </div>
       ) : (
-        <div className="pt-32">
-          <h1>محصول مورد نظر پیدا نشد .</h1>
+        <div className="lg:pt-24">
+          <p className="text-center font-bold my-5">دسته‌بندی‌های موجود</p>
+          <div className="flex flex-wrap justify-around w-screen p-5 gap-y-10 lg:flex-nowrap">
+            {availableCategories.map((item) => (
+              <Link
+                href={`/search/${item.slug}`}
+                className="basis-1/2  flex flex-col justify-center items-center gap-y-2"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width="100"
+                  height="100"
+                  className="w-1/2 "
+                />
+                <p className="text-xs font-bold sm:text-sm">{item.name}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>
