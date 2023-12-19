@@ -34,3 +34,10 @@ export interface ISubCategory {
   description: string;
   group: boolean;
 }
+
+export interface IAvailableCategories {
+  id: number;
+  image: string;
+  name: string;
+  slug: string;
+}

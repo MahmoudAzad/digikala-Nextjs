@@ -1,12 +1,15 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { fetching } from "@/services/services";
-import { IBrand } from "@/types/brand";
-import { IFilterItem } from "@/types/filter";
-import { IProduct } from "@/types/product";
 import { useEffect, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 import Pagination from "./pagination";
+import { IBrand } from "@/types/brand";
+import { IFilterItem } from "@/types/filter";
+import { IProduct } from "@/types/product";
+import { IAvailableCategories } from "@/types/category";
 
 const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -15,15 +18,16 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
   const [filterItems, setFilterItems] = useState<IFilterItem[] | null>(null);
   const [openBrand, setOpenBrand] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<boolean | number>(false);
-
   const [searchByDiscount, setSearchByDiscount] = useState(false);
   const [searchByAvailable, setSearchByAvailable] = useState(false);
   const [searchByBrand, setSearchByBrand] = useState<string[]>([]);
   const [searchByProductsValue, setSearchByProductsValue] = useState<string[]>(
     []
   );
-
   const [currentPage, setCurrentPage] = useState(1);
+  const [availableCategories, setAvailableCategories] = useState<
+    IAvailableCategories[]
+  >([]);
 
   // fetch products by slug
   useEffect(() => {
@@ -158,9 +162,17 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
     }
     setSearchByProductsValue(newChecked);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const getAvailableCategories = await fetching("/availableCategories");
+      setAvailableCategories(getAvailableCategories);
+    };
+    fetchData();
+  }, []);
   return (
     <>
-      {products.length > 0 && (
+      {products.length > 0 ? (
         <div className="flex items-start lg:pt-20">
           <div className="mt-24 mr-5 hidden lg:block w-1/3 border p-6 ">
             <h1 className="font-bold mb-5">فیلترها</h1>
@@ -280,16 +292,36 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
               );
             })}
           </div>
+          <Pagination
+            filteredProducts={filteredProducts}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            contentPerPage={8}
+          />
+        </div>
+      ) : (
+        <div className="lg:pt-24">
+          <p className="text-center font-bold my-5">دسته‌بندی‌های موجود</p>
+          <div className="flex flex-wrap justify-around w-screen p-5 gap-y-10 lg:flex-nowrap">
+            {availableCategories.map((item) => (
+              <Link
+                key={item.id}
+                href={`/search/${item.slug}`}
+                className="basis-1/2  flex flex-col justify-center items-center gap-y-2"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width="100"
+                  height="100"
+                  className="w-1/2 "
+                />
+                <p className="text-xs font-bold sm:text-sm">{item.name}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
-      <>
-        <Pagination
-          filteredProducts={filteredProducts}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          contentPerPage={8}
-        />
-      </>
     </>
   );
 };
