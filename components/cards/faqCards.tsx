@@ -5,7 +5,10 @@ const FaqCards = () => {
   return (
     <div className="flex flex-wrap justify-start items-start my-10 mx-3 ">
       {faqCardsData.map((item) => (
-        <div className="w-1/3 border border-t-0 py-5 h-32 lg:w-1/6">
+        <div
+          key={item.id}
+          className="w-1/3 border border-t-0 py-5 h-32 lg:w-1/6"
+        >
           <Image
             src={item.image}
             alt={item.name}
