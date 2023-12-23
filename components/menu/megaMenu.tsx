@@ -134,10 +134,7 @@ const Menu = () => {
               <div className="w-[1px] h-[16px] bg-[#ceced8]   absolute left-0"></div>
             </div>
             <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D]  py-4 cursor-pointer">
-              <Link
-                href={{ pathname: "search/", query: { name: "leangchhean" } }}
-                className="flex items-center"
-              >
+              <Link href={"/main/4"} className="flex items-center">
                 <li className="flex">
                   <HiOutlineDatabase className="text-base" />
                   سوپرمارکت
@@ -173,14 +170,14 @@ const Menu = () => {
             </div>
 
             <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
-              <Link href="/">
-                <li>سوالی دارید؟</li>
+              <Link href="/faq">
+                <p>سوالی دارید؟</p>
               </Link>
             </div>
 
             <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
               <Link href="/">
-                <li>فروشنده شوید!</li>
+                <p>فروشنده شوید!</p>
               </Link>
             </div>
             <div
