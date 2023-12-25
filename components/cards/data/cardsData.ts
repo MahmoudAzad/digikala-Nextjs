@@ -91,3 +91,80 @@ export const faqCardsData = [
     name: "دیجی‌پلاس",
   },
 ];
+
+export const gifCardsData = {
+  banners: [
+    {
+      id: 1,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/ffd00fdc3a47b5323b1b8e8c4b43c753e24ecb74_1671459492.jpg",
+    },
+    {
+      id: 2,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/746c3b179e21ba9feeaf108bbc4aee68697c14ad_1671459516.jpg",
+    },
+    {
+      id: 3,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/994988d9b41b920a7bdb15b8dd3bbc75c4d57e92_1683708493.jpg",
+    },
+    {
+      id: 4,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/bbe85127e8abfaf7e390ccfe66b7667cb5441b1a_1683708476.jpg",
+    },
+    {
+      id: 5,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/c37c35dd32a95ca25cbc047d569d17ab1ac9df23_1671625553.jpg",
+    },
+    {
+      id: 6,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/526c425a4124146be373d54886970df9f45e982f_1671625608.jpg",
+    },
+  ],
+  cards: [
+    {
+      id: 1,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/379c3f07d1182c3d33cd16f1368d923389b3e528_1683966654.jpg",
+    },
+    {
+      id: 2,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/190aa737ee1eec86bc633ce21079290980b06bf6_1683966694.jpg",
+    },
+    {
+      id: 3,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/9490789a017072aacc12f69004903ac67a48b025_1683966666.jpg",
+    },
+    {
+      id: 4,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/ea6555195b2fc3c5259b1cb6edd9b58252d3ba6e_1683966842.jpg",
+    },
+    {
+      id: 5,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/7301081104b4e36416b4a14e5f28934f8bcd3d90_1683966709.jpg",
+    },
+    {
+      id: 6,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/65c0bb7e03294132e3c78288817795d5e854ffc5_1683966721.jpg",
+    },
+    {
+      id: 7,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/ac61448b67e05a8bfae3c494abc373902bb12959_1683966679.jpg",
+    },
+    {
+      id: 8,
+      image:
+        "https://dkstatics-public.digikala.com/digikala-static/dbc39157cb83e8d4bd0a4b3a8057106b9a9d9824_1683967152.jpg",
+    },
+  ],
+};

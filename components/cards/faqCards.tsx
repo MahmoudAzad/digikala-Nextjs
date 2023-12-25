@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { faqCardsData } from "./data/cardsData";
+import { faqCardsData, gifCardsData } from "./data/cardsData";
 
 const FaqCards = () => {
   return (

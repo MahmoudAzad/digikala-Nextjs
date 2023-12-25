@@ -6,9 +6,9 @@ import {
   HiOutlineLocationMarker,
   HiMenu,
   HiOutlineDatabase,
-  HiOutlineFire,
   HiOutlineBackspace,
   HiOutlineReceiptTax,
+  HiOutlineCreditCard,
 } from "react-icons/hi";
 import { ICategory, IMainCategory } from "@/types/category";
 
@@ -143,10 +143,10 @@ const Menu = () => {
             </div>
 
             <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
-              <Link href="/" className="active-a">
+              <Link href="/main/gift-card" className="active-a">
                 <li className="flex">
-                  <HiOutlineFire className="text-base" />
-                  پرفروش ترین ها
+                  <HiOutlineCreditCard className="text-base" />
+                  کارت هدیه
                 </li>
               </Link>
             </div>
