@@ -2,10 +2,9 @@ import Image from "next/image";
 import {
   HiMenu,
   HiOutlineSearch,
-  HiOutlineLogin,
   HiOutlineQuestionMarkCircle,
-  HiOutlineShoppingBag,
 } from "react-icons/hi";
+import SearchInput from "../inputs/searchInput";
 
 const MobileNavbar = () => {
   return (
@@ -21,22 +20,13 @@ const MobileNavbar = () => {
         <HiOutlineQuestionMarkCircle className="text-xl cursor-pointer rounded-md" />
       </div>
 
-      <div className="flex items-center justify-around py-3 px-4 mt-16 border-b-2">
-        <form className="flex relative items-center basis-4/5">
-          <input
-            type="text"
-            placeholder="جستجو"
-            className="bg-slate-100 p-2 w-full  rounded-md placeholder:pr-10 placeholder:text-sm placeholder:text-slate-500"
-          />
-          <HiOutlineSearch className="absolute right-4 w-6 h-6 text-slate-500 cursor-pointer" />
+      <div className="flex items-center py-3 px-4 mt-16 border-b-2">
+        <form className="flex relative items-center w-full">
+          <div className="relative w-full">
+            <HiOutlineSearch className="absolute right-2 mt-2 w-6 h-6 text-slate-500 cursor-pointer" />
+            <SearchInput />
+          </div>
         </form>
-        <div className="flex items-center">
-          <HiOutlineLogin className="w-6 h-6" />
-          <p className="text-xs font-bold px-1">ورود</p>
-        </div>
-        <div>
-          <HiOutlineShoppingBag className="w-6 h-6 " />
-        </div>
       </div>
     </div>
   );

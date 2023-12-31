@@ -95,3 +95,15 @@ body {
 .cart-dropdown:hover .cart-dropdown-menu {
   display: block;
 }
+
+.search-icon {
+  position: absolute;
+  top: 80%;
+  right: 110px;
+  transform: translateY(-50%);
+  background-image: url("https://www.digikala.com/statics/img/svg/digi.svg");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  width: 100px;
+  height: 50px;
+}
