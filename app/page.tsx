@@ -11,6 +11,7 @@ import BasedOnUserViewsCards from "@/components/cards/basedOnUserViewsCards";
 import { fetching } from "@/services/services";
 import { IProduct } from "@/types/product";
 import { IHomePageDetail } from "@/types/homePageDetail";
+import MobileMenu from "@/components/menu/mobileMenu";
 
 const getData = async () => {
   const product = await fetching("/product");
@@ -81,6 +82,7 @@ const Home = async () => {
           className="rounded-2xl mt-10"
           alt="دیجی‌کالا"
         />
+        <MobileMenu />
       </div>
     </>
   );

@@ -98,7 +98,7 @@ body {
 
 .search-icon {
   position: absolute;
-  top: 80%;
+  top: 70%;
   right: 110px;
   transform: translateY(-50%);
   background-image: url("https://www.digikala.com/statics/img/svg/digi.svg");

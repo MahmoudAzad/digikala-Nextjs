@@ -30,7 +30,13 @@ const HeadSwiper: React.FC<Props> = ({ carousels }) => {
     >
       {carousels[0]?.map((slide, index) => (
         <SwiperSlide key={index}>
-          <Image alt="دیجی کالا" src={slide.image} width={5000} height={300} />
+          <Image
+            alt="دیجی کالا"
+            src={slide.image}
+            width={5000}
+            height={1000}
+            className="w-full h-auto"
+          />
         </SwiperSlide>
       ))}
     </Swiper>

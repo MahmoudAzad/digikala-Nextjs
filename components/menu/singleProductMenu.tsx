@@ -278,7 +278,7 @@ const SingleProductMenu: React.FC<Props> = ({ singleProData }) => {
             </h2>
             <div className="flex gap-x-10 ">
               <div className="hidden lg:block mt-5 md:basis-3/12">
-                <div className="sticky top-32">
+                <div className="sticky top-0">
                   <p className="text-xs text-gray-600">
                     شما هم درباره این کالا پرسش ثبت کنید
                   </p>

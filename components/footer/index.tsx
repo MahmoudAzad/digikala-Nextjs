@@ -21,7 +21,7 @@ const Footer: React.FC<Props> = ({ footerData }) => {
   const footerSymbols = footerData[4].symbols;
 
   return (
-    <>
+    <div className="hidden lg:block">
       <div className="border-t px-5 py-10">
         <Image
           src={digikalaFooterLogo}
@@ -47,7 +47,7 @@ const Footer: React.FC<Props> = ({ footerData }) => {
       <div className="grid grid-cols-3 lg:grid-cols-9 bg-zinc-200">
         <Brands footerBrands={footerBrands} />
       </div>
-    </>
+    </div>
   );
 };
 export default Footer;
