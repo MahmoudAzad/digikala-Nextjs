@@ -28,6 +28,7 @@ import {
   HiOutlineTrash,
   HiTruck,
 } from "react-icons/hi";
+import MobileMenu from "@/components/menu/mobileMenu";
 
 const CartPage: NextPage = () => {
   const [showCartPage, setShowCartPage] = useState(true);
@@ -189,7 +190,7 @@ const CartPage: NextPage = () => {
                   </p>
                 </div>
 
-                <div className="flex justify-between items-center px-5 py-4 fixed z-50 bottom-0 bg-white w-full border-t border-2 shadow-2xl lg:hidden">
+                <div className="flex justify-between items-center px-5 py-4 fixed z-50 bottom-14 bg-white w-full border-t border-2 shadow-2xl lg:hidden">
                   <p className="bg-red-500 text-white w-1/2 p-3 rounded-lg text-center">
                     ثبت سفارش
                   </p>
@@ -198,6 +199,7 @@ const CartPage: NextPage = () => {
                     <p className="text-sm font-bold">۲۰۰۰۰۰ تومان</p>
                   </div>
                 </div>
+                <MobileMenu />
               </div>
               <SimilarProductsSwiper />
             </>

@@ -18,7 +18,7 @@ const MobileMenu: React.FC = () => {
   }, [getCartLength]);
   return (
     <div className="fixed bottom-0 w-full z-50 lg:hidden">
-      <div className="flex justify-between bg-white py-3 px-2 sm:justify-around">
+      <div className="flex justify-between bg-white py-2 px-4 sm:justify-around border-t-2 shadow-lg">
         {menuData.mobileMenuData.map((menuItem) => (
           <div
             key={menuItem.id}
@@ -29,7 +29,7 @@ const MobileMenu: React.FC = () => {
           >
             <Link href={`/${menuItem.slug}`}>
               <div className="relative">
-                <menuItem.icon className="text-3xl" />
+                <menuItem.icon className="text-2xl sm:text-3xl" />
                 {menuItem.slug === "cart" && (
                   <div className="bg-red-500 text-white px-[6px] py-[1px] rounded-md absolute -bottom-2 right-0 transform translate-x-2 -translate-y-2 text-xs font-bold">
                     {cartLength}
@@ -37,7 +37,7 @@ const MobileMenu: React.FC = () => {
                 )}
               </div>
             </Link>
-            <p className="text-sm font-bold">{menuItem.title}</p>
+            <p className="text-xs sm:text-sm font-bold">{menuItem.title}</p>
           </div>
         ))}
       </div>
