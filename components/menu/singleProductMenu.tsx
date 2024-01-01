@@ -110,7 +110,7 @@ const SingleProductMenu: React.FC<Props> = ({ singleProData }) => {
 
   return (
     <div className="mt-10 ">
-      <ul className="flex justify-between md:justify-start sm:px-10 px-2 border-b sticky top-16 z-40 overflow-x-hidden  bg-white ">
+      <ul className="flex justify-between md:justify-start sm:px-10 px-2 border-b sticky top-12 z-40 overflow-x-hidden  bg-white ">
         {menuItems?.map((item) => (
           <li
             key={item.id}

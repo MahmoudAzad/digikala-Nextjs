@@ -160,7 +160,7 @@ const Menu = () => {
               </Link>
             </div>
 
-            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer flex items-center">
+            <div className="movement text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer flex items-center">
               <Link href="/">
                 <li className="flex">
                   <HiOutlineReceiptTax className="text-base" />
@@ -169,13 +169,13 @@ const Menu = () => {
               </Link>
             </div>
 
-            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
+            <div className="movement text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
               <Link href="/faq">
                 <p>سوالی دارید؟</p>
               </Link>
             </div>
 
-            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
+            <div className="movement text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
               <Link href="/">
                 <p>فروشنده شوید!</p>
               </Link>
@@ -213,7 +213,7 @@ const Menu = () => {
           {mainCategory?.map((mainCategory, index) => {
             return (
               <div
-                className="h-full flex  items-center py-3 px-2 text-xs font-bold text-[#424750] hover:text-[#ef394e] hover:bg-[#f0f0f180] cursor-pointer"
+                className="h-full flex items-center py-3 px-2 text-xs font-bold text-[#424750] hover:text-[#ef394e] hover:bg-[#f0f0f180] cursor-pointer"
                 onMouseEnter={(e) => hoverHandler(e)}
                 key={index}
               >

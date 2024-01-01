@@ -1,5 +1,6 @@
 import AddToCartBtn from "@/components/buttons/addToCartBtn";
 import DigikalaPossibilitiesCards from "@/components/cards/digikalaPossibilitiesCards";
+import SingleProNavbar from "@/components/navbar/singleProNavbar";
 import SingleProductSwiper from "@/components/swipers/singleProductSwiper";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
@@ -23,7 +24,8 @@ interface Props {
 const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
   return (
     <div className="lg:hidden">
-      <div className="bg-gray-100 mb-10 ">
+      <SingleProNavbar />
+      <div className="bg-gray-100 mb-10 pt-9">
         <div>
           <SingleProductSwiper
             singleProData={singleProData}

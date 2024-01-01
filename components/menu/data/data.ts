@@ -28,8 +28,8 @@ export const menuData = {
     {
       id: 4,
       icon: HiOutlineUser,
-      title: "دیجی‌کالای من",
-      slug: "dashboard",
+      title: "لیست‌های من",
+      slug: "profile/lists/vishList",
     },
   ],
 };
