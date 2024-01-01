@@ -21,7 +21,7 @@ const SimilarProductsSwiper = () => {
     fetchData();
   }, [products]);
   return (
-    <div className="rounded-2xl py-5 px-2 mb-4 mt-4 border">
+    <div className="mb-36 rounded-2xl py-5 px-2  mt-4 border lg:mb-4">
       <p className="font-bold mr-12 my-5 pb-2 w-28 text-center border-b-2 border-red-600 ">
         کالاهای مشابه
       </p>

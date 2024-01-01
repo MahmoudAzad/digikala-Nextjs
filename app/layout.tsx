@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Menu from "@/components/menu/megaMenu";
 import { ReduxProvider } from "@/redux/provider";
+import MobileMenu from "@/components/menu/mobileMenu";
 
 const getFooterData = async () => {
   const footerData = await fetching("/footer");
@@ -27,6 +28,7 @@ export default async function RootLayout({
           <Menu />
           {children}
           <Footer footerData={footerData} />
+          <MobileMenu />
         </body>
       </html>
     </ReduxProvider>

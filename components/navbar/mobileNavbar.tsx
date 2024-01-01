@@ -1,9 +1,17 @@
+"use client";
+
 import { HiOutlineSearch } from "react-icons/hi";
 import SearchInput from "../inputs/searchInput";
+import { usePathname } from "next/navigation";
 
 const MobileNavbar = () => {
+  const params = usePathname();
+
+  if (params.includes("/product")) {
+    return null;
+  }
   return (
-    <div className="lg:hidden  ">
+    <div className="lg:hidden">
       <div className="flex items-center py-3 px-4 border-b-2 sticky top-0">
         <form className="flex relative items-center w-full">
           <div className="relative w-full">
