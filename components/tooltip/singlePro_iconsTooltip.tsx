@@ -1,41 +1,52 @@
 "use client";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { IProduct } from "@/types/product";
-import { addToWishList } from "@/redux/features/wishListSlice";
+import {
+  addToWishList,
+  removeFromWishList,
+} from "@/redux/features/wishListSlice";
 import {
   HiHeart,
   HiOutlineBell,
+  HiOutlineHeart,
   HiOutlineMenu,
   HiRefresh,
   HiShare,
 } from "react-icons/hi";
 import { addToAmazingInfo } from "@/redux/features/amazingInfoSlice";
+import { IWishListRootState } from "@/types/wishList";
 
 interface Props {
   product: IProduct;
 }
 
 const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
-  const [iconClick, setIconClick] = useState(false);
+  const [isWished, setIsWished] = useState<boolean>();
   const dispatch = useDispatch();
-
-  const addToVishListHandler = () => {
-    dispatch(addToWishList(product));
-    setIconClick(!iconClick);
-  };
-  const addToAmazingInfoHandler = () => {
-    dispatch(addToAmazingInfo(product));
-  };
+  const getWishlist = useSelector(
+    (state: IWishListRootState) => state.wishList
+  );
+  useEffect(() => {
+    const isWishedStatus = getWishlist.ids.includes(product.id);
+    setIsWished(isWishedStatus);
+  }, [getWishlist]);
 
   return (
     <>
       <div className="group relative w-max flex items-center gap-x-2">
         <div>
-          <HiHeart
-            onClick={addToVishListHandler}
-            className={`${iconClick ? "text-red-600" : ""}`}
-          />
+          {isWished ? (
+            <HiHeart
+              onClick={() => dispatch(removeFromWishList(product))}
+              className="text-red-600 text-2xl"
+            />
+          ) : (
+            <HiOutlineHeart
+              onClick={() => dispatch(addToWishList(product))}
+              className="text-2xl"
+            />
+          )}
           <span className="pointer-events-none text-white text-xs font-bold p-3 rounded-md absolute w-max right-0 top-0 mr-7 opacity-0 group-hover:opacity-100 bg-slate-700">
             اضافه به علاقه‌مندی
           </span>
@@ -51,7 +62,7 @@ const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
       </div>
       <div className="group relative w-max flex items-center gap-x-2">
         <div>
-          <HiOutlineBell onClick={addToAmazingInfoHandler} />
+          <HiOutlineBell onClick={() => dispatch(addToAmazingInfo(product))} />
           <span className="pointer-events-none text-white text-xs font-bold p-3 rounded-md absolute w-max right-0 top-0 mr-7 opacity-0 group-hover:opacity-100 bg-slate-700">
             اطلاع‌رسانی شگفت‌انگیز
           </span>

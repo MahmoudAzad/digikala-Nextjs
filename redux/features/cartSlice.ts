@@ -8,7 +8,17 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      cartAdapter.addOne(state, action.payload);
+      const { id } = action.payload;
+      const repeatedItem = state.entities[id];
+      if (repeatedItem) {
+        state.entities[id] = {
+          ...repeatedItem,
+          quantity: repeatedItem.quantity + 1,
+        };
+      } else {
+        const newItem = { ...action.payload, quantity: 1 };
+        cartAdapter.addOne(state, newItem);
+      }
     },
     addMultipleToCart: (state, action) => {
       cartAdapter.addMany(state, action.payload);

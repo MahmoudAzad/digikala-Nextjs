@@ -1,8 +1,15 @@
 "use client";
-import { ICartRootState } from "@/types/cart";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import {
+  addToWishList,
+  removeFromWishList,
+} from "@/redux/features/wishListSlice";
+import { ICartRootState } from "@/types/cart";
+import { IProduct } from "@/types/product";
+import { IWishListRootState } from "@/types/wishList";
 import {
   HiArrowRight,
   HiHeart,
@@ -10,17 +17,26 @@ import {
   HiOutlineHeart,
   HiOutlineShoppingCart,
 } from "react-icons/hi";
-import { useSelector } from "react-redux";
 
-const SingleProNavbar: React.FC = () => {
-  const [hearthChecked, setHearthChecked] = useState(false);
+interface Props {
+  singleProData: IProduct;
+}
+const SingleProNavbar: React.FC<Props> = ({ singleProData }) => {
   const [cartLength, setCartLength] = useState<number>(0);
+  const [isWished, setIsWished] = useState<boolean>();
+  const dispatch = useDispatch();
   const getCartLength = useSelector(
     (state: ICartRootState) => Object.values(state.cart.entities).length
   );
+  const getWishlist = useSelector(
+    (state: IWishListRootState) => state.wishList
+  );
   useEffect(() => {
     setCartLength(getCartLength);
-  }, [getCartLength]);
+    const isWishedStatus = getWishlist.ids.includes(singleProData.id);
+    setIsWished(isWishedStatus);
+  }, [getCartLength, getWishlist]);
+
   return (
     <div className="fixed w-full z-50 h-14 flex justify-between items-center bg-white px-5">
       <div className="flex items-center gap-x-2">
@@ -42,14 +58,14 @@ const SingleProNavbar: React.FC = () => {
             </div>
           ) : null}
         </Link>
-        {hearthChecked ? (
+        {isWished ? (
           <HiHeart
-            onClick={() => setHearthChecked(!hearthChecked)}
+            onClick={() => dispatch(removeFromWishList(singleProData))}
             className="text-red-600 text-2xl"
           />
         ) : (
           <HiOutlineHeart
-            onClick={() => setHearthChecked(!hearthChecked)}
+            onClick={() => dispatch(addToWishList(singleProData))}
             className="text-2xl"
           />
         )}

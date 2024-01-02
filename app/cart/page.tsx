@@ -34,7 +34,6 @@ const CartPage: NextPage = () => {
   const [showCartPage, setShowCartPage] = useState(true);
   const [cart, setCart] = useState<IProduct[]>([]);
   const [cartLength, setCartLength] = useState<number>();
-
   const dispatch = useDispatch();
   const getCart = useSelector((state: ICartRootState) =>
     Object.values(state.cart.entities)

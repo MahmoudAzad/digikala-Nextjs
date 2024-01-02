@@ -12,7 +12,6 @@ import EmptyPage from "@/components/emptyPage";
 
 const VishListPage: NextPage = () => {
   const [favoriteProducts, setFavoriteProducts] = useState<IProduct[]>([]);
-
   const vishList = useSelector(
     (state: IWishListRootState) => state.wishList.entities
   );

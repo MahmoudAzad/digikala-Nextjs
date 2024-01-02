@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 
 const MobileMenu: React.FC = () => {
   const params = usePathname();
-  console.log("params ===>", params);
   const [activeItem, setActiveItem] = useState<number>(1);
   const [cartLength, setCartLength] = useState<number>(0);
 

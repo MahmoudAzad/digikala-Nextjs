@@ -24,7 +24,7 @@ interface Props {
 const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
   return (
     <div className="lg:hidden">
-      <SingleProNavbar />
+      <SingleProNavbar singleProData={singleProData} />
       <div className="bg-gray-100 mb-10 pt-9">
         <div>
           <SingleProductSwiper

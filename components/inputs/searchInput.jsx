@@ -6,7 +6,6 @@ import { HiOutlineSearch } from "react-icons/hi";
 const SearchInput = () => {
   const [inputValue, setInputValue] = useState("");
   const handleChange = (event) => {
-    console.log(event);
     setInputValue(event.target.value);
   };
   return (
