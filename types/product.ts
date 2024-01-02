@@ -39,4 +39,5 @@ export interface IProduct {
   mainCategorySlug: string;
   categorySlug: string;
   subCategorySlug: string;
+  quantity: number;
 }

@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 
-const cartAdapter = createEntityAdapter();
+const cartAdapter = createEntityAdapter<{ quantity?: number }>();
 const initialState = cartAdapter.getInitialState();
 
 const cartSlice = createSlice({
@@ -10,7 +10,7 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const { id } = action.payload;
       const repeatedItem = state.entities[id];
-      if (repeatedItem) {
+      if (typeof repeatedItem?.quantity !== "undefined") {
         state.entities[id] = {
           ...repeatedItem,
           quantity: repeatedItem.quantity + 1,
