@@ -29,7 +29,7 @@ export default async function ListsLayout({
         <ul className="py-5 border-b flex justify-around lg:justify-start lg:gap-x-5 lg:px-5 ">
           <Link
             className="text-xs font-bold lg:text-base"
-            href={"/profile/lists/vishList"}
+            href={"/profile/lists/wishList"}
           >
             <li className="">لیست علاقه مندی</li>
           </Link>

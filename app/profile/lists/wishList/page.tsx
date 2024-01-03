@@ -10,15 +10,15 @@ import Link from "next/link";
 import RemoveFromListModal from "@/components/modals/removeFromListModal";
 import EmptyPage from "@/components/emptyPage";
 
-const VishListPage: NextPage = () => {
+const WishListPage: NextPage = () => {
   const [favoriteProducts, setFavoriteProducts] = useState<IProduct[]>([]);
-  const vishList = useSelector(
+  const WishList = useSelector(
     (state: IWishListRootState) => state.wishList.entities
   );
 
   useEffect(() => {
-    setFavoriteProducts(Object.values(vishList));
-  }, [vishList]);
+    setFavoriteProducts(Object.values(WishList));
+  }, [WishList]);
 
   return (
     <>
@@ -66,4 +66,4 @@ const VishListPage: NextPage = () => {
   );
 };
 
-export default VishListPage;
+export default WishListPage;

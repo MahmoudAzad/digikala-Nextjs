@@ -15,13 +15,13 @@ const AmazingInformation: NextPage = () => {
     []
   );
 
-  const vishList = useSelector(
+  const amazingInfoList = useSelector(
     (state: IAmazingInfoRootState) => state.amazingInfo.entities
   );
 
   useEffect(() => {
-    setAmazingInfoProducts(Object.values(vishList));
-  }, [vishList]);
+    setAmazingInfoProducts(Object.values(amazingInfoList));
+  }, [amazingInfoList]);
 
   return (
     <>

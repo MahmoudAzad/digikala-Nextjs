@@ -6,16 +6,21 @@ import {
   addToWishList,
   removeFromWishList,
 } from "@/redux/features/wishListSlice";
+
 import {
-  HiHeart,
-  HiOutlineBell,
-  HiOutlineHeart,
-  HiOutlineMenu,
-  HiRefresh,
-  HiShare,
-} from "react-icons/hi";
-import { addToAmazingInfo } from "@/redux/features/amazingInfoSlice";
+  addToAmazingInfo,
+  removeFromAmazingInfo,
+} from "@/redux/features/amazingInfoSlice";
 import { IWishListRootState } from "@/types/wishList";
+import {
+  TbBellRinging,
+  TbGitCompare,
+  TbPlaylistAdd,
+  TbShare,
+  TbHeartFilled,
+  TbHeart,
+} from "react-icons/tb";
+import { IAmazingInfoRootState } from "@/types/amazingInfo";
 
 interface Props {
   product: IProduct;
@@ -23,26 +28,42 @@ interface Props {
 
 const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
   const [isWished, setIsWished] = useState<boolean>();
+  const [isAmazingInfo, setIsAmazingInfo] = useState<boolean>();
   const dispatch = useDispatch();
+
   const getWishlist = useSelector(
     (state: IWishListRootState) => state.wishList
   );
+  const getAmazingInfo = useSelector(
+    (state: IAmazingInfoRootState) => state.amazingInfo
+  );
+
   useEffect(() => {
     const isWishedStatus = getWishlist.ids.includes(product.id);
+    const isAmazingStatus = getAmazingInfo.ids.includes(product.id);
     setIsWished(isWishedStatus);
-  }, [getWishlist]);
+    setIsAmazingInfo(isAmazingStatus);
+  }, [getWishlist, getAmazingInfo]);
+
+  const addToAmazingInfoHandler = () => {
+    if (isAmazingInfo) {
+      dispatch(removeFromAmazingInfo(product));
+    } else {
+      dispatch(addToAmazingInfo(product));
+    }
+  };
 
   return (
     <>
       <div className="group relative w-max flex items-center gap-x-2">
         <div>
           {isWished ? (
-            <HiHeart
+            <TbHeartFilled
               onClick={() => dispatch(removeFromWishList(product))}
-              className="text-red-600 text-2xl"
+              className="text-red-500 text-2xl"
             />
           ) : (
-            <HiOutlineHeart
+            <TbHeart
               onClick={() => dispatch(addToWishList(product))}
               className="text-2xl"
             />
@@ -54,7 +75,7 @@ const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
       </div>
       <div className="group relative w-max flex items-center gap-x-2">
         <div>
-          <HiShare />
+          <TbShare />
           <span className="pointer-events-none text-white text-xs font-bold p-3 rounded-md absolute w-max right-0 top-0 mr-7 opacity-0 group-hover:opacity-100 bg-slate-700">
             به اشتراک‌گذاری کالا
           </span>
@@ -62,7 +83,10 @@ const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
       </div>
       <div className="group relative w-max flex items-center gap-x-2">
         <div>
-          <HiOutlineBell onClick={() => dispatch(addToAmazingInfo(product))} />
+          <TbBellRinging
+            onClick={addToAmazingInfoHandler}
+            className={`${isAmazingInfo ? "text-red-500" : ""}`}
+          />
           <span className="pointer-events-none text-white text-xs font-bold p-3 rounded-md absolute w-max right-0 top-0 mr-7 opacity-0 group-hover:opacity-100 bg-slate-700">
             اطلاع‌رسانی شگفت‌انگیز
           </span>
@@ -70,18 +94,15 @@ const SinglePro_iconsTooltip: React.FC<Props> = ({ product }) => {
       </div>
       <div className="group relative w-max flex items-center gap-x-2">
         <div>
-          <HiRefresh />
+          <TbGitCompare />
           <span className="pointer-events-none text-white text-xs font-bold p-3 rounded-md absolute w-max right-0 top-0 mr-7 opacity-0 group-hover:opacity-100 bg-slate-700">
             مقایسه کالا
           </span>
         </div>
       </div>
-      <div
-        className="group relative w-max flex items-center gap-x-2"
-        //
-      >
+      <div className="group relative w-max flex items-center gap-x-2">
         <div>
-          <HiOutlineMenu />
+          <TbPlaylistAdd />
           <span className="pointer-events-none text-white text-xs font-bold p-3 rounded-md absolute w-max right-0 top-0 mr-7 opacity-0 group-hover:opacity-100 bg-slate-700">
             افزودن به لیست
           </span>

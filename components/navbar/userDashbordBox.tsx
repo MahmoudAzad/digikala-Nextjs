@@ -78,7 +78,7 @@ const UserDashboardBox = () => {
                     <p>سفارش‌ها</p>
                   </li>
                   <Link
-                    href={"profile/lists/vishList"}
+                    href={"profile/lists/wishList"}
                     onClick={() => toggleDropdown()}
                     className="flex gap-x-2 items-center border-b border-gray-300 p-4 cursor-pointer w-full hover:bg-gray-200"
                   >

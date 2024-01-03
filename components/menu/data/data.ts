@@ -29,7 +29,7 @@ export const menuData = {
       id: 4,
       icon: HiOutlineUser,
       title: "لیست‌های من",
-      slug: "profile/lists/vishList",
+      slug: "profile/lists/wishList",
     },
   ],
 };
