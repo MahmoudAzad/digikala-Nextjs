@@ -24,6 +24,7 @@ const cartSlice = createSlice({
       cartAdapter.addMany(state, action.payload);
     },
     removeFromCart: (state, action) => {
+      console.log("REMOvE");
       const { id } = action.payload;
       cartAdapter.removeOne(state, id);
     },

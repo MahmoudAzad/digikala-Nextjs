@@ -160,8 +160,8 @@ const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
         <DigikalaPossibilitiesCards />
       </div>
 
-      <div className="bottom-0  z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
-        <div className="flex justify-between items-center">
+      <div className="bottom-0 z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
+        <div className="flex justify-between items-end">
           <AddToCartBtn product={singleProData} classes={"w-1/2"} />
           <p>۵۳۴۰۰۰۰ تومان</p>
         </div>

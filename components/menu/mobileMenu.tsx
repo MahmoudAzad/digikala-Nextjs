@@ -23,7 +23,7 @@ const MobileMenu: React.FC = () => {
     return null;
   }
   return (
-    <div className="fixed bottom-0 w-full z-50 lg:hidden">
+    <div className="fixed bottom-0 w-full z-40 lg:hidden">
       <div className="flex justify-between bg-white py-2 px-4 sm:justify-around border-t-2 shadow-lg">
         {menuData.mobileMenuData.map((menuItem) => (
           <div
