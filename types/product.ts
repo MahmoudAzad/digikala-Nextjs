@@ -13,6 +13,7 @@ export interface ISellerView {
 }
 
 export interface IProduct {
+  [key: number]: any;
   id: number;
   name: string;
   latinName: string;

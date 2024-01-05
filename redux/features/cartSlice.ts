@@ -10,6 +10,7 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const { id } = action.payload;
       const repeatedItem = state.entities[id];
+
       if (typeof repeatedItem?.quantity !== "undefined") {
         state.entities[id] = {
           ...repeatedItem,
@@ -24,9 +25,17 @@ const cartSlice = createSlice({
       cartAdapter.addMany(state, action.payload);
     },
     removeFromCart: (state, action) => {
-      console.log("REMOvE");
       const { id } = action.payload;
-      cartAdapter.removeOne(state, id);
+      const product = state.entities[id];
+
+      if (product?.quantity === 1) {
+        cartAdapter.removeOne(state, id);
+      } else if (product?.quantity) {
+        state.entities[id] = {
+          ...product,
+          quantity: product.quantity - 1,
+        };
+      }
     },
   },
 });
