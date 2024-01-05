@@ -1,4 +1,5 @@
 import AddToCartBtn from "@/components/buttons/addToCartBtn";
+import AddToNotices from "@/components/buttons/addToNotices";
 import DigikalaPossibilitiesCards from "@/components/cards/digikalaPossibilitiesCards";
 import SingleProNavbar from "@/components/navbar/singleProNavbar";
 import SingleProductSwiper from "@/components/swipers/singleProductSwiper";
@@ -159,13 +160,23 @@ const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
         </div>
         <DigikalaPossibilitiesCards />
       </div>
-
-      <div className="bottom-0 z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
-        <div className="flex justify-between items-end">
-          <AddToCartBtn product={singleProData} classes={"w-1/2"} />
-          <p>۵۳۴۰۰۰۰ تومان</p>
+      {parseInt(singleProData?.stock) === 0 ? (
+        <div className="bottom-0 z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
+          <AddToNotices singleProData={singleProData} />
         </div>
-      </div>
+      ) : (
+        <div className="bottom-0 z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
+          {parseInt(singleProData?.stock) < 5 && (
+            <p className="text-red-500 text-xs font-bold pb-2">
+              تنها {singleProData.stock} عدد در انبار دیجی‌کالا باقی مانده
+            </p>
+          )}
+          <div className="flex justify-between items-end">
+            <AddToCartBtn product={singleProData} />
+            <p className="w-full text-left">{singleProData.price} تومان</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
