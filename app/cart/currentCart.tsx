@@ -2,16 +2,20 @@ import AddToCartBtn from "@/components/buttons/addToCartBtn";
 import EmptyPage from "@/components/emptyPage";
 import MobileMenu from "@/components/menu/mobileMenu";
 import SimilarProductsSwiper from "@/components/swipers/similarProductsSwiper";
+import useRealPrice from "@/hooks/useCalculationRealPrice";
+
 import { removeFromCart } from "@/redux/features/cartSlice";
 import { addToNextBuy } from "@/redux/features/nextBuySlice";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
   HiChevronLeft,
   HiOutlineClock,
   HiOutlineInboxIn,
   HiTruck,
 } from "react-icons/hi";
+import { TbPercentage } from "react-icons/tb";
 import { useDispatch } from "react-redux";
 
 interface Props {
@@ -20,7 +24,27 @@ interface Props {
 }
 
 const CurrentCart: React.FC<Props> = ({ cartLength, cart }) => {
+  const [cartTotal, setCartTotal] = useState(99800000);
+  const [totalRealPrice, setTotalRealPrice] = useState(100808080);
   const dispatch = useDispatch();
+
+  const discountPercent = Math.floor(
+    ((totalRealPrice - cartTotal) / totalRealPrice) * 100
+  );
+
+  const getTotalRealPrice = useRealPrice({ cart });
+
+  const totalQuantity = cart.reduce(
+    (accumulator, item) => accumulator + item.quantity,
+    0
+  );
+  useEffect(() => {
+    const total = cart.reduce((acc, item) => {
+      return acc + item.quantity * parseInt(item.price);
+    }, 0);
+    setCartTotal(total);
+    setTotalRealPrice(Number(getTotalRealPrice));
+  }, [cart, getTotalRealPrice]);
 
   const addToNextBuyHandler = (item: IProduct) => {
     dispatch(removeFromCart(item));
@@ -34,7 +58,7 @@ const CurrentCart: React.FC<Props> = ({ cartLength, cart }) => {
           <div className=" lg:flex lg:gap-x-2 lg:items-start ">
             <div className="p-4 lg:border lg:p-4 lg:rounded-lg lg:w-2/3 ">
               <p className="text-sm font-bold">سبد خرید شما</p>
-              <p className="text-xs text-gray-700 pt-2">{cartLength} کالا</p>
+              <p className="text-xs text-gray-700 pt-2">{totalQuantity} کالا</p>
               {cart.map((item) => (
                 <div key={item.id} className="border-b">
                   <div className="flex gap-x-2 pt-10">
@@ -71,7 +95,10 @@ const CurrentCart: React.FC<Props> = ({ cartLength, cart }) => {
                           ارسال امروز
                         </p>
                       </div>
-                      <p className="font-bold pt-3">{item.price}dd تومان</p>
+                      <p className="font-bold pt-3">
+                        {(Number(item.price) * item.quantity).toLocaleString()}
+                        تومان
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center justify-end text-sky-500 gap-x-2 py-5 ">
@@ -86,17 +113,35 @@ const CurrentCart: React.FC<Props> = ({ cartLength, cart }) => {
                 </div>
               ))}
             </div>
+
             <div className="hidden lg:block w-1/3 border rounded-lg p-5">
-              <div className="flex justify-between px-2">
-                <p className="text-sm">قیمت کالاها</p>
-                <p>۱۲۳۴۰۰۰ تومان</p>
+              <div className="flex justify-between px-2 font-bold text-gray-500">
+                <p className="text-sm">قیمت کالاها ({totalQuantity})</p>
+                <p>{totalRealPrice.toLocaleString()} تومان</p>
               </div>
-              <div className="flex justify-between px-2 py-4">
+              <div className="flex justify-between px-2 pt-4 font-bold">
                 <p className="text-sm">جمع سبد خرید</p>
-                <p>۱۲۳۴۰۰۰ تومان</p>
+                <p>{cartTotal.toLocaleString()} تومان</p>
               </div>
+              {totalRealPrice - cartTotal > 0 && (
+                <div className="flex justify-between px-2 py-4 font-bold text-red-600">
+                  <p className="text-sm">سود شما از خرید</p>
+                  <div className="flex gap-x-1">
+                    <div className="flex items-center">
+                      {discountPercent > 0 && (
+                        <>
+                          (<TbPercentage />
+                          <p>{discountPercent}</p>)
+                        </>
+                      )}
+                    </div>
+                    <p>{(totalRealPrice - cartTotal).toLocaleString()} تومان</p>
+                  </div>
+                </div>
+              )}
+
               <p className="bg-red-500 text-white p-3 rounded-lg text-center">
-                ثبت سفارش
+                تایید و تکمیل سفارش
               </p>
             </div>
           </div>

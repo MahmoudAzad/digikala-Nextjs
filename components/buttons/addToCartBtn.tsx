@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "@/redux/features/cartSlice";
+import { addToCart, removeOneQtyFromCart } from "@/redux/features/cartSlice";
 import { ICartRootState } from "@/types/cart";
 import { IProduct } from "@/types/product";
 import { TbMinus, TbPlus, TbTrash } from "react-icons/tb";
@@ -48,12 +48,12 @@ const AddToCartBtn: React.FC<Props> = ({ product }) => {
 
             {productQty > 1 ? (
               <TbMinus
-                onClick={() => dispatch(removeFromCart(product))}
+                onClick={() => dispatch(removeOneQtyFromCart(product))}
                 className="text-xl"
               />
             ) : (
               <TbTrash
-                onClick={() => dispatch(removeFromCart(product))}
+                onClick={() => dispatch(removeOneQtyFromCart(product))}
                 className="n1 text-xl"
               />
             )}

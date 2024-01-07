@@ -67,7 +67,7 @@ const SimilarProductsSwiper = () => {
                           (Number(product.price) *
                             (100 - Number(product.offer))) /
                             100
-                        ).toLocaleString("fa-IR")}
+                        ).toLocaleString()}
                       </span>
 
                       <span className="text-[8px] text-[#424750] font-bold mr-1">
@@ -77,7 +77,7 @@ const SimilarProductsSwiper = () => {
                   </div>
                   <div>
                     <del className="text-xs lg:text-sm text-gray-400 ml-2 mt-1">
-                      {Number(product.price).toLocaleString("fa-IR")}
+                      {Number(product.price).toLocaleString()}
                     </del>
                   </div>
                 </div>

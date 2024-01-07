@@ -87,7 +87,9 @@ const NextCart: React.FC<Props> = ({ nextBuy }) => {
                           ارسال امروز
                         </p>
                       </div>
-                      <p className="font-bold pt-3">{item.price}ee تومان</p>
+                      <p className="font-bold pt-3">
+                        {Number(item.price).toLocaleString()} تومان
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center justify-start mt-5 mr-5">

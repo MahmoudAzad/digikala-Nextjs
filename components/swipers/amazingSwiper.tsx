@@ -85,11 +85,7 @@ const AmazingSwiper: React.FC<Props> = ({ products, color }) => {
                     </span>
                     <div className="flex flex-wrap items-center">
                       <span className="text-sm lg:text-base text-[#424750] font-bold">
-                        {Math.round(
-                          (Number(product.price) *
-                            (100 - Number(product.offer))) /
-                            100
-                        ).toLocaleString("fa-IR")}
+                        {Number(product.price).toLocaleString()}
                       </span>
 
                       <span className="text-[8px] text-[#424750] font-bold mr-1">
@@ -99,7 +95,10 @@ const AmazingSwiper: React.FC<Props> = ({ products, color }) => {
                   </div>
                   <div>
                     <del className="text-xs lg:text-sm text-gray-400 ml-2 mt-1">
-                      {Number(product.price).toLocaleString("fa-IR")}
+                      {Math.round(
+                        Number(product.price) /
+                          (1 - Number(product.offer) / 100)
+                      ).toLocaleString()}
                     </del>
                   </div>
                 </div>

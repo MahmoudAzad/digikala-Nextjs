@@ -14,7 +14,6 @@ const CartPage: NextPage = () => {
   const [showCartPage, setShowCartPage] = useState(true);
   const [cart, setCart] = useState<IProduct[]>([]);
   const [cartLength, setCartLength] = useState<number>();
-
   const getCart = useSelector((state: ICartRootState) =>
     Object.values(state.cart.entities)
   );
@@ -35,7 +34,7 @@ const CartPage: NextPage = () => {
     return <Loading />;
   }
   return (
-    <div className="lg:mx-24">
+    <div className="lg:mx-8 xl:mx-24">
       <div className="flex items-center  text-gray-600 font-bold lg:pt-32 ">
         <div
           onClick={() => setShowCartPage(true)}
@@ -74,7 +73,7 @@ const CartPage: NextPage = () => {
         </div>
       </div>
       {showCartPage ? (
-        <CurrentCart cartLength={cartLength} cart={cart} />
+        <CurrentCart cartLength={cartLength} cart={getCart} />
       ) : (
         <NextCart nextBuy={nextBuy} />
       )}

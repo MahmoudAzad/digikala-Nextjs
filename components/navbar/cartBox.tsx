@@ -17,36 +17,38 @@ import { usePathname } from "next/navigation";
 
 const CartBox: React.FC = () => {
   const [cart, setCart] = useState<IProduct[]>([]);
-  const [cartLength, setCartLength] = useState<number>();
-  const cartPath = usePathname().includes("cart");
+  const [cartTotal, setCartTotal] = useState(0);
 
-  const getCart = useSelector((state: ICartRootState) =>
-    Object.values(state.cart.entities)
-  );
-  const getCartLength = useSelector(
-    (state: ICartRootState) => Object.values(state.cart.entities).length
+  const getCart = useSelector((state: ICartRootState) => state.cart.entities);
+  const cartPath = usePathname().includes("cart");
+  const total = cart.reduce((acc, item) => {
+    return acc + item.quantity * parseInt(item.price);
+  }, 0);
+  const totalQuantity = cart.reduce(
+    (accumulator, item) => accumulator + item.quantity,
+    0
   );
 
   useEffect(() => {
-    setCartLength(getCartLength);
-    setCart(getCart);
-  }, [getCartLength]);
+    setCart(Object.values(getCart));
+    setCartTotal(total);
+  }, [getCart]);
 
   return (
     <>
-      {cartLength ? (
+      {cart?.length ? (
         <div className="relative mt-1">
           <div className="cart-dropdown">
             <Link href="/cart">
               <HiOutlineShoppingBag className="text-2xl" />
               <div className="bg-red-500 text-white px-[6px] py-[1px] rounded-md absolute -bottom-2 right-0 transform translate-x-2 -translate-y-2 text-xs font-bold">
-                {cartLength}
+                {totalQuantity}
               </div>
             </Link>
             {!cartPath && (
               <div className="cart-dropdown-menu absolute hidden  w-[450px] -left-5 border rounded-lg shadow-2xl bg-white">
                 <div className="rounded-t  py-2 px-4 block ">
-                  <p className="text-sm">{cartLength} کالا</p>
+                  <p className="text-sm">{totalQuantity} کالا</p>
                   <div
                     className={`max-h-80 ${
                       cart.length > 1 && "overflow-y-scroll"
@@ -90,7 +92,9 @@ const CartBox: React.FC = () => {
                                 ارسال امروز
                               </p>
                             </div>
-                            <p className="font-bold pt-3">{item.price} تومان</p>
+                            <p className="font-bold pt-3">
+                              {Number(item.price).toLocaleString()} تومان
+                            </p>
                           </div>
                         </div>
                       ))}
@@ -99,7 +103,9 @@ const CartBox: React.FC = () => {
                   <div className="flex justify-between items-center">
                     <div className="py-2">
                       <p className="text-xs text-gray-600">مبلغ قابل پرداخت</p>
-                      <p className="text-lg font-bold">12000 تومان</p>
+                      <p className="text-lg font-bold">
+                        {cartTotal.toLocaleString()} تومان
+                      </p>
                     </div>
                     <Link
                       href="/cart"

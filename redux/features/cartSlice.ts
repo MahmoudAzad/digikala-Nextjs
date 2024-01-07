@@ -24,7 +24,7 @@ const cartSlice = createSlice({
     addMultipleToCart: (state, action) => {
       cartAdapter.addMany(state, action.payload);
     },
-    removeFromCart: (state, action) => {
+    removeOneQtyFromCart: (state, action) => {
       const { id } = action.payload;
       const product = state.entities[id];
 
@@ -37,9 +37,17 @@ const cartSlice = createSlice({
         };
       }
     },
+    removeFromCart: (state, action) => {
+      const { id } = action.payload;
+      cartAdapter.removeOne(state, id);
+    },
   },
 });
 
-export const { addToCart, removeFromCart, addMultipleToCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeOneQtyFromCart,
+  addMultipleToCart,
+  removeFromCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;
