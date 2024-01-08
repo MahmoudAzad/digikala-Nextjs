@@ -1,50 +1,49 @@
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import AddToCartBtn from "@/components/buttons/addToCartBtn";
 import EmptyPage from "@/components/emptyPage";
 import MobileMenu from "@/components/menu/mobileMenu";
 import SimilarProductsSwiper from "@/components/swipers/similarProductsSwiper";
 import useRealPrice from "@/hooks/useCalculationRealPrice";
-
 import { removeFromCart } from "@/redux/features/cartSlice";
 import { addToNextBuy } from "@/redux/features/nextBuySlice";
+import { ICartRootState } from "@/types/cart";
 import { IProduct } from "@/types/product";
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import {
-  HiChevronLeft,
-  HiOutlineClock,
-  HiOutlineInboxIn,
-  HiTruck,
-} from "react-icons/hi";
-import { TbPercentage } from "react-icons/tb";
-import { useDispatch } from "react-redux";
+  TbChevronLeft,
+  TbPercentage,
+  TbClockHour4,
+  TbTruck,
+  TbBuildingStore,
+} from "react-icons/tb";
 
 interface Props {
-  cartLength: number;
   cart: IProduct[];
 }
 
-const CurrentCart: React.FC<Props> = ({ cartLength, cart }) => {
-  const [cartTotal, setCartTotal] = useState(99800000);
-  const [totalRealPrice, setTotalRealPrice] = useState(100808080);
+const CurrentCart: React.FC<Props> = ({ cart }) => {
+  const [totalRealPrice, setTotalRealPrice] = useState(0);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
   const dispatch = useDispatch();
 
+  const getTotalQty = useSelector(
+    (state: ICartRootState) => state.cart.totalQuantity
+  );
+  const getCartTotal = useSelector(
+    (state: ICartRootState) => state.cart.totalPrice
+  );
+  const getTotalRealPrice = useRealPrice({ cart });
   const discountPercent = Math.floor(
     ((totalRealPrice - cartTotal) / totalRealPrice) * 100
   );
 
-  const getTotalRealPrice = useRealPrice({ cart });
-
-  const totalQuantity = cart.reduce(
-    (accumulator, item) => accumulator + item.quantity,
-    0
-  );
   useEffect(() => {
-    const total = cart.reduce((acc, item) => {
-      return acc + item.quantity * parseInt(item.price);
-    }, 0);
-    setCartTotal(total);
     setTotalRealPrice(Number(getTotalRealPrice));
-  }, [cart, getTotalRealPrice]);
+    setTotalQuantity(getTotalQty);
+    setCartTotal(getCartTotal);
+  }, [getTotalQty, getTotalRealPrice, getCartTotal]);
 
   const addToNextBuyHandler = (item: IProduct) => {
     dispatch(removeFromCart(item));
@@ -53,13 +52,13 @@ const CurrentCart: React.FC<Props> = ({ cartLength, cart }) => {
 
   return (
     <>
-      {cartLength ? (
+      {totalQuantity ? (
         <>
           <div className=" lg:flex lg:gap-x-2 lg:items-start ">
             <div className="p-4 lg:border lg:p-4 lg:rounded-lg lg:w-2/3 ">
               <p className="text-sm font-bold">سبد خرید شما</p>
               <p className="text-xs text-gray-700 pt-2">{totalQuantity} کالا</p>
-              {cart.map((item) => (
+              {cart?.map((item) => (
                 <div key={item.id} className="border-b">
                   <div className="flex gap-x-2 pt-10">
                     <div className="w-2/4  flex flex-col justify-center items-center sm:w-1/4">
@@ -78,27 +77,27 @@ const CurrentCart: React.FC<Props> = ({ cartLength, cart }) => {
                         {item.name}
                       </p>
                       <div className="flex items-center gap-x-1 py-1 pt-3">
-                        <HiOutlineInboxIn className="text-sky-400 text-lg" />
+                        <TbBuildingStore className="text-sky-400 text-lg" />
                         <p className="text-xs font-bold text-gray-600">
                           موجود در انبار دیجی‌کالا
                         </p>
                       </div>
                       <div className="flex items-center gap-x-1 py-1">
-                        <HiTruck className="text-red-600 text-lg scale-x-[-1]" />
+                        <TbTruck className="text-red-600 text-lg scale-x-[-1]" />
                         <p className="text-xs font-bold text-gray-600">
                           ارسال دیجی‌کالا
                         </p>
                       </div>
                       <div className="flex items-center gap-x-1 py-1">
-                        <HiOutlineClock className="text-blue-700 text-lg" />
+                        <TbClockHour4 className="text-blue-700 text-lg" />
                         <p className="text-xs font-bold text-gray-600">
                           ارسال امروز
                         </p>
                       </div>
-                      <p className="font-bold pt-3">
+                      <div className="font-bold pt-3">
                         {(Number(item.price) * item.quantity).toLocaleString()}
                         تومان
-                      </p>
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center justify-end text-sky-500 gap-x-2 py-5 ">
@@ -108,7 +107,7 @@ const CurrentCart: React.FC<Props> = ({ cartLength, cart }) => {
                     >
                       انتقال به خرید بعدی
                     </button>
-                    <HiChevronLeft className="text-lg" />
+                    <TbChevronLeft className="text-lg" />
                   </div>
                 </div>
               ))}

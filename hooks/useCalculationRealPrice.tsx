@@ -2,7 +2,7 @@ import { IProduct } from "@/types/product";
 import { useEffect, useState } from "react";
 
 interface Props {
-  cart: IProduct[];
+  cart: IProduct[] | undefined;
 }
 
 export const useRealPrice: React.FC<Props> = ({ cart }) => {
@@ -10,7 +10,7 @@ export const useRealPrice: React.FC<Props> = ({ cart }) => {
 
   useEffect(() => {
     let sum = 0;
-    cart.forEach((product) => {
+    cart?.forEach((product) => {
       const price = parseInt(product.price);
       const qty = product.quantity;
       const offer = parseInt(product.offer);

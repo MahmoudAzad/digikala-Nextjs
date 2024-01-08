@@ -13,12 +13,11 @@ import NextCart from "./nextCart";
 const CartPage: NextPage = () => {
   const [showCartPage, setShowCartPage] = useState(true);
   const [cart, setCart] = useState<IProduct[]>([]);
-  const [cartLength, setCartLength] = useState<number>();
-  const getCart = useSelector((state: ICartRootState) =>
-    Object.values(state.cart.entities)
-  );
-  const getCartLength = useSelector(
-    (state: ICartRootState) => Object.values(state.cart.entities).length
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const getCart = useSelector((state: ICartRootState) => state.cart.entities);
+
+  const getTotalQuantity = useSelector(
+    (state: ICartRootState) => state.cart.totalQuantity
   );
 
   const nextBuy = useSelector((state: INextBuyState) =>
@@ -26,11 +25,11 @@ const CartPage: NextPage = () => {
   );
 
   useEffect(() => {
-    setCartLength(getCartLength);
-    setCart(getCart);
-  }, [getCartLength]);
+    setCart(Object.values(getCart));
+    setTotalQuantity(getTotalQuantity);
+  }, [getCart]);
 
-  if (cartLength === undefined) {
+  if (totalQuantity === undefined) {
     return <Loading />;
   }
   return (
@@ -43,14 +42,14 @@ const CartPage: NextPage = () => {
           }`}
         >
           <button>سبد خرید</button>
-          {cartLength ? (
-            <p
+          {totalQuantity ? (
+            <div
               className={`text-white px-2 rounded-md text-xs flex items-center ${
                 showCartPage ? "bg-red-600" : "bg-gray-500 "
               }`}
             >
-              {cartLength}
-            </p>
+              {totalQuantity}
+            </div>
           ) : null}
         </div>
 
@@ -62,18 +61,18 @@ const CartPage: NextPage = () => {
         >
           <button>خرید بعدی</button>
           {nextBuy.length > 0 ? (
-            <p
+            <div
               className={`text-white px-2 rounded-md text-xs flex items-center ${
                 !showCartPage ? "bg-red-600" : "bg-gray-500 "
               }`}
             >
               {nextBuy.length}
-            </p>
+            </div>
           ) : null}
         </div>
       </div>
       {showCartPage ? (
-        <CurrentCart cartLength={cartLength} cart={getCart} />
+        <CurrentCart cart={cart} />
       ) : (
         <NextCart nextBuy={nextBuy} />
       )}
