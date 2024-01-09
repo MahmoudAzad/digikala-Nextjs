@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { IComment, IQuestion } from "@/types/comment";
 import { IProduct } from "@/types/product";
-import AddToCartBox from "../../box/addToCartBox";
 import EndStockBox from "../../box/endStockBox";
 import { menuData } from "../data/data";
 import { fetching } from "@/services/services";
@@ -11,12 +10,13 @@ import Comments from "./sections/comments";
 import SingleProMenuAccordion from "@/components/accordion/singleProMenuAccordion";
 import Attributes from "./sections/attributes";
 import Questions from "./sections/questions";
+import AddToCartBox from "../../box/addToCartBox";
 
 interface Props {
   singleProData: IProduct;
 }
 
-const SingleProMenu: React.FC<Props> = ({ singleProData }) => {
+const SingleProStickyMenu: React.FC<Props> = ({ singleProData }) => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
   const [comments, setComments] = useState<IComment[]>();
   const [questions, setQuestions] = useState<IQuestion[]>();
@@ -126,4 +126,4 @@ const SingleProMenu: React.FC<Props> = ({ singleProData }) => {
   );
 };
 
-export default SingleProMenu;
+export default SingleProStickyMenu;

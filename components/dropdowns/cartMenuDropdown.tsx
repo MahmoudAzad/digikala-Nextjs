@@ -15,7 +15,7 @@ import {
 } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 
-const CartBox: React.FC = () => {
+const CartMenuDropdown: React.FC = () => {
   const [cart, setCart] = useState<IProduct[]>([]);
   const [cartTotal, setCartTotal] = useState(0);
 
@@ -128,4 +128,4 @@ const CartBox: React.FC = () => {
   );
 };
 
-export default CartBox;
+export default CartMenuDropdown;

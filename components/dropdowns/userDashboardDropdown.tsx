@@ -9,7 +9,7 @@ import {
   FaHeart,
 } from "react-icons/fa";
 
-const UserDashboardBox = () => {
+const UserDashboardDropdown = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdownIcon, setShowDropdownIcon] = useState(showDropdown);
 
@@ -101,4 +101,4 @@ const UserDashboardBox = () => {
   );
 };
 
-export default UserDashboardBox;
+export default UserDashboardDropdown;

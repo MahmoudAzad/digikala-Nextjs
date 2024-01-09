@@ -26,7 +26,7 @@ import {
 interface Props {
   singleProData: IProduct;
 }
-const SingleProNavbar: React.FC<Props> = ({ singleProData }) => {
+const SingleProHeaderMenu: React.FC<Props> = ({ singleProData }) => {
   const [cartLength, setCartLength] = useState<number>(0);
   const [isWished, setIsWished] = useState<boolean>();
   const [isAmazingInfo, setIsAmazingInfo] = useState<boolean>();
@@ -97,4 +97,4 @@ const SingleProNavbar: React.FC<Props> = ({ singleProData }) => {
   );
 };
 
-export default SingleProNavbar;
+export default SingleProHeaderMenu;

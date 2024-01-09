@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { HiOutlineSearch } from "react-icons/hi";
-import UserDashboardBox from "./userDashbordBox";
-import CartBox from "./cartBox";
+import CartMenuDropdown from "../dropdowns/cartMenuDropdown";
+import UserDashboardDropdown from "../dropdowns/userDashboardDropdown";
 
 const DesctopNavbar = () => {
   return (
@@ -26,10 +26,10 @@ const DesctopNavbar = () => {
         </form>
       </div>
       <div className="flex items-center">
-        <UserDashboardBox />
+        <UserDashboardDropdown />
         <div className="border-r-2"></div>
         <div className="relative pr-10 ml-5 cursor-pointer">
-          <CartBox />
+          <CartMenuDropdown />
         </div>
       </div>
     </nav>
