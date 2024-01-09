@@ -1,12 +1,13 @@
+import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { addMultipleToCart, addToCart } from "@/redux/features/cartSlice";
 import EmptyPage from "@/components/emptyPage";
 import SimilarProductsSwiper from "@/components/swipers/similarProductsSwiper";
-import { addMultipleToCart, addToCart } from "@/redux/features/cartSlice";
+import { IProduct } from "@/types/product";
 import {
   removeAllFromNextBuy,
   removeFromNextBuy,
 } from "@/redux/features/nextBuySlice";
-import { IProduct } from "@/types/product";
-import Image from "next/image";
 import {
   HiChevronLeft,
   HiOutlineClock,
@@ -15,7 +16,6 @@ import {
   HiOutlineTrash,
   HiTruck,
 } from "react-icons/hi";
-import { useDispatch } from "react-redux";
 
 interface Props {
   nextBuy: IProduct[];

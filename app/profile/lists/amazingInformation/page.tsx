@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { HiOutlineBell } from "react-icons/hi";
 import { IProduct } from "@/types/product";
-import Link from "next/link";
 import { IAmazingInfoRootState } from "@/types/amazingInfo";
 import RemoveFromListModal from "@/components/modals/removeFromListModal";
 import EmptyPage from "@/components/emptyPage";

@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { convertMiladiToShamsi } from "@/hooks/useConvertMiladiToShamsi";
 import { IComment, IQuestion } from "@/types/comment";
 import { IProduct } from "@/types/product";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import AddToCartBtn from "../buttons/addToCartBtn";
+import AddToNotices from "../buttons/addToNotices";
 import {
   HiChevronLeft,
   HiClipboardCheck,
@@ -16,8 +18,6 @@ import {
   HiOutlineTruck,
   HiStar,
 } from "react-icons/hi";
-import AddToCartBtn from "../buttons/addToCartBtn";
-import AddToNotices from "../buttons/addToNotices";
 
 const fetchCommentsData = async () => {
   const response = await fetch(
@@ -82,7 +82,6 @@ const SingleProductMenu: React.FC<Props> = ({ singleProData }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // بررسی محتوای هر آیتم و مشخص کردن آیتمی که در حال حاضر در بالای صفحه قرار دارد
       const scrollPosition = window.scrollY;
 
       for (const item of menuItems) {
@@ -95,15 +94,13 @@ const SingleProductMenu: React.FC<Props> = ({ singleProData }) => {
 
         if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
           setActiveItem(item.id);
-          break; // تا اولین آیتمی که در بالای صفحه قرار دارد
+          break;
         }
       }
     };
 
-    // اضافه کردن رویداد اسکرول به ویژگیها
     window.addEventListener("scroll", handleScroll);
 
-    // پاک کردن وقتی کامپوننت unmount می‌شود
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -194,7 +191,7 @@ const SingleProductMenu: React.FC<Props> = ({ singleProData }) => {
                     </p>
                     <div className="flex gap-x-4 text-xs text-gray-600 font-bold">
                       <p>{convertMiladiToShamsi(comment.createdAt)}</p>
-                      <p>کاربرررر دیجیکالا</p>
+                      <p>کاربر دیجیکالا</p>
                     </div>
                   </div>
                 ))}

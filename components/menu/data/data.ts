@@ -1,5 +1,9 @@
 import {
   HiHome,
+  HiOutlineBackspace,
+  HiOutlineCreditCard,
+  HiOutlineDatabase,
+  HiOutlineReceiptTax,
   HiOutlineShoppingCart,
   HiOutlineUser,
   HiOutlineViewGrid,
@@ -30,6 +34,42 @@ export const menuData = {
       icon: HiOutlineUser,
       title: "لیست‌های من",
       slug: "profile/lists/wishList",
+    },
+  ],
+  megaMenuCategory: [
+    {
+      id: 1,
+      name: "سوپرمارکت",
+      icon: HiOutlineDatabase,
+      slug: "/main/4",
+    },
+    {
+      id: 2,
+      name: "کارت هدیه",
+      icon: HiOutlineCreditCard,
+      slug: "/main/gift-card",
+    },
+    {
+      id: 3,
+      name: "تخفیف ها و پیشنهاد ها",
+      icon: HiOutlineBackspace,
+      slug: "",
+    },
+    {
+      id: 4,
+      name: "شگفت انگیزها",
+      icon: HiOutlineReceiptTax,
+      slug: "",
+    },
+    {
+      id: 5,
+      name: "سوالی دارید؟",
+      slug: "/faq",
+    },
+    {
+      id: 6,
+      name: "فروشنده شوید!",
+      slug: "",
     },
   ],
 };

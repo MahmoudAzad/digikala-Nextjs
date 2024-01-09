@@ -1,14 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addToAmazingInfo,
   removeFromAmazingInfo,
 } from "@/redux/features/amazingInfoSlice";
 import { IAmazingInfoRootState } from "@/types/amazingInfo";
 import { IProduct } from "@/types/product";
-import { useEffect, useState } from "react";
 import { TbBellRinging } from "react-icons/tb";
-import { useDispatch, useSelector } from "react-redux";
 
 interface Props {
   singleProData: IProduct;

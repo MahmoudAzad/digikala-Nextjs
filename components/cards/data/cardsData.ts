@@ -168,3 +168,35 @@ export const gifCardsData = {
     },
   ],
 };
+
+export const digikalaPossibilitiesCardsData = [
+  {
+    id: 1,
+    name: "امکان تحویل اکسپرس",
+    image:
+      "https://www.digikala.com/statics/img/svg/infosection/express-delivery.svg",
+  },
+  {
+    id: 2,
+    name: "۲۴ ساعته، ۷ روز هفته",
+    image: "https://www.digikala.com/statics/img/svg/infosection/support.svg",
+  },
+  {
+    id: 3,
+    name: "امکان پرداخت در محل",
+    image:
+      "https://www.digikala.com/statics/img/svg/infosection/cash-on-delivery.svg",
+  },
+  {
+    id: 4,
+    name: "هفت روز ضمانت بازگشت کالا",
+    image:
+      "https://www.digikala.com/statics/img/svg/infosection/days-return.svg",
+  },
+  {
+    id: 5,
+    name: "ضمانت اصل بودن کالا",
+    image:
+      "https://www.digikala.com/statics/img/svg/infosection/original-products.svg",
+  },
+];

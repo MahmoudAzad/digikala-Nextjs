@@ -3,6 +3,8 @@ import DigikalaPossibilitiesCards from "@/components/cards/digikalaPossibilities
 import SimilarProductsSwiper from "@/components/swipers/similarProductsSwiper";
 import SinglePro_iconsTooltip from "@/components/tooltip/singlePro_iconsTooltip";
 import { IProduct } from "@/types/product";
+import AddToCartBtn from "@/components/buttons/addToCartBtn";
+import AddToNotices from "@/components/buttons/addToNotices";
 import {
   HiChevronLeft,
   HiClipboardCheck,
@@ -13,8 +15,6 @@ import {
   HiOutlineStar,
   HiOutlineTruck,
 } from "react-icons/hi";
-import AddToCartBtn from "@/components/buttons/addToCartBtn";
-import AddToNotices from "@/components/buttons/addToNotices";
 
 interface Props {
   singleProData: IProduct;

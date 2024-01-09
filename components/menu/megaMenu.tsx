@@ -1,16 +1,10 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { fetching } from "@/services/services";
-import {
-  HiOutlineLocationMarker,
-  HiMenu,
-  HiOutlineDatabase,
-  HiOutlineBackspace,
-  HiOutlineReceiptTax,
-  HiOutlineCreditCard,
-} from "react-icons/hi";
+import { HiOutlineLocationMarker, HiMenu } from "react-icons/hi";
 import { ICategory, IMainCategory } from "@/types/category";
+import { menuData } from "./data/data";
 
 const Menu = () => {
   const [mainCategory, setMainCategory] = useState<IMainCategory[]>([]);
@@ -127,59 +121,22 @@ const Menu = () => {
               onMouseLeave={mouseLeaveMenu}
               className="movement relative cursor-pointer pl-4 lg:mr-4 lg:py-2 z-[999] h-full hidden  lg:flex lg:items-center text-[13px] "
             >
-              <li className="flex">
+              <li className="flex items-center">
                 <HiMenu />
                 دسته بندی کالا ها
               </li>
               <div className="w-[1px] h-[16px] bg-[#ceced8]   absolute left-0"></div>
             </div>
-            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D]  py-4 cursor-pointer">
-              <Link href={"/main/4"} className="flex items-center">
-                <li className="flex">
-                  <HiOutlineDatabase className="text-base" />
-                  سوپرمارکت
-                </li>
-              </Link>
-            </div>
-
-            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
-              <Link href="/main/gift-card" className="active-a">
-                <li className="flex">
-                  <HiOutlineCreditCard className="text-base" />
-                  کارت هدیه
-                </li>
-              </Link>
-            </div>
-
-            <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
-              <Link href="/">
-                <li className="flex">
-                  <HiOutlineBackspace className="text-base" />
-                  تخفیف ها و پیشنهاد ها
-                </li>
-              </Link>
-            </div>
-
-            <div className="movement text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer flex items-center">
-              <Link href="/">
-                <li className="flex">
-                  <HiOutlineReceiptTax className="text-base" />
-                  شگفت انگیزها
-                </li>
-              </Link>
-            </div>
-
-            <div className="movement text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
-              <Link href="/faq">
-                <p>سوالی دارید؟</p>
-              </Link>
-            </div>
-
-            <div className="movement text-[12px] px-2 lg:py-2 text-[#62666D] py-4 cursor-pointer">
-              <Link href="/">
-                <p>فروشنده شوید!</p>
-              </Link>
-            </div>
+            {menuData.megaMenuCategory.map((category) => (
+              <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D]  py-4 cursor-pointer">
+                <Link href={category.slug} className="flex items-center">
+                  <li className="flex">
+                    {category.icon && <category.icon className="text-base" />}
+                    {category.name}
+                  </li>
+                </Link>
+              </div>
+            ))}
             <div
               ref={tubeLights}
               className="hidden lg:block duration-[0.3s] absolute bottom-0 opacity-0 h-[3px] w-0 bg-[#ef394e] rounded-tl rounded-tr"

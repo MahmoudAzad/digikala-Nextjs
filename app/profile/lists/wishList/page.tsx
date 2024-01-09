@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { IWishListRootState } from "@/types/wishList";
 import { IProduct } from "@/types/product";
-import Link from "next/link";
 import RemoveFromListModal from "@/components/modals/removeFromListModal";
 import EmptyPage from "@/components/emptyPage";
 

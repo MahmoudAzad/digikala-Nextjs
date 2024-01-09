@@ -1,7 +1,7 @@
+import { NextPage } from "next";
 import QuadrupleCards from "@/components/cards/quadrupleCards";
 import MainPageSwiper from "@/components/swipers/mainPageSwiper";
 import { fetchMainPage } from "@/services/services";
-import { NextPage } from "next";
 
 interface IParams {
   id: string;

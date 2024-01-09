@@ -1,5 +1,5 @@
-import { IGallery } from "@/types/category";
 import Image from "next/image";
+import { IGallery } from "@/types/category";
 
 interface Props {
   cards: IGallery[];
