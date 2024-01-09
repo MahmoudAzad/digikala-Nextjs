@@ -1,6 +1,11 @@
 import Image from "next/image";
 
-const EmptyPage = ({ imgSrc, title }) => {
+interface Props {
+  imgSrc: string;
+  title: string;
+}
+
+const EmptyPage: React.FC<Props> = ({ imgSrc, title }) => {
   return (
     <div className="border flex flex-col justify-center items-center gap-y-5 m-5 rounded-lg py-5">
       <Image

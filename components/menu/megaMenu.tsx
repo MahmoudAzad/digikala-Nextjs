@@ -128,7 +128,10 @@ const Menu = () => {
               <div className="w-[1px] h-[16px] bg-[#ceced8]   absolute left-0"></div>
             </div>
             {menuData.megaMenuCategory.map((category) => (
-              <div className="movement  text-[12px] px-2 lg:py-2 text-[#62666D]  py-4 cursor-pointer">
+              <div
+                key={category.id}
+                className="movement  text-[12px] px-2 lg:py-2 text-[#62666D]  py-4 cursor-pointer"
+              >
                 <Link href={category.slug} className="flex items-center">
                   <li className="flex">
                     {category.icon && <category.icon className="text-base" />}

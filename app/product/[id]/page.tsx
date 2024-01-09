@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import SingleProductDesctop from "./singleProductDesctop";
 import SingleProductMobile from "./singleProductMobile";
-import SingleProductMenu from "@/components/menu/singleProductMenu";
 import { fetchSingleProduct } from "@/services/services";
+import SingleProMenu from "@/components/menu/singleProMenu/singleProMenu";
 
 interface ParamsId {
   id: string;
@@ -25,7 +25,7 @@ const SingleProduct: NextPage<{ params: ParamsId }> = async ({ params }) => {
 
       <SingleProductMobile singleProData={singleProductData} />
 
-      <SingleProductMenu singleProData={singleProductData} />
+      <SingleProMenu singleProData={singleProductData} />
     </>
   );
 };

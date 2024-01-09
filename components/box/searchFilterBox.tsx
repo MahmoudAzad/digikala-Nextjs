@@ -5,7 +5,7 @@ import Link from "next/link";
 import { fetching } from "@/services/services";
 import { useEffect, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
-import Pagination from "./pagination";
+import Pagination from "../pagination";
 import { IBrand } from "@/types/brand";
 import { IFilterItem } from "@/types/filter";
 import { IProduct } from "@/types/product";

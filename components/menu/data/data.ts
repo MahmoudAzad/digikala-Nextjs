@@ -72,4 +72,26 @@ export const menuData = {
       slug: "",
     },
   ],
+  singleProMenuCategory: [
+    {
+      id: 1,
+      label: "دیدگاه‌ها",
+    },
+    {
+      id: 2,
+      label: "معرفی",
+    },
+    {
+      id: 3,
+      label: "بررسی تخصصی",
+    },
+    {
+      id: 4,
+      label: "مشخصات",
+    },
+    {
+      id: 5,
+      label: "پرسش‌ها",
+    },
+  ],
 };

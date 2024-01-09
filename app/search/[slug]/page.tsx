@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import SearchFilterBox from "@/components/searchFilterBox";
+import SearchFilterBox from "@/components/box/searchFilterBox";
 
 interface IParams {
   slug: string;
