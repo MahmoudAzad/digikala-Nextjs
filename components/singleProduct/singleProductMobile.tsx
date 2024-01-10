@@ -1,21 +1,15 @@
-import AddToCartBtn from "@/components/buttons/addToCartBtn";
-import AddToNotices from "@/components/buttons/addToNotices";
+import Image from "next/image";
 import DigikalaPossibilitiesCards from "@/components/cards/digikalaPossibilitiesCards";
 import SingleProHeaderMenu from "@/components/menu/singleProMenu/singleProHeaderMenu";
 import SingleProductSwiper from "@/components/swipers/singleProductSwiper";
+import AddToCartFixBox from "../box/addToCartFixBox";
+import AddToCartBox from "../box/addToCartBox";
 import { IProduct } from "@/types/product";
-import Image from "next/image";
 import {
   HiChevronLeft,
-  HiClipboardCheck,
   HiInformationCircle,
-  HiOutlineClock,
-  HiOutlineDatabase,
   HiOutlineInformationCircle,
-  HiOutlineShieldCheck,
   HiOutlineStar,
-  HiOutlineTag,
-  HiOutlineTruck,
 } from "react-icons/hi";
 
 interface Props {
@@ -39,66 +33,7 @@ const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
             <p>{singleProData.name}</p>
           </div>
         </div>
-
-        <div className=" py-5 px-5 mt-3 bg-white">
-          <ul className="flex justify-between">
-            <p className="text-sm font-bold">فروشنده</p>
-            <p className="text-xs text-sky-500">۴ فروشنده دیگر</p>
-          </ul>
-          <ul className="flex items-end gap-x-3 pt-6">
-            <Image
-              src="https://iili.io/hufgQj.th.png"
-              alt={singleProData.name}
-              width={20}
-              height={20}
-            />
-            <p className="text-xs font-bold">دیجی‌کالا</p>
-          </ul>
-          <ul className="flex gap-x-3 pt-3 pr-8 text-xs">
-            <p className="border-l pl-3">
-              <span className="text-green-600 font-bold">۸۰٪</span> رضایت از
-              کالا
-            </p>
-            <p>
-              عملکرد <span className="text-green-600 font-bold">عالی</span>
-            </p>
-          </ul>
-
-          <div className="flex items-center gap-x-3 pr-5 py-4 mt-5 border-b border-t bg-white">
-            <HiOutlineShieldCheck className="text-xl" />
-            <p className="text-xs font-bold">گارانتی ۲۴ ماهه مادیران</p>
-          </div>
-
-          <div className="py-5 border-b pr-5 bg-white">
-            <div className="flex items-center gap-x-3">
-              <HiClipboardCheck className="text-blue-400 text-xl" />
-              <p className="text-xs font-bold">موجود در انبار دیجی کالا</p>
-              <HiChevronLeft />
-            </div>
-            <ul>
-              <li className="flex items-center gap-x-3 mt-3 mr-8">
-                <HiOutlineTruck className="text-red-600" />
-                <p className="text-xs text-gray-600">ارسال دیجی کالا</p>
-              </li>
-              <li className="flex items-center gap-x-3 mt-2 mr-8">
-                <HiOutlineClock className="text-blue-800" />
-                <p className="text-xs text-gray-600">ارسال فوری شهر تهران</p>
-              </li>
-            </ul>
-          </div>
-
-          <div className="flex items-center gap-x-3 py-5 pr-5 border-b bg-white">
-            <HiOutlineDatabase className="text-yellow-500 text-xl" />
-            <p className="text-xs font-bold">۱۵۰ امتیاز دیجی‌کلاب</p>
-            <HiOutlineInformationCircle className="text-lg text-gray-500" />
-          </div>
-
-          <div className="flex justify-end items-center bg-white text-xs text-gray-500 gap-x-3 px-5 pt-5  ">
-            <p>قیمت بهتری سراغ دارید؟</p>
-            <HiOutlineTag />
-          </div>
-        </div>
-
+        <AddToCartBox singleProData={singleProData} />
         <div className="flex justify-between bg-white px-5 py-3 my-3 ">
           <ul className="flex items-center text-xs text-gray-500 gap-x-2">
             <HiOutlineInformationCircle className="text-lg" />
@@ -160,23 +95,7 @@ const SingleProductMobile: React.FC<Props> = ({ singleProData }) => {
         </div>
         <DigikalaPossibilitiesCards />
       </div>
-      {parseInt(singleProData?.stock) === 0 ? (
-        <div className="bottom-0 z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
-          <AddToNotices singleProData={singleProData} />
-        </div>
-      ) : (
-        <div className="bottom-0 z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
-          {parseInt(singleProData?.stock) < 5 && (
-            <p className="text-red-500 text-xs font-bold pb-2">
-              تنها {singleProData.stock} عدد در انبار دیجی‌کالا باقی مانده
-            </p>
-          )}
-          <div className="flex justify-between items-end">
-            <AddToCartBtn product={singleProData} />
-            <p className="w-full text-left">{singleProData.price} تومان</p>
-          </div>
-        </div>
-      )}
+      <AddToCartFixBox singleProData={singleProData} />
     </div>
   );
 };

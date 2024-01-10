@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import SingleProductDesctop from "./singleProductDesctop";
-import SingleProductMobile from "./singleProductMobile";
+import SingleProductDesctop from "../../../components/singleProduct/singleProductDesctop";
+import SingleProductMobile from "../../../components/singleProduct/singleProductMobile";
 import { fetchSingleProduct } from "@/services/services";
 import SingleProStickyMenu from "@/components/menu/singleProMenu/singleProStickyMenu";
 

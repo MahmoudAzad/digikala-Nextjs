@@ -10,7 +10,7 @@ import Comments from "./sections/comments";
 import SingleProMenuAccordion from "@/components/accordion/singleProMenuAccordion";
 import Attributes from "./sections/attributes";
 import Questions from "./sections/questions";
-import AddToCartBox from "../../box/addToCartBox";
+import AddToCartStickyBox from "@/components/box/addToCartStickyBox";
 
 interface Props {
   singleProData: IProduct;
@@ -117,9 +117,11 @@ const SingleProStickyMenu: React.FC<Props> = ({ singleProData }) => {
           </div>
         </div>
         {parseInt(singleProData?.stock) === 0 ? (
-          <EndStockBox singleProData={singleProData} />
+          <div className="basis-3/12 mt-6 hidden xl:block ">
+            <EndStockBox singleProData={singleProData} />
+          </div>
         ) : (
-          <AddToCartBox singleProData={singleProData} />
+          <AddToCartStickyBox singleProData={singleProData} />
         )}
       </div>
     </div>
