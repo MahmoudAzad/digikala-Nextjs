@@ -14,7 +14,7 @@ interface Props {
   singleProData: IProduct;
 }
 
-const AddToNotices: React.FC<Props> = ({ singleProData }) => {
+const AddToNoticesBtn: React.FC<Props> = ({ singleProData }) => {
   const [availableInNotices, setAvailableInNotices] = useState<boolean>();
   const dispatch = useDispatch();
   const getNotices = useSelector(
@@ -67,4 +67,4 @@ const AddToNotices: React.FC<Props> = ({ singleProData }) => {
   );
 };
 
-export default AddToNotices;
+export default AddToNoticesBtn;

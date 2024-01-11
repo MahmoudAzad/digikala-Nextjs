@@ -1,6 +1,6 @@
 import { IProduct } from "@/types/product";
 import AddToCartBtn from "../buttons/addToCartBtn";
-import AddToNotices from "../buttons/addToNotices";
+import AddToNoticesBtn from "../buttons/addToNoticesBtn";
 interface Props {
   singleProData: IProduct;
 }
@@ -9,7 +9,7 @@ const AddToCartFixBox: React.FC<Props> = ({ singleProData }) => {
     <>
       {parseInt(singleProData?.stock) === 0 ? (
         <div className="bottom-0 z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">
-          <AddToNotices singleProData={singleProData} />
+          <AddToNoticesBtn singleProData={singleProData} />
         </div>
       ) : (
         <div className="bottom-0 z-20 fixed w-full p-3 bg-white border-t-2 shadow-2xl">

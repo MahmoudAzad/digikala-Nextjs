@@ -1,5 +1,5 @@
 import { IProduct } from "@/types/product";
-import AddToNotices from "../buttons/addToNotices";
+import AddToNoticesBtn from "../buttons/addToNoticesBtn";
 interface Props {
   singleProData: IProduct;
 }
@@ -13,7 +13,7 @@ const EndStockBox: React.FC<Props> = ({ singleProData }) => {
           <span className="px-2 text-gray-500 font-bold">ناموجود</span>
           <div className="border-t-2 flex-grow"></div>
         </div>
-        <AddToNotices singleProData={singleProData} />
+        <AddToNoticesBtn singleProData={singleProData} />
       </div>
     </div>
   );

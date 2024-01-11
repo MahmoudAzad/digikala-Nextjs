@@ -7,8 +7,8 @@ import Loading from "../loading";
 import { IProduct } from "@/types/product";
 import { ICartRootState } from "@/types/cart";
 import { INextBuyState } from "@/types/nextBuy";
-import CurrentCart from "./currentCart";
-import NextCart from "./nextCart";
+import CurrentCart from "../../components/cart/currentCart";
+import NextCart from "../../components/cart/nextCart";
 
 const CartPage: NextPage = () => {
   const [showCartPage, setShowCartPage] = useState(true);
@@ -27,7 +27,7 @@ const CartPage: NextPage = () => {
   useEffect(() => {
     setCart(Object.values(getCart));
     setTotalQuantity(getTotalQuantity);
-  }, [getCart]);
+  }, [getCart, getTotalQuantity]);
 
   if (totalQuantity === undefined) {
     return <Loading />;

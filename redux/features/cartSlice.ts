@@ -46,7 +46,11 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const { id } = action.payload;
+      const totalPriceOfProduct =
+        action.payload.quantity * action.payload.price;
       cartAdapter.removeOne(state, id);
+      state.totalQuantity -= action.payload.quantity;
+      state.totalPrice -= totalPriceOfProduct;
     },
   },
 });
