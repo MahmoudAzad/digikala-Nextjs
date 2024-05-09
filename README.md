@@ -4,11 +4,11 @@ An E-commerce site template, implemented with **Next.js (v13)** and **TypeScript
 <p>To support me, please create <strong>Pull request</strong> and give <strong>star⭐</strong> to this repository.<br/>
    I appreciate your support in advance. ❤</p>
 
-<img src="/public/banner.png"/>
 </div>
 
 ## ✨Demo
 You can visit template at [digikala.vercel.app](https://digikala-nextjs.vercel.app/).
+<img src="/public/banner.png"/>
 
 ## 🔧Technologies
 * Next.js
