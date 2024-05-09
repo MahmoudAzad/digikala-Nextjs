@@ -4,17 +4,6 @@ An E-commerce site template, implemented with **Next.js (v13)** and **TypeScript
 <p>To support me, please create <strong>Pull request</strong> and give <strong>star⭐</strong> to this repository.<br/>
    I appreciate your support in advance. ❤</p>
 
-<p>
-
-[Demo](#demo) •
-[Technologies](#technologies) •
-[Features](#features) •
-[Pages](#pages) •
-[Getting started](#getting-started) •
-[Contributing](#contributing) •
-[Contact Me](#contact-me)
-  
-</p>
 <img src="/public/banner.png"/>
 </div>
 
