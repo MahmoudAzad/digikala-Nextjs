@@ -52,7 +52,7 @@ const NextCart: React.FC<Props> = ({ nextBuy }) => {
                   <HiChevronLeft />
                 </div>
               </div>
-              {nextBuy.map((item) => (
+              {nextBuy?.map((item) => (
                 <div key={item.id} className="border-b py-5">
                   <div className="flex pt-10">
                     <div className="w-2/4  flex flex-col justify-center items-center sm:w-1/4">

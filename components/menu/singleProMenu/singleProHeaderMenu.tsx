@@ -22,6 +22,7 @@ import {
   addToAmazingInfo,
   removeFromAmazingInfo,
 } from "@/redux/features/amazingInfoSlice";
+import MoreOptionsProModal from "@/components/modals/moreOptionsProModal";
 
 interface Props {
   singleProData: IProduct;
@@ -88,10 +89,11 @@ const SingleProHeaderMenu: React.FC<Props> = ({ singleProData }) => {
             className="text-2xl"
           />
         )}
-        <TbBellRinging
+        {/* <TbBellRinging
           onClick={addToAmazingInfoHandler}
           className={`text-2xl ${isAmazingInfo ? "text-red-500" : ""}`}
-        />
+        /> */}
+        <MoreOptionsProModal />
       </div>
     </div>
   );

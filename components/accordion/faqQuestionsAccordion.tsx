@@ -17,7 +17,7 @@ const FaqQuestionsAccordion: React.FC = () => {
 
   return (
     <div className="mx-5 mt-16 lg:mx-48 ">
-      {faqQuestionsData.map((item) => (
+      {faqQuestionsData?.map((item) => (
         <div key={item.id}>
           <div
             onClick={() => handleClick(item.id)}

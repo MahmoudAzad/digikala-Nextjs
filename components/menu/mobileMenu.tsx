@@ -25,7 +25,7 @@ const MobileMenu: React.FC = () => {
   return (
     <div className="fixed bottom-0 w-full z-40 lg:hidden">
       <div className="flex justify-between bg-white py-2 px-4 sm:justify-around border-t-2 shadow-lg">
-        {menuData.mobileMenuData.map((menuItem) => (
+        {menuData.mobileMenuData?.map((menuItem) => (
           <div
             key={menuItem.id}
             onClick={() => setActiveItem(menuItem.id)}

@@ -98,7 +98,7 @@ const Menu = () => {
     setHoverMainCategory(hoverText);
   };
 
-  const firstMainCategoryName = mainCategory.map(
+  const firstMainCategoryName = mainCategory?.map(
     (mainCategory) => mainCategory.name
   )[0];
 
@@ -127,7 +127,7 @@ const Menu = () => {
               </li>
               <div className="w-[1px] h-[16px] bg-[#ceced8]   absolute left-0"></div>
             </div>
-            {menuData.megaMenuCategory.map((category) => (
+            {menuData.megaMenuCategory?.map((category) => (
               <div
                 key={category.id}
                 className="movement  text-[12px] px-2 lg:py-2 text-[#62666D]  py-4 cursor-pointer"

@@ -27,7 +27,7 @@ export default async function RootLayout({
           <Navbar />
           <Menu />
           {children}
-          <Footer footerData={footerData} />
+          {/* <Footer footerData={footerData} /> */}
           <MobileMenu />
         </body>
       </html>

@@ -55,7 +55,7 @@ const CartMenuDropdown: React.FC = () => {
                     }`}
                   >
                     <div className="">
-                      {cart.map((item) => (
+                      {cart?.map((item) => (
                         <div
                           key={item.id}
                           className="flex gap-x-2 border-b py-5"

@@ -46,7 +46,7 @@ const SuggestionSwiper: React.FC<Props> = ({ allProducts }) => {
           {allProducts
             ?.filter((products: IProduct) => products.isSuggest == true)
             .slice(0, 14)
-            .map((product, index) => {
+            ?.map((product, index) => {
               return (
                 <SwiperSlide key={index}>
                   <Link href={`/product/${product.id}`}>
