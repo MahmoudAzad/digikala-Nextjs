@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { fetching } from "@/services/services";
+import { fetchingdb } from "@/services/services";
 import { useEffect, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 import Pagination from "../pagination";
@@ -22,7 +22,7 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
   const [searchByAvailable, setSearchByAvailable] = useState(false);
   const [searchByBrand, setSearchByBrand] = useState<string[]>([]);
   const [searchByProductsValue, setSearchByProductsValue] = useState<string[]>(
-    []
+    [],
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [availableCategories, setAvailableCategories] = useState<
@@ -32,15 +32,17 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
   // fetch products by slug
   useEffect(() => {
     const getData = async () => {
-      const getAllProducts = await fetching("/product");
+      const data = await fetchingdb();
+      const getAllProducts = data.product;
+
       const getSearchProducts = getAllProducts
         .map((a: IProduct) => a)
         .filter((product: IProduct) =>
           product.subCategorySlug == slug
             ? product.subCategorySlug == slug
             : product.categorySlug == slug
-            ? product.categorySlug == slug
-            : null
+              ? product.categorySlug == slug
+              : null,
         );
       setProducts(getSearchProducts);
     };
@@ -56,8 +58,10 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
   const brands = allBrands.slice(0, 4);
   useEffect(() => {
     const getData = async () => {
-      const getAllBrands = await fetching("/brand");
-      const getFilterItems = await fetching("/filterProduct");
+      const data = await fetchingdb();
+
+      const getAllBrands = data.brand;
+      const getFilterItems = data.filterProduct;
       setAllBrands(getAllBrands);
       setFilterItems(getFilterItems);
     };
@@ -81,8 +85,8 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
       filteredArray = filteredArray
         .filter((data) =>
           data.productsValues.some((elemet) =>
-            searchByProductsValue.includes(elemet.value)
-          )
+            searchByProductsValue.includes(elemet.value),
+          ),
         )
         .map((filteredName) => {
           return filteredName;
@@ -119,7 +123,7 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
       ?.map((filter) => filter)
       .filter(
         (filters) =>
-          filters.subCategorySlug == slug || filters.CategorySlug == slug
+          filters.subCategorySlug == slug || filters.CategorySlug == slug,
       );
 
   const openBrandHandler = () => {
@@ -165,7 +169,9 @@ const SearchFilterBox: React.FC<{ slug: string }> = ({ slug }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const getAvailableCategories = await fetching("/availableCategories");
+      const data = await fetchingdb();
+
+      const getAvailableCategories = data.availableCategories;
       setAvailableCategories(getAvailableCategories);
     };
     fetchData();

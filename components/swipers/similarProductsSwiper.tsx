@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { useEffect, useState } from "react";
-import { fetching } from "@/services/services";
+import { fetchingdb } from "@/services/services";
 import Link from "next/link";
 import Image from "next/image";
 import { IProduct } from "@/types/product";
@@ -15,7 +15,8 @@ const SimilarProductsSwiper = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   useEffect(() => {
     const fetchData = async () => {
-      const fetchProducts = await fetching("/product");
+      const data = await fetchingdb();
+      const fetchProducts = data.product;
       setProducts(fetchProducts);
     };
     fetchData();
@@ -66,7 +67,7 @@ const SimilarProductsSwiper = () => {
                         {Math.round(
                           (Number(product.price) *
                             (100 - Number(product.offer))) /
-                            100
+                            100,
                         ).toLocaleString()}
                       </span>
 

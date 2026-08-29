@@ -5,7 +5,7 @@ import { IComment, IQuestion } from "@/types/comment";
 import { IProduct } from "@/types/product";
 import EndStockBox from "../../box/endStockBox";
 import { menuData } from "../data/data";
-import { fetching } from "@/services/services";
+import { fetchingdb } from "@/services/services";
 import Comments from "./sections/comments";
 import SingleProMenuAccordion from "@/components/accordion/singleProMenuAccordion";
 import Attributes from "./sections/attributes";
@@ -35,7 +35,8 @@ const SingleProStickyMenu: React.FC<Props> = ({ singleProData }) => {
 
   useEffect(() => {
     const getCommentsData = async () => {
-      const data = await fetching("/customersComment");
+      const getJsonServer = await fetchingdb();
+      const data = getJsonServer.customersComment;
       setComments(data);
     };
     getCommentsData();
@@ -43,7 +44,8 @@ const SingleProStickyMenu: React.FC<Props> = ({ singleProData }) => {
 
   useEffect(() => {
     const getQuestionsData = async () => {
-      const data = await fetching("/customersQuestion");
+      const getJsonServer = await fetchingdb();
+      const data = getJsonServer.customersQuestion;
       setQuestions(data);
     };
     getQuestionsData();

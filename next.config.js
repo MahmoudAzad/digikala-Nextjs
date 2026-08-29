@@ -7,6 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
+      "digikala-json-vercel.vercel.app",
       "www.digikala.com",
       "dkstatics-public.digikala.com",
       "iili.io",

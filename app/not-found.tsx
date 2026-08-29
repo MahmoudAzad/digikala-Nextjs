@@ -1,10 +1,12 @@
+import { fetchingdb } from "@/services/services";
 import Image from "next/image";
 import Link from "next/link";
 import { HiChevronLeft } from "react-icons/hi";
 
 const getData = async () => {
-  const data = await fetch("https://digikala-d567.onrender.com/notFound");
-  return data.json();
+  const data = await fetchingdb();
+  const notFound = data.notFound;
+  return notFound;
 };
 
 const notFound = async () => {
