@@ -1,4 +1,20 @@
-const rootApi = "https://digikala-d567.onrender.com";
+// const rootApi = "https://digikala-d567.onrender.com";
+const rootApi = "https://digikala-json-vercel.vercel.app";
+
+export const fetchingdb = async () => {
+  try {
+    const response = await fetch(`${rootApi}/db.json`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("API Error:", error);
+    throw error;
+  }
+};
 
 export const fetching = async (endPoint: string) => {
   try {

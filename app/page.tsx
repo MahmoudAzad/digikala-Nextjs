@@ -8,28 +8,22 @@ import HeadSwiper from "@/components/swipers/headSwiper";
 import PopularBrandsSwiper from "@/components/swipers/popularBrandsSwiper";
 import SuggestionSwiper from "@/components/swipers/suggestionSwiper";
 import BasedOnUserViewsCards from "@/components/cards/basedOnUserViewsCards";
-import { fetching } from "@/services/services";
+import { fetchingdb } from "@/services/services";
 import { IProduct } from "@/types/product";
 import { IHomePageDetail } from "@/types/homePageDetail";
 import MobileMenu from "@/components/menu/mobileMenu";
 
 const getData = async () => {
-  const product = await fetching("/product");
-  const mainCategory = await fetching("/mainCategory");
-  const category = await fetching("/category");
-  const homePageDetail = await fetching("/homePageDetail");
-  const digikalaSubCategories = await fetching("/DigikalaSubCategories");
-  const doubleCards = await fetching("/dobleCards");
-  const brands = await fetching("/brand");
+  const data = await fetchingdb();
 
   return {
-    product,
-    mainCategory,
-    category,
-    homePageDetail,
-    digikalaSubCategories,
-    doubleCards,
-    brands,
+    product: data.product,
+    mainCategory: data.mainCategory,
+    category: data.category,
+    homePageDetail: data.homePageDetail,
+    digikalaSubCategories: data.DigikalaSubCategories,
+    doubleCards: data.dobleCards,
+    brands: data.brand,
   };
 };
 
@@ -49,15 +43,15 @@ const Home = async () => {
     ?.map((product: IProduct) => product);
 
   const amazingSwiperColor = homePageDetail?.map(
-    (item: any) => item.AmazingOfferSliderColor
+    (item: any) => item.AmazingOfferSliderColor,
   );
 
   const headerCarousels = homePageDetail?.map(
-    (item: IHomePageDetail) => item.carousel
+    (item: IHomePageDetail) => item.carousel,
   );
 
   const quadrupleCards = homePageDetail?.map(
-    (item: IHomePageDetail) => item.banner
+    (item: IHomePageDetail) => item.banner,
   );
   const firstDoubleCards = doubleCards?.slice(0, 2);
   const secoundDoubleCards = doubleCards?.slice(2, 4);

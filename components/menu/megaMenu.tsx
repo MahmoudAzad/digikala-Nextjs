@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { fetching } from "@/services/services";
+import { fetchingdb } from "@/services/services";
 import { HiOutlineLocationMarker, HiMenu } from "react-icons/hi";
 import { ICategory, IMainCategory } from "@/types/category";
 import { menuData } from "./data/data";
@@ -40,11 +40,10 @@ const Menu = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const fetchMainCategory = await fetching("/mainCategory");
-      const fetchCategory = await fetching("/category");
+      const data = await fetchingdb();
 
-      setMainCategory(fetchMainCategory);
-      setCategory(fetchCategory);
+      setMainCategory(data.mainCategory);
+      setCategory(data.category);
     };
     fetchData();
   }, []);
@@ -99,7 +98,7 @@ const Menu = () => {
   };
 
   const firstMainCategoryName = mainCategory?.map(
-    (mainCategory) => mainCategory.name
+    (mainCategory) => mainCategory.name,
   )[0];
 
   return (
@@ -189,7 +188,7 @@ const Menu = () => {
             <>
               {category
                 .filter(
-                  (category) => category.mainCategory == firstMainCategoryName
+                  (category) => category.mainCategory == firstMainCategoryName,
                 )
                 ?.map((category, index) => {
                   return (
@@ -220,7 +219,7 @@ const Menu = () => {
             </>
           ) : (
             category
-              .filter((category) => category.mainCategory == hoverMainCategory)
+              ?.filter((category) => category.mainCategory == hoverMainCategory)
               ?.map((category, index) => {
                 return (
                   <div key={index}>

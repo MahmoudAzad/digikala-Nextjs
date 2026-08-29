@@ -8,20 +8,30 @@ import SocialNetworks from "./footerSections/socialNetworks";
 import Banner from "./footerSections/banner";
 import E_NamadContent from "./footerSections/e_namadContent";
 import Brands from "./footerSections/brands";
+import { fetchingdb } from "@/services/services";
 
 interface Props {
   footerData: IFooter[];
 }
 
-const Footer: React.FC<Props> = ({ footerData }) => {
-  const categories = footerData[0].categories;
-  const footerIcons = footerData[1].icons;
-  const footerBrands = footerData[2].brands;
-  const footerBanner = footerData[3].banner;
-  const footerSymbols = footerData[4].symbols;
+const getData = async () => {
+  const data = await fetchingdb();
+
+  return {
+    footer: data.footer,
+  };
+};
+
+const Footer = async () => {
+  const { footer } = await getData();
+  const categories = footer[0].categories;
+  const footerIcons = footer[1].icons;
+  const footerBrands = footer[2].brands;
+  const footerBanner = footer[3].banner;
+  const footerSymbols = footer[4].symbols;
 
   return (
-    <div className="hidden lg:block">
+    <div className="lg:block">
       <div className="border-t px-5 py-10">
         <Image
           src={digikalaFooterLogo}
