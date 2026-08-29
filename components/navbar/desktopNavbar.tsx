@@ -3,18 +3,21 @@ import Image from "next/image";
 import { HiOutlineSearch } from "react-icons/hi";
 import CartMenuDropdown from "../dropdowns/cartMenuDropdown";
 import UserDashboardDropdown from "../dropdowns/userDashboardDropdown";
+import Link from "next/link";
 
 const DesctopNavbar = () => {
   return (
     <nav className="hidden bg-white top-0  items-center justify-between w-full px-5 py-3 z-20 lg:flex lg:fixed">
       <div className="flex">
-        <Image
-          src="https://www.digikala.com/statics/img/svg/logo.svg"
-          alt="دیجی کالا"
-          className="mr-4 ml-4"
-          width={120}
-          height={120}
-        />
+        <Link href={"/"}>
+          <Image
+            src="https://www.digikala.com/statics/img/svg/logo.svg"
+            alt="دیجی کالا"
+            className="mr-4 ml-4"
+            width={120}
+            height={120}
+          />
+        </Link>
 
         <form className="flex relative items-center">
           <input

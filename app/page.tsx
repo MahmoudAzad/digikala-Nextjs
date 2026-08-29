@@ -57,9 +57,10 @@ const Home = async () => {
   const secoundDoubleCards = doubleCards?.slice(2, 4);
   return (
     <>
-      <HeadSwiper carousels={headerCarousels} />
+      <div className="pt-24">
+        <HeadSwiper carousels={headerCarousels} />
+      </div>{" "}
       <SubCategoryCards categories={digikalaSubCategories?.slice(0, 7)} />
-
       <div className="xl:mx-28">
         <AmazingSwiper products={amazingProducts} color={amazingSwiperColor} />
         <QuadrupleCards cards={quadrupleCards[0]} />
