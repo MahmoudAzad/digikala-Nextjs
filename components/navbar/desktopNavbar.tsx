@@ -1,15 +1,22 @@
 "use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
+
 import CartMenuDropdown from "../dropdowns/cartMenuDropdown";
 import UserDashboardDropdown from "../dropdowns/userDashboardDropdown";
-import Link from "next/link";
+import ProductSearch from "./productSearch";
 
 const DesctopNavbar = () => {
+  const [search, setSearch] = useState("");
+
   return (
-    <nav className="hidden bg-white top-0  items-center justify-between w-full px-5 py-3 z-20 lg:flex lg:fixed">
+    <nav className="fixed top-0 z-20 hidden w-full items-center justify-between bg-white px-5 py-3 lg:flex">
+      {/* Left */}
       <div className="flex">
-        <Link href={"/"}>
+        <Link href="/">
           <Image
             src="https://www.digikala.com/statics/img/svg/logo.svg"
             alt="دیجی کالا"
@@ -19,19 +26,77 @@ const DesctopNavbar = () => {
           />
         </Link>
 
-        <form className="flex relative items-center">
-          <input
-            type="text"
-            placeholder="جستجو"
-            className="bg-slate-100 p-2  rounded-md w-[600px] placeholder:pr-10 placeholder:text-sm placeholder:text-slate-500"
-          />
-          <HiOutlineSearch className="absolute right-4 w-6 h-6 text-slate-500 cursor-pointer" />
-        </form>
+        {/* Search */}
+        <div className="relative">
+          <form
+            className="relative flex items-center"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="جستجو در محصولات..."
+              className="
+                h-11
+                w-[600px]
+                rounded-lg
+                bg-slate-100
+                py-2
+                pr-12
+                pl-4
+                text-sm
+                text-slate-800
+                outline-none
+                transition-all
+                duration-200
+                placeholder:text-slate-400
+                focus:bg-white
+                focus:ring-2
+                focus:ring-slate-200
+              "
+            />
+
+            <HiOutlineSearch
+              className="
+                pointer-events-none
+                absolute
+                right-4
+                h-5
+                w-5
+                text-slate-500
+              "
+            />
+
+            {search && (
+              <button
+                type="button"
+                onClick={() => setSearch("")}
+                className="
+                  absolute
+                  left-3
+                  text-lg
+                  text-slate-400
+                  transition
+                  hover:text-slate-700
+                "
+              >
+                ×
+              </button>
+            )}
+          </form>
+          {/* Product Search */}
+          <ProductSearch searchParams={search} className="w-[600px]" />{" "}
+        </div>
       </div>
+
+      {/* Right */}
       <div className="flex items-center">
         <UserDashboardDropdown />
-        <div className="border-r-2"></div>
-        <div className="relative pr-10 ml-5 cursor-pointer">
+
+        <div className="border-r-2" />
+
+        <div className="relative ml-5 cursor-pointer pr-10">
           <CartMenuDropdown />
         </div>
       </div>

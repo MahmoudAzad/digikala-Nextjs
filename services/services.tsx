@@ -3,7 +3,7 @@ import { IProduct } from "@/types/product";
 const rootApi = "https://digikala-json-vercel.vercel.app";
 // const rootApi = "https://digikala-d567.onrender.com";
 
-const getDbData = async () => {
+export const getDbData = async () => {
   try {
     const response = await fetch(`${rootApi}/db.json`);
 
