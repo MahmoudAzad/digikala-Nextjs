@@ -37,7 +37,7 @@ const ProductDescription: React.FC<Props> = ({ singleProData }) => {
           <div className="flex items-center justify-between my-5 py-1 px-5 bg-white rounded-lg border">
             <p className="text-sm font-bold">ارسال رایگان برای این کالا</p>
             <Image
-              src="https://www.digikala.com/_next/static/media/normalFreeShippingTouchPointImage.d4416515.svg"
+              src="/assets/svg/free-delivery.svg"
               alt={singleProData.name}
               width={100}
               height={100}
