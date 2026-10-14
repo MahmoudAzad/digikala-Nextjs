@@ -20,19 +20,20 @@ const CartMenuDropdown: React.FC = () => {
   const [cartTotal, setCartTotal] = useState(0);
 
   const getCart = useSelector((state: ICartRootState) => state.cart.entities);
+  console.log("get cart is=> ", getCart);
   const cartPath = usePathname().includes("cart");
   const total = cart.reduce((acc, item) => {
     return acc + item.quantity * parseInt(item.price);
   }, 0);
   const totalQuantity = cart.reduce(
     (accumulator, item) => accumulator + item.quantity,
-    0
+    0,
   );
 
   useEffect(() => {
     setCart(Object.values(getCart));
     setCartTotal(total);
-  }, [getCart]);
+  }, [getCart, total]);
 
   return (
     <>
