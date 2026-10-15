@@ -96,7 +96,7 @@ const DesctopNavbar = () => {
 
         <div className="border-r-2" />
 
-        <div className="relative ml-5 cursor-pointer pr-10">
+        <div className="relative ml-5 pr-10">
           <CartMenuDropdown />
         </div>
       </div>

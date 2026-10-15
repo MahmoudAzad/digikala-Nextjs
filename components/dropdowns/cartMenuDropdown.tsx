@@ -66,19 +66,25 @@ const CartMenuDropdown: React.FC = () => {
                           key={item.id}
                           className="flex gap-x-2 border-b py-5"
                         >
-                          <div className="w-1/4">
-                            <Image
-                              src={item.thumbnail}
-                              alt={item.name}
-                              width={100}
-                              height={100}
-                              className=""
-                            />
+                          <div>
+                            <Link
+                              href={`/product/${item.id}`}
+                              className="w-1/4"
+                            >
+                              <Image
+                                src={item.thumbnail}
+                                alt={item.name}
+                                width={100}
+                                height={100}
+                                className=""
+                              />
+                            </Link>
                             <AddToCartBtn product={item} />
                           </div>
+
                           <div className="w-3/4">
                             <h1 className="text-xs font-bold leading-loose pb-2 line-clamp-2">
-                              {item.name}
+                              {item.name}3
                             </h1>
                             <div className="flex items-center gap-x-1 py-1">
                               <HiOutlineInboxIn className="text-sky-400 text-lg" />

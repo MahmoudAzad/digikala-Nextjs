@@ -23,9 +23,26 @@ const CartDescription: React.FC<Props> = ({ product }) => {
         <TbClockHour4 className="text-blue-700 text-lg" />
         <p className="text-xs font-bold text-gray-600">ارسال امروز</p>
       </div>
-      <div className="font-bold pt-3">
-        {(Number(product.price) * product.quantity).toLocaleString()}
-        تومان
+      {/* <div className="text-left">
+        <div className="font-bold pt-3">
+          {(Number(product.price) * product.quantity).toLocaleString()} تومان
+        </div>
+      </div> */}
+
+      <div className="text-left">
+        <span className="bg-[#ef394e]  text-xs text-white rounded-xl  py-0 px-1">
+          {product.offer}%
+        </span>
+
+        <del className="text-xs lg:text-sm text-gray-400 ml-2 mt-1">
+          {Math.round(
+            Number(product.price) / (1 - Number(product.offer) / 100),
+          ).toLocaleString()}
+        </del>
+
+        <p className="font-bold pt-3 px-2">
+          {Number(product.price).toLocaleString()} تومان
+        </p>
       </div>
     </div>
   );

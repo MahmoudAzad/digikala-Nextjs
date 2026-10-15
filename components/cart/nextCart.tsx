@@ -100,15 +100,13 @@ const NextCart: React.FC<Props> = ({ nextBuy }) => {
                       <HiOutlineTrash className="text-xl" />
                       <p>حذف</p>
                     </div>
-                    <div className="flex items-center gap-x-2 p-3 text-red-500 border rounded-lg border-red-500 mr-5">
+                    <button
+                      onClick={() => addToCartHandler(item)}
+                      className="flex items-center gap-x-2 p-3 text-red-500 border rounded-lg border-red-500 mr-5"
+                    >
                       <HiOutlineShoppingCart className="text-xl" />
-                      <button
-                        onClick={() => addToCartHandler(item)}
-                        className="text-xs font-bold"
-                      >
-                        افزودن به سبد
-                      </button>
-                    </div>
+                      <p className="text-xs font-bold">افزودن به سبد</p>
+                    </button>
                   </div>
                 </div>
               ))}

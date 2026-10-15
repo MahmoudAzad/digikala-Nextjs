@@ -72,7 +72,9 @@ const AddToCartBox: React.FC<Props> = ({ singleProData }) => {
           <p className="bg-rose-500 text-white w-10 text-center text-sm rounded-xl">
             ٪ {singleProData.offer}
           </p>
-          <p className="text-lg font-bold">{singleProData.price} تومان</p>
+          <p className="text-lg font-bold">
+            {Number(singleProData.price).toLocaleString()} تومان
+          </p>
         </div>
         {parseInt(singleProData?.stock) < 5 && (
           <p className="text-red-500 text-xs font-bold mt-4">
