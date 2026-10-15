@@ -34,7 +34,6 @@ const CartMenuDropdown: React.FC = () => {
     setCart(Object.values(getCart));
     setCartTotal(total);
   }, [getCart, total]);
-
   return (
     <>
       {cart?.length ? (
@@ -48,8 +47,14 @@ const CartMenuDropdown: React.FC = () => {
             </Link>
             {!cartPath && (
               <div className="cart-dropdown-menu absolute hidden  w-[450px] -left-5 border rounded-lg shadow-2xl bg-white">
-                <div className="rounded-t  py-2 px-4 block ">
-                  <p className="text-sm">{totalQuantity} کالا</p>
+                <div className="rounded-t py-2 px-4 block ">
+                  <div className="flex items-center gap-2 py-2 shadow-[0_4px_6px_-6px_rgba(0,0,0,0.5)]">
+                    <p className="font-bold">خلاصه سبد خرید شما</p>
+                    <p className="text-sm text-gray-700">
+                      {totalQuantity} کالا
+                    </p>
+                  </div>
+
                   <div
                     className={`max-h-80 ${
                       cart.length > 1 && "overflow-y-scroll"
@@ -72,7 +77,7 @@ const CartMenuDropdown: React.FC = () => {
                             <AddToCartBtn product={item} />
                           </div>
                           <div className="w-3/4">
-                            <h1 className="text-sm font-bold leading-loose pb-2 line-clamp-2">
+                            <h1 className="text-xs font-bold leading-loose pb-2 line-clamp-2">
                               {item.name}
                             </h1>
                             <div className="flex items-center gap-x-1 py-1">
@@ -93,9 +98,22 @@ const CartMenuDropdown: React.FC = () => {
                                 ارسال امروز
                               </p>
                             </div>
-                            <p className="font-bold pt-3">
-                              {Number(item.price).toLocaleString()} تومان
-                            </p>
+                            <div className="text-left">
+                              <span className="bg-[#ef394e]  text-xs text-white rounded-xl  py-0 px-1">
+                                {item.offer}%
+                              </span>
+
+                              <del className="text-xs lg:text-sm text-gray-400 ml-2 mt-1">
+                                {Math.round(
+                                  Number(item.price) /
+                                    (1 - Number(item.offer) / 100),
+                                ).toLocaleString()}
+                              </del>
+
+                              <p className="font-bold pt-3 px-2">
+                                {Number(item.price).toLocaleString()} تومان
+                              </p>
+                            </div>
                           </div>
                         </div>
                       ))}
